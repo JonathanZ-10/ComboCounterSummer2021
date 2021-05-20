@@ -12,7 +12,6 @@ import javax.swing.JPanel;
 public class homePage extends javax.swing.JPanel{
     private JPanel mainPanel = new JPanel();
     public homePage(JFrame Frame){
-        
         // Initializing components
         GridBagConstraints gc = new GridBagConstraints();
         mainPanel = new JPanel();

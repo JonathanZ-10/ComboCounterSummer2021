@@ -76,6 +76,12 @@ public class Main {
                 Frame.repaint();
                 Frame.revalidate();
                 break;
+            case 7:
+                Frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                Frame.setContentPane(new PunchChallengePanel());
+                Frame.repaint();
+                Frame.revalidate();
+                break;
             default:
                 break;
         }

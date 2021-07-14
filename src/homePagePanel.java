@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -375,7 +370,7 @@ public class homePagePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_SensorAdjustment_ButtonActionPerformed
 
     private void PunchChallengeTraining_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PunchChallengeTraining_ButtonActionPerformed
-        
+        Main.transitionToPage(7);
     }//GEN-LAST:event_PunchChallengeTraining_ButtonActionPerformed
 
     private void PunchChallengeMultiplayer_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PunchChallengeMultiplayer_ButtonActionPerformed

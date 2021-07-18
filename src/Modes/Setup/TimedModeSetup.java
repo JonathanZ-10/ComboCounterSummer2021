@@ -95,7 +95,6 @@ public class TimedModeSetup extends javax.swing.JPanel {
         NumOfPlayersText = new javax.swing.JLabel();
         TimerMinus = new javax.swing.JLabel();
         TimerPlus = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(0, 0, 55));
         setMaximumSize(new java.awt.Dimension(768, 1024));
@@ -279,7 +278,7 @@ public class TimedModeSetup extends javax.swing.JPanel {
         Competition_Button.setForeground(new java.awt.Color(240, 240, 240));
         Competition_Button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Competition_Button.setText("Competition");
-        Competition_Button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Competition_Button.setBorder(new javax.swing.border.SoftBevelBorder(0));
         Competition_Button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Competition_ButtonMouseClicked(evt);
@@ -292,7 +291,7 @@ public class TimedModeSetup extends javax.swing.JPanel {
         Training_Button.setForeground(new java.awt.Color(240, 240, 240));
         Training_Button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Training_Button.setText("Training");
-        Training_Button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Training_Button.setBorder(new javax.swing.border.SoftBevelBorder(0));
         Training_Button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Training_ButtonMouseClicked(evt);
@@ -333,7 +332,6 @@ public class TimedModeSetup extends javax.swing.JPanel {
             }
         });
         add(TimerPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, -1, 40));
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 90, 100));
     }// </editor-fold>//GEN-END:initComponents
 
     private void TimerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TimerMouseClicked
@@ -496,7 +494,7 @@ public class TimedModeSetup extends javax.swing.JPanel {
     }//GEN-LAST:event_About_ButtonMouseClicked
 
     private void Settings_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Settings_ButtonMouseClicked
-        Main.transitionToPage(2);
+        Main.transitionToPage(3);
     }//GEN-LAST:event_Settings_ButtonMouseClicked
 
     private void Profile_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Profile_ButtonMouseClicked
@@ -551,7 +549,6 @@ public class TimedModeSetup extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

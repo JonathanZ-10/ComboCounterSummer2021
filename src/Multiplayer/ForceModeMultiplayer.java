@@ -1,7 +1,7 @@
 package Multiplayer;
 
 import Main.Main;
-import Modes.ForceModePanel;
+import Modes.ForceModePanelOLD;
 import javax.swing.JFrame;
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -305,7 +305,7 @@ public class ForceModeMultiplayer extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        Main.closeFrame();
+
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -317,7 +317,7 @@ public class ForceModeMultiplayer extends javax.swing.JPanel {
         }
         Main.currentPlayer = 1;
         /*Main.Frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        Main.Frame.setContentPane(new ForceModePanel());
+        Main.Frame.setContentPane(new ForceModePanelOLD());
         Main.Frame.repaint();
         Main.Frame.revalidate();*/
         // Use setup() or transitionToPage() instead

@@ -61,6 +61,8 @@ public class SettingsPanel extends javax.swing.JPanel {
         Speed_Button = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        UpButton = new javax.swing.JLabel();
+        DownButton = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         SidebarButton = new javax.swing.JLabel();
         BackButton = new javax.swing.JLabel();
@@ -80,6 +82,7 @@ public class SettingsPanel extends javax.swing.JPanel {
         About_Button.setText(" About");
         About_Button.setBorder(null);
         About_Button.setContentAreaFilled(false);
+        About_Button.setFocusPainted(false);
         About_Button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 About_ButtonMouseClicked(evt);
@@ -109,6 +112,7 @@ public class SettingsPanel extends javax.swing.JPanel {
         Profile_Button.setText(" Profile");
         Profile_Button.setBorder(null);
         Profile_Button.setContentAreaFilled(false);
+        Profile_Button.setFocusPainted(false);
         Profile_Button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Profile_ButtonMouseClicked(evt);
@@ -123,6 +127,7 @@ public class SettingsPanel extends javax.swing.JPanel {
         Activity_Button.setText(" Activity");
         Activity_Button.setBorder(null);
         Activity_Button.setContentAreaFilled(false);
+        Activity_Button.setFocusPainted(false);
         Activity_Button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Activity_ButtonMouseClicked(evt);
@@ -137,6 +142,7 @@ public class SettingsPanel extends javax.swing.JPanel {
         Feedback_Button.setText(" Feedback");
         Feedback_Button.setBorder(null);
         Feedback_Button.setContentAreaFilled(false);
+        Feedback_Button.setFocusPainted(false);
         Feedback_Button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Feedback_ButtonMouseClicked(evt);
@@ -155,7 +161,7 @@ public class SettingsPanel extends javax.swing.JPanel {
         Force_Button.setForeground(new java.awt.Color(240, 240, 240));
         Force_Button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Force_Button.setText("Force");
-        Force_Button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Force_Button.setBorder(new javax.swing.border.SoftBevelBorder(0));
         Force_Button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Force_ButtonMouseClicked(evt);
@@ -174,7 +180,7 @@ public class SettingsPanel extends javax.swing.JPanel {
         Speed_Button.setForeground(new java.awt.Color(240, 240, 240));
         Speed_Button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Speed_Button.setText("Speed");
-        Speed_Button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Speed_Button.setBorder(new javax.swing.border.SoftBevelBorder(0));
         Speed_Button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Speed_ButtonMouseClicked(evt);
@@ -191,8 +197,34 @@ public class SettingsPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(240, 240, 240));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Placeholder");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 270, 50));
+        jLabel1.setText("Timer Direction (Not Implemented)");
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 380, 50));
+
+        UpButton.setBackground(new java.awt.Color(51, 51, 56));
+        UpButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        UpButton.setForeground(new java.awt.Color(240, 240, 240));
+        UpButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        UpButton.setText("Up");
+        UpButton.setBorder(new javax.swing.border.SoftBevelBorder(0));
+        UpButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UpButtonMouseClicked(evt);
+            }
+        });
+        jPanel3.add(UpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 210, 60));
+
+        DownButton.setBackground(new java.awt.Color(51, 51, 56));
+        DownButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        DownButton.setForeground(new java.awt.Color(240, 240, 240));
+        DownButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        DownButton.setText("Down");
+        DownButton.setBorder(new javax.swing.border.SoftBevelBorder(0));
+        DownButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DownButtonMouseClicked(evt);
+            }
+        });
+        jPanel3.add(DownButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 210, 60));
 
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 750, 250));
 
@@ -285,18 +317,28 @@ public class SettingsPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_Speed_ButtonMouseClicked
 
+    private void UpButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UpButtonMouseClicked
+
+    private void DownButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DownButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DownButtonMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton About_Button;
     private javax.swing.JButton Activity_Button;
     private javax.swing.JLabel BackButton;
     private javax.swing.JLabel ComboCounterTitle;
+    private javax.swing.JLabel DownButton;
     private javax.swing.JButton Feedback_Button;
     private javax.swing.JLabel Force_Button;
     private javax.swing.JButton Profile_Button;
     private javax.swing.JButton Settings_Button;
     private javax.swing.JLabel SidebarButton;
     private javax.swing.JLabel Speed_Button;
+    private javax.swing.JLabel UpButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;

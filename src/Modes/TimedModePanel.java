@@ -102,7 +102,6 @@ public class TimedModePanel extends javax.swing.JPanel {
         TotalForce = new javax.swing.JLabel();
         timer = new javax.swing.JLabel();
         TotalForceLabel = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(0, 0, 55));
         setMaximumSize(new java.awt.Dimension(768, 1024));
@@ -264,7 +263,6 @@ public class TimedModePanel extends javax.swing.JPanel {
         TotalForceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TotalForceLabel.setText("Total Force:");
         add(TotalForceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, 280, 80));
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 60, 80));
     }// </editor-fold>//GEN-END:initComponents
 
     private void PlayPauseButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlayPauseButtonMouseClicked
@@ -339,7 +337,7 @@ public class TimedModePanel extends javax.swing.JPanel {
         start = false;
         int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
         if (response == JOptionPane.YES_OPTION)
-            Main.transitionToPage(2);
+            Main.transitionToPage(3);
     }//GEN-LAST:event_Settings_ButtonMouseClicked
 
     private void Profile_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Profile_ButtonMouseClicked
@@ -393,7 +391,6 @@ public class TimedModePanel extends javax.swing.JPanel {
     private javax.swing.JLabel SidebarButton;
     private javax.swing.JLabel TotalForce;
     private javax.swing.JLabel TotalForceLabel;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel timer;

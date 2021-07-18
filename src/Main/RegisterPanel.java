@@ -1,5 +1,8 @@
 package Main;
 
+import static Main.Main.Frame;
+import javax.swing.JFrame;
+
 /**
  *
  * @author Jonathan Zamora
@@ -12,7 +15,10 @@ public class RegisterPanel extends javax.swing.JPanel{
     public RegisterPanel() {
         initComponents();
     }
-   
+    
+    boolean hiding1 = false;
+    boolean hiding2 = false;
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -21,114 +27,183 @@ public class RegisterPanel extends javax.swing.JPanel{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        EmailField = new javax.swing.JTextField();
+        ConfirmPasswordField = new javax.swing.JPasswordField();
+        EmailField1 = new javax.swing.JTextField();
+        ComboCounterTitle = new javax.swing.JLabel();
+        PasswordField = new javax.swing.JPasswordField();
+        HidePassword = new javax.swing.JLabel();
+        HidePassword2 = new javax.swing.JLabel();
+        EmailField2 = new javax.swing.JTextField();
+        EmailField3 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jLabel3 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
-        jLabel4 = new javax.swing.JLabel();
-        jSpinner2 = new javax.swing.JSpinner();
-        jLabel5 = new javax.swing.JLabel();
-        jPasswordField2 = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        SignUpButton = new javax.swing.JButton();
+        LogInButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 0, 55));
+        setForeground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(400, 300));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        EmailField.setBackground(new java.awt.Color(0, 0, 55));
+        EmailField.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        EmailField.setForeground(new java.awt.Color(255, 255, 255));
+        EmailField.setText("Username");
+        EmailField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 102)));
+        add(EmailField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 330, 50));
+
+        ConfirmPasswordField.setBackground(new java.awt.Color(0, 0, 55));
+        ConfirmPasswordField.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        ConfirmPasswordField.setForeground(new java.awt.Color(255, 255, 255));
+        ConfirmPasswordField.setText("Confirm Password");
+        ConfirmPasswordField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 102)));
+        ConfirmPasswordField.setEchoChar((char)0);
+        add(ConfirmPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 470, 330, 50));
+
+        EmailField1.setBackground(new java.awt.Color(0, 0, 55));
+        EmailField1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        EmailField1.setForeground(new java.awt.Color(255, 255, 255));
+        EmailField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        EmailField1.setText("Weight");
+        EmailField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 102)));
+        add(EmailField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 590, 110, 50));
+
+        ComboCounterTitle.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        ComboCounterTitle.setForeground(new java.awt.Color(0, 122, 203));
+        ComboCounterTitle.setText("ComboCounter");
+        add(ComboCounterTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, -1, -1));
+
+        PasswordField.setBackground(new java.awt.Color(0, 0, 55));
+        PasswordField.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        PasswordField.setForeground(new java.awt.Color(255, 255, 255));
+        PasswordField.setText("Password");
+        PasswordField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 102)));
+        PasswordField.setEchoChar((char)0);
+        add(PasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 330, 50));
+
+        HidePassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/filledCircleIcon.png"))); // NOI18N
+        HidePassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HidePasswordMouseClicked(evt);
+            }
+        });
+        add(HidePassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 30, 30));
+
+        HidePassword2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/filledCircleIcon.png"))); // NOI18N
+        HidePassword2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HidePassword2MouseClicked(evt);
+            }
+        });
+        add(HidePassword2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 490, 30, 30));
+
+        EmailField2.setBackground(new java.awt.Color(0, 0, 55));
+        EmailField2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        EmailField2.setForeground(new java.awt.Color(255, 255, 255));
+        EmailField2.setText("Email");
+        EmailField2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 102)));
+        add(EmailField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 330, 50));
+
+        EmailField3.setBackground(new java.awt.Color(0, 0, 55));
+        EmailField3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        EmailField3.setForeground(new java.awt.Color(255, 255, 255));
+        EmailField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        EmailField3.setText("Age");
+        EmailField3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102, 102, 102)));
+        add(EmailField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 590, 90, 50));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Full Name");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, -1, -1));
+        jLabel1.setText("lbs");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 600, -1, -1));
 
-        jTextField1.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setText("E.g. John Smith");
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 190, -1));
-
-        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Password");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, -1, -1));
-
-        jPasswordField1.setBackground(new java.awt.Color(0, 0, 0));
-        jPasswordField1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
-        jPasswordField1.setText("jPasswordField1");
-        add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 190, -1));
-
-        jLabel3.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Age");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, -1, -1));
-        add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, 40, -1));
-
-        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Weight");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, -1, -1));
-        add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 74, -1));
-
-        jLabel5.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Confirm Password");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, -1, -1));
-
-        jPasswordField2.setBackground(new java.awt.Color(0, 0, 0));
-        jPasswordField2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jPasswordField2.setForeground(new java.awt.Color(255, 255, 255));
-        jPasswordField2.setText("jPasswordField1");
-        add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 190, -1));
-
-        jButton1.setBackground(new java.awt.Color(0, 0, 55));
-        jButton1.setForeground(new java.awt.Color(240, 240, 240));
-        jButton1.setText("Cancel");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        SignUpButton.setBackground(new java.awt.Color(51, 51, 51));
+        SignUpButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        SignUpButton.setForeground(new java.awt.Color(240, 240, 240));
+        SignUpButton.setText("Sign Up");
+        SignUpButton.setBorder(null);
+        SignUpButton.setBorderPainted(false);
+        SignUpButton.setFocusable(false);
+        SignUpButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                SignUpButtonMouseClicked(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 500, 80, 38));
+        add(SignUpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 700, 150, 40));
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 55));
-        jButton2.setForeground(new java.awt.Color(240, 240, 240));
-        jButton2.setText("Create");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        LogInButton.setBackground(new java.awt.Color(51, 51, 51));
+        LogInButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        LogInButton.setForeground(new java.awt.Color(240, 240, 240));
+        LogInButton.setText("Log In");
+        LogInButton.setBorder(null);
+        LogInButton.setBorderPainted(false);
+        LogInButton.setFocusable(false);
+        LogInButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                LogInButtonMouseClicked(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 500, 80, 38));
+        add(LogInButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 790, 150, 40));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        Main.transitionToPage(2);
-    }//GEN-LAST:event_jButton1MouseClicked
+    private void HidePasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HidePasswordMouseClicked
+        if (hiding1 == false)
+        {
+            HidePassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/emptyCircleIcon.png")));
+            PasswordField.setEchoChar('*');
+            hiding1 = true;
+        }
+        else if (hiding1 == true)
+        {
+            HidePassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/filledCircleIcon.png")));
+            PasswordField.setEchoChar((char)0);
+            hiding1 = false;
+        }
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    }//GEN-LAST:event_HidePasswordMouseClicked
+
+    private void HidePassword2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HidePassword2MouseClicked
+        if (hiding2 == false)
+        {
+            HidePassword2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/emptyCircleIcon.png")));
+            ConfirmPasswordField.setEchoChar('*');
+            hiding2 = true;
+        }
+        else if (hiding2 == true)
+        {
+            HidePassword2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/filledCircleIcon.png")));
+            ConfirmPasswordField.setEchoChar((char)0);
+            hiding2 = false;
+        }
+
+    }//GEN-LAST:event_HidePassword2MouseClicked
+
+    private void SignUpButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SignUpButtonMouseClicked
         Main.setup(2);
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_SignUpButtonMouseClicked
+
+    private void LogInButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogInButtonMouseClicked
+        Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Frame.setContentPane(new LoginPanel());
+        Frame.setSize(768,1024);
+        Frame.setResizable(false);
+        Frame.repaint();
+        Frame.revalidate();
+    }//GEN-LAST:event_LogInButtonMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel ComboCounterTitle;
+    private javax.swing.JPasswordField ConfirmPasswordField;
+    private javax.swing.JTextField EmailField;
+    private javax.swing.JTextField EmailField1;
+    private javax.swing.JTextField EmailField2;
+    private javax.swing.JTextField EmailField3;
+    private javax.swing.JLabel HidePassword;
+    private javax.swing.JLabel HidePassword2;
+    private javax.swing.JButton LogInButton;
+    private javax.swing.JPasswordField PasswordField;
+    private javax.swing.JButton SignUpButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

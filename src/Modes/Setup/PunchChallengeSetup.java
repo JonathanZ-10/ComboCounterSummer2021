@@ -28,15 +28,15 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         Main.playerNum = 2;
         // Setting Plus and Minus state
         SideBar.setVisible(false);
-        ForceGoalMinus.setVisible(false);
-        ForceGoalPlus.setVisible(false);
-        Training_Button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        ThresholdForceMinus.setVisible(false);
+        ThresholdForcePlus.setVisible(false);
+        TrainingButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
     }
     
     public void invisible()
     {
-        ForceGoalMinus.setVisible(false);
-        ForceGoalPlus.setVisible(false);
+        ThresholdForceMinus.setVisible(false);
+        ThresholdForcePlus.setVisible(false);
     }
 
     /**
@@ -70,6 +70,9 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         About_Button.setOpaque(false);
         About_Button.setContentAreaFilled(false);
         //jButton1.setBorderPainted(false);
+        TopBar = new javax.swing.JPanel();
+        ComboCounterTitle = new javax.swing.JLabel();
+        SidebarButton = new javax.swing.JLabel();
         SideBar = new javax.swing.JPanel();
         jPanel1.setVisible(false);
         SettingsButton = new javax.swing.JButton();
@@ -92,26 +95,35 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         About_Button.setOpaque(false);
         About_Button.setContentAreaFilled(false);
         //jButton1.setBorderPainted(false);
-        TopBar = new javax.swing.JPanel();
-        SidebarButton = new javax.swing.JLabel();
-        ComboCounterTitle = new javax.swing.JLabel();
+        PunchChallengeTitle = new javax.swing.JLabel();
         ComboModeButton = new javax.swing.JLabel();
         ForceModeButton = new javax.swing.JLabel();
         TimedModeButton = new javax.swing.JLabel();
         StrengthModeButton = new javax.swing.JLabel();
         PunchChallengeButton = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        ForceGoal = new javax.swing.JLabel();
-        ForceGoalPlus = new javax.swing.JLabel();
-        ForceGoalMinus = new javax.swing.JLabel();
-        Training_Button = new javax.swing.JLabel();
-        NumOfPlayersText = new javax.swing.JLabel();
+        ThresholdForceTitle = new javax.swing.JLabel();
+        ThresholdForce = new javax.swing.JLabel();
+        ThresholdForcePlus = new javax.swing.JLabel();
+        ThresholdForceMinus = new javax.swing.JLabel();
+        HoursTitle = new javax.swing.JLabel();
+        HoursMinus = new javax.swing.JLabel();
+        Hours = new javax.swing.JLabel();
+        HoursPlus = new javax.swing.JLabel();
+        MinutesTitle = new javax.swing.JLabel();
+        MinutesMinus = new javax.swing.JLabel();
+        Minutes = new javax.swing.JLabel();
+        MinutesPlus = new javax.swing.JLabel();
+        SecondsTitle = new javax.swing.JLabel();
+        SecondsMinus = new javax.swing.JLabel();
+        Seconds = new javax.swing.JLabel();
+        SecondsPlus = new javax.swing.JLabel();
+        PlayerSettingTitle = new javax.swing.JLabel();
+        TrainingButton = new javax.swing.JLabel();
+        CompetitionButton = new javax.swing.JLabel();
+        NumOfPlayersTitle = new javax.swing.JLabel();
         NumOfPlayers = new javax.swing.JLabel();
-        NumPlayersPlus = new javax.swing.JLabel();
-        NumPlayersMinus = new javax.swing.JLabel();
-        Competition_Button = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        NumOfPlayersPlus = new javax.swing.JLabel();
+        NumOfPlayersMinus = new javax.swing.JLabel();
         StartButton = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 56));
@@ -194,6 +206,27 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(768, 1024));
         setPreferredSize(new java.awt.Dimension(768, 1024));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        TopBar.setBackground(new java.awt.Color(51, 51, 56));
+        TopBar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ComboCounterTitle.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        ComboCounterTitle.setForeground(new java.awt.Color(240, 240, 240));
+        ComboCounterTitle.setText("ComboCounter");
+        TopBar.add(ComboCounterTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
+
+        SidebarButton.setBackground(new java.awt.Color(51, 51, 56));
+        SidebarButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        SidebarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/menuIcon.png"))); // NOI18N
+        SidebarButton.setOpaque(true);
+        SidebarButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SidebarButtonMouseClicked(evt);
+            }
+        });
+        TopBar.add(SidebarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 60, 55));
+
+        add(TopBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 755, 80));
 
         SideBar.setBackground(new java.awt.Color(51, 51, 56));
         SideBar.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 5, 5, 0, new java.awt.Color(0, 0, 0)));
@@ -278,26 +311,11 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
 
         add(SideBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(505, 80, 250, 530));
 
-        TopBar.setBackground(new java.awt.Color(51, 51, 56));
-        TopBar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        SidebarButton.setBackground(new java.awt.Color(51, 51, 56));
-        SidebarButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        SidebarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/menuIcon.png"))); // NOI18N
-        SidebarButton.setOpaque(true);
-        SidebarButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SidebarButtonMouseClicked(evt);
-            }
-        });
-        TopBar.add(SidebarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 60, 55));
-
-        ComboCounterTitle.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        ComboCounterTitle.setForeground(new java.awt.Color(240, 240, 240));
-        ComboCounterTitle.setText("ComboCounter");
-        TopBar.add(ComboCounterTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
-
-        add(TopBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 755, 80));
+        PunchChallengeTitle.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
+        PunchChallengeTitle.setForeground(new java.awt.Color(240, 240, 240));
+        PunchChallengeTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PunchChallengeTitle.setText("Punch Challenge");
+        add(PunchChallengeTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 310, 50));
 
         ComboModeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/emptyCircleIcon.png"))); // NOI18N
         add(ComboModeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 30, 30));
@@ -319,63 +337,175 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         PunchChallengeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/filledCircleIcon.png"))); // NOI18N
         add(PunchChallengeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 30, 30));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel6.setText("Force Goal");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 180, 40));
+        ThresholdForceTitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        ThresholdForceTitle.setForeground(new java.awt.Color(240, 240, 240));
+        ThresholdForceTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        ThresholdForceTitle.setText("Threshold Force");
+        add(ThresholdForceTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 260, 40));
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Punch Challenge");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 310, 50));
-
-        ForceGoal.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        ForceGoal.setForeground(new java.awt.Color(240, 240, 240));
-        ForceGoal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ForceGoal.setText("500");
-        ForceGoal.addMouseListener(new java.awt.event.MouseAdapter() {
+        ThresholdForce.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        ThresholdForce.setForeground(new java.awt.Color(240, 240, 240));
+        ThresholdForce.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ThresholdForce.setText("200");
+        ThresholdForce.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ForceGoalMouseClicked(evt);
+                ThresholdForceMouseClicked(evt);
             }
         });
-        add(ForceGoal, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, 190, 40));
+        add(ThresholdForce, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 190, 40));
 
-        ForceGoalPlus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plusIcon.png"))); // NOI18N
-        ForceGoalPlus.addMouseListener(new java.awt.event.MouseAdapter() {
+        ThresholdForcePlus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plusIcon.png"))); // NOI18N
+        ThresholdForcePlus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ForceGoalPlusMouseClicked(evt);
+                ThresholdForcePlusMouseClicked(evt);
             }
         });
-        add(ForceGoalPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, -1, 40));
+        add(ThresholdForcePlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 300, -1, 40));
 
-        ForceGoalMinus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/minusIcon.png"))); // NOI18N
-        ForceGoalMinus.addMouseListener(new java.awt.event.MouseAdapter() {
+        ThresholdForceMinus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/minusIcon.png"))); // NOI18N
+        ThresholdForceMinus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ForceGoalMinusMouseClicked(evt);
+                ThresholdForceMinusMouseClicked(evt);
             }
         });
-        add(ForceGoalMinus, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, -1, 40));
+        add(ThresholdForceMinus, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, -1, 40));
 
-        Training_Button.setBackground(new java.awt.Color(51, 51, 56));
-        Training_Button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Training_Button.setForeground(new java.awt.Color(240, 240, 240));
-        Training_Button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Training_Button.setText("Training");
-        Training_Button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Training_Button.addMouseListener(new java.awt.event.MouseAdapter() {
+        HoursTitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        HoursTitle.setForeground(new java.awt.Color(240, 240, 240));
+        HoursTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        HoursTitle.setText("Hours");
+        add(HoursTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 100, 40));
+
+        HoursMinus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/minusIcon.png"))); // NOI18N
+        HoursMinus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Training_ButtonMouseClicked(evt);
+                HoursMinusMouseClicked(evt);
             }
         });
-        add(Training_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 780, 210, 60));
+        add(HoursMinus, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, -1, 40));
 
-        NumOfPlayersText.setFont(new java.awt.Font("Tahoma", 0, 32)); // NOI18N
-        NumOfPlayersText.setForeground(new java.awt.Color(240, 240, 240));
-        NumOfPlayersText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        NumOfPlayersText.setText("# of Players:");
-        add(NumOfPlayersText, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 870, 220, 50));
+        Hours.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        Hours.setForeground(new java.awt.Color(240, 240, 240));
+        Hours.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Hours.setText("0");
+        Hours.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HoursMouseClicked(evt);
+            }
+        });
+        add(Hours, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 410, 190, 40));
+
+        HoursPlus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plusIcon.png"))); // NOI18N
+        HoursPlus.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HoursPlusMouseClicked(evt);
+            }
+        });
+        add(HoursPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 410, -1, 40));
+
+        MinutesTitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        MinutesTitle.setForeground(new java.awt.Color(240, 240, 240));
+        MinutesTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        MinutesTitle.setText("Minutes");
+        add(MinutesTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 470, 130, 40));
+
+        MinutesMinus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/minusIcon.png"))); // NOI18N
+        MinutesMinus.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MinutesMinusMouseClicked(evt);
+            }
+        });
+        add(MinutesMinus, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 520, -1, 40));
+
+        Minutes.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        Minutes.setForeground(new java.awt.Color(240, 240, 240));
+        Minutes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Minutes.setText("0");
+        Minutes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MinutesMouseClicked(evt);
+            }
+        });
+        add(Minutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 520, 190, 40));
+
+        MinutesPlus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plusIcon.png"))); // NOI18N
+        MinutesPlus.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MinutesPlusMouseClicked(evt);
+            }
+        });
+        add(MinutesPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 520, -1, 40));
+
+        SecondsTitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        SecondsTitle.setForeground(new java.awt.Color(240, 240, 240));
+        SecondsTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        SecondsTitle.setText("Seconds");
+        add(SecondsTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 570, 140, 40));
+
+        SecondsMinus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/minusIcon.png"))); // NOI18N
+        SecondsMinus.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SecondsMinusMouseClicked(evt);
+            }
+        });
+        add(SecondsMinus, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 620, -1, 40));
+
+        Seconds.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        Seconds.setForeground(new java.awt.Color(240, 240, 240));
+        Seconds.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Seconds.setText("30");
+        Seconds.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SecondsMouseClicked(evt);
+            }
+        });
+        add(Seconds, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 620, 190, 40));
+
+        SecondsPlus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plusIcon.png"))); // NOI18N
+        SecondsPlus.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SecondsPlusMouseClicked(evt);
+            }
+        });
+        add(SecondsPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 620, -1, 40));
+
+        PlayerSettingTitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        PlayerSettingTitle.setForeground(new java.awt.Color(240, 240, 240));
+        PlayerSettingTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PlayerSettingTitle.setText("Player Setting");
+        add(PlayerSettingTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 710, 260, 50));
+
+        TrainingButton.setBackground(new java.awt.Color(51, 51, 56));
+        TrainingButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        TrainingButton.setForeground(new java.awt.Color(240, 240, 240));
+        TrainingButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TrainingButton.setText("Training");
+        TrainingButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        TrainingButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TrainingButtonMouseClicked(evt);
+            }
+        });
+        add(TrainingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 780, 210, 60));
+
+        CompetitionButton.setBackground(new java.awt.Color(51, 51, 56));
+        CompetitionButton.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        CompetitionButton.setForeground(new java.awt.Color(240, 240, 240));
+        CompetitionButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        CompetitionButton.setText("Competition");
+        CompetitionButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        CompetitionButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CompetitionButtonMouseClicked(evt);
+            }
+        });
+        add(CompetitionButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 780, 210, 60));
+
+        NumOfPlayersTitle.setFont(new java.awt.Font("Tahoma", 0, 32)); // NOI18N
+        NumOfPlayersTitle.setForeground(new java.awt.Color(240, 240, 240));
+        NumOfPlayersTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        NumOfPlayersTitle.setText("# of Players:");
+        add(NumOfPlayersTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 870, 220, 50));
 
         NumOfPlayers.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         NumOfPlayers.setForeground(new java.awt.Color(240, 240, 240));
@@ -383,40 +513,21 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         NumOfPlayers.setText("2");
         add(NumOfPlayers, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 870, 60, 50));
 
-        NumPlayersPlus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/circlePlusIcon.png"))); // NOI18N
-        NumPlayersPlus.addMouseListener(new java.awt.event.MouseAdapter() {
+        NumOfPlayersPlus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/circlePlusIcon.png"))); // NOI18N
+        NumOfPlayersPlus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                NumPlayersPlusMouseClicked(evt);
+                NumOfPlayersPlusMouseClicked(evt);
             }
         });
-        add(NumPlayersPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 880, -1, 40));
+        add(NumOfPlayersPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 880, -1, 40));
 
-        NumPlayersMinus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/circleMinusIcon.png"))); // NOI18N
-        NumPlayersMinus.addMouseListener(new java.awt.event.MouseAdapter() {
+        NumOfPlayersMinus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/circleMinusIcon.png"))); // NOI18N
+        NumOfPlayersMinus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                NumPlayersMinusMouseClicked(evt);
+                NumOfPlayersMinusMouseClicked(evt);
             }
         });
-        add(NumPlayersMinus, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 880, -1, 40));
-
-        Competition_Button.setBackground(new java.awt.Color(51, 51, 56));
-        Competition_Button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Competition_Button.setForeground(new java.awt.Color(240, 240, 240));
-        Competition_Button.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Competition_Button.setText("Competition");
-        Competition_Button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Competition_Button.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Competition_ButtonMouseClicked(evt);
-            }
-        });
-        add(Competition_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 780, 210, 60));
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Player Setting");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 690, 260, 50));
+        add(NumOfPlayersMinus, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 880, -1, 40));
 
         StartButton.setBackground(new java.awt.Color(51, 51, 56));
         StartButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -465,23 +576,23 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Feedback_ButtonMouseClicked
 
-    private void ForceGoalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForceGoalMouseClicked
-        ForceGoalMinus.setVisible(true);
-        ForceGoalPlus.setVisible(true);
+    private void ThresholdForceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThresholdForceMouseClicked
+        ThresholdForceMinus.setVisible(true);
+        ThresholdForcePlus.setVisible(true);
         ActionListener taskPerformer = new ActionListener() 
         {
             public void actionPerformed(ActionEvent evt)
             {
-                ForceGoalMinus.setVisible(false);
-                ForceGoalPlus.setVisible(false);
+                ThresholdForceMinus.setVisible(false);
+                ThresholdForcePlus.setVisible(false);
             }
         };
         Timer timer = new Timer(7000, taskPerformer);
         timer.setRepeats(false);
         timer.start();
-    }//GEN-LAST:event_ForceGoalMouseClicked
+    }//GEN-LAST:event_ThresholdForceMouseClicked
 
-    private void ForceGoalPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForceGoalPlusMouseClicked
+    private void ThresholdForcePlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThresholdForcePlusMouseClicked
         if (forceGoal < 3000)
         {
             forceGoal += 500;
@@ -494,10 +605,10 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         {
             forceGoal += 5000;
         }
-        ForceGoal.setText(String.format("%,d", forceGoal));
-    }//GEN-LAST:event_ForceGoalPlusMouseClicked
+        ThresholdForce.setText(String.format("%,d", forceGoal));
+    }//GEN-LAST:event_ThresholdForcePlusMouseClicked
 
-    private void ForceGoalMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForceGoalMinusMouseClicked
+    private void ThresholdForceMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThresholdForceMinusMouseClicked
         if (forceGoal <= 3000)
         {
             forceGoal -= 500;
@@ -511,61 +622,61 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
             forceGoal -= 5000;
         }
         String frcGoal = String.valueOf(forceGoal);
-        ForceGoal.setText(frcGoal);
-    }//GEN-LAST:event_ForceGoalMinusMouseClicked
+        ThresholdForce.setText(frcGoal);
+    }//GEN-LAST:event_ThresholdForceMinusMouseClicked
 
     private void TimedModeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TimedModeButtonMouseClicked
         Main.setup(3);
     }//GEN-LAST:event_TimedModeButtonMouseClicked
 
-    private void Training_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Training_ButtonMouseClicked
+    private void TrainingButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TrainingButtonMouseClicked
         if (multiplayer == true)
         {
             multiplayer = false ;
-            Training_Button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-            Competition_Button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+            TrainingButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+            CompetitionButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
             // Removes # of Players Visibility
-            NumOfPlayersText.setVisible(false);
+            NumOfPlayersTitle.setVisible(false);
             NumOfPlayers.setVisible(false);
-            NumPlayersPlus.setVisible(false);
-            NumPlayersMinus.setVisible(false);
+            NumOfPlayersPlus.setVisible(false);
+            NumOfPlayersMinus.setVisible(false);
         }
-    }//GEN-LAST:event_Training_ButtonMouseClicked
+    }//GEN-LAST:event_TrainingButtonMouseClicked
 
-    private void NumPlayersPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NumPlayersPlusMouseClicked
+    private void NumOfPlayersPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NumOfPlayersPlusMouseClicked
         if (Main.playerNum < 10)
         {
             Main.playerNum++;
             String num = String.valueOf(Main.playerNum);
             NumOfPlayers.setText(num);
         }
-    }//GEN-LAST:event_NumPlayersPlusMouseClicked
+    }//GEN-LAST:event_NumOfPlayersPlusMouseClicked
 
-    private void NumPlayersMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NumPlayersMinusMouseClicked
+    private void NumOfPlayersMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NumOfPlayersMinusMouseClicked
         if (Main.playerNum > 2)
         {
             Main.playerNum--;
             String num = String.valueOf(Main.playerNum);
             NumOfPlayers.setText(num);
         }
-    }//GEN-LAST:event_NumPlayersMinusMouseClicked
+    }//GEN-LAST:event_NumOfPlayersMinusMouseClicked
 
-    private void Competition_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Competition_ButtonMouseClicked
+    private void CompetitionButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CompetitionButtonMouseClicked
         if (multiplayer == false)
         {
             multiplayer = true ;
-            Competition_Button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-            Training_Button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+            CompetitionButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+            TrainingButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
             // Visiblity to add players
-            NumOfPlayersText.setVisible(true);
+            NumOfPlayersTitle.setVisible(true);
             NumOfPlayers.setVisible(true);
-            NumPlayersPlus.setVisible(true);
-            NumPlayersMinus.setVisible(true);
+            NumOfPlayersPlus.setVisible(true);
+            NumOfPlayersMinus.setVisible(true);
 
         }
-    }//GEN-LAST:event_Competition_ButtonMouseClicked
+    }//GEN-LAST:event_CompetitionButtonMouseClicked
 
     private void StartButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartButtonMouseClicked
        /* if (multiplayer == false)
@@ -600,6 +711,42 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_SettingsButtonActionPerformed
 
+    private void HoursMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HoursMinusMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HoursMinusMouseClicked
+
+    private void HoursMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HoursMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HoursMouseClicked
+
+    private void HoursPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HoursPlusMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HoursPlusMouseClicked
+
+    private void MinutesMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinutesMinusMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MinutesMinusMouseClicked
+
+    private void MinutesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinutesMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MinutesMouseClicked
+
+    private void MinutesPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinutesPlusMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MinutesPlusMouseClicked
+
+    private void SecondsMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SecondsMinusMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SecondsMinusMouseClicked
+
+    private void SecondsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SecondsMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SecondsMouseClicked
+
+    private void SecondsPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SecondsPlusMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SecondsPlusMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AboutButton;
     private javax.swing.JButton About_Button;
@@ -607,32 +754,44 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
     private javax.swing.JButton Activity_Button;
     private javax.swing.JLabel ComboCounterTitle;
     private javax.swing.JLabel ComboModeButton;
-    private javax.swing.JLabel Competition_Button;
+    private javax.swing.JLabel CompetitionButton;
     private javax.swing.JButton FeedbackButton;
     private javax.swing.JButton Feedback_Button;
-    private javax.swing.JLabel ForceGoal;
-    private javax.swing.JLabel ForceGoalMinus;
-    private javax.swing.JLabel ForceGoalPlus;
     private javax.swing.JLabel ForceModeButton;
+    private javax.swing.JLabel Hours;
+    private javax.swing.JLabel HoursMinus;
+    private javax.swing.JLabel HoursPlus;
+    private javax.swing.JLabel HoursTitle;
+    private javax.swing.JLabel Minutes;
+    private javax.swing.JLabel MinutesMinus;
+    private javax.swing.JLabel MinutesPlus;
+    private javax.swing.JLabel MinutesTitle;
     private javax.swing.JLabel NumOfPlayers;
-    private javax.swing.JLabel NumOfPlayersText;
-    private javax.swing.JLabel NumPlayersMinus;
-    private javax.swing.JLabel NumPlayersPlus;
+    private javax.swing.JLabel NumOfPlayersMinus;
+    private javax.swing.JLabel NumOfPlayersPlus;
+    private javax.swing.JLabel NumOfPlayersTitle;
+    private javax.swing.JLabel PlayerSettingTitle;
     private javax.swing.JButton ProfileButton;
     private javax.swing.JButton Profile_Button;
     private javax.swing.JLabel PunchChallengeButton;
+    private javax.swing.JLabel PunchChallengeTitle;
+    private javax.swing.JLabel Seconds;
+    private javax.swing.JLabel SecondsMinus;
+    private javax.swing.JLabel SecondsPlus;
+    private javax.swing.JLabel SecondsTitle;
     private javax.swing.JButton SettingsButton;
     private javax.swing.JButton Settings_Button;
     private javax.swing.JPanel SideBar;
     private javax.swing.JLabel SidebarButton;
     private javax.swing.JButton StartButton;
     private javax.swing.JLabel StrengthModeButton;
+    private javax.swing.JLabel ThresholdForce;
+    private javax.swing.JLabel ThresholdForceMinus;
+    private javax.swing.JLabel ThresholdForcePlus;
+    private javax.swing.JLabel ThresholdForceTitle;
     private javax.swing.JLabel TimedModeButton;
     private javax.swing.JPanel TopBar;
-    private javax.swing.JLabel Training_Button;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel TrainingButton;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -10,15 +10,16 @@ import java.awt.event.ActionListener;
  */
 public class PunchChallengeSetup extends javax.swing.JPanel {
     // Declaring variables
+    
     // TODO figure out what to do with these
-    int roundsNum = 1;
-    int roundTimeMin = 1;
-    int roundTimeSec = 0;
-    int restTimeMin = 0;
-    int restTimeSec = 30;
-    int forceGoal = 500;
-    boolean countDown = true;
-    boolean multiplayer = false;
+        int roundsNum = 1;
+        int roundTimeMin = 1;
+        int roundTimeSec = 0;
+        int restTimeMin = 0;
+        int restTimeSec = 30;
+        int forceGoal = 500;
+        boolean countDown = true;
+        boolean multiplayer = false;
     // TODO
         
     private int hours = 0;
@@ -31,15 +32,10 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
     private boolean start = false;
     private int forceThreshold = 200;
     private boolean running = false;
-    private int[] punchForces;
-    private int punchCounter;
         
-    /**
-     * Creates new form homePagePanel
-     */
+    
     Timer timer;
-    public PunchChallengeSetup() 
-    {
+    public PunchChallengeSetup() {
         initComponents();       
         Main.playerNum = 2;
         // Setting Plus and Minus state
@@ -49,8 +45,7 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         TrainingButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
     }
     
-    public void invisible()
-    {
+    public void invisible() {
         ThresholdForceMinus.setVisible(false);
         ThresholdForcePlus.setVisible(false);
     }
@@ -592,10 +587,8 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
     private void ThresholdForceLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThresholdForceLabelMouseClicked
         ThresholdForceMinus.setVisible(true);
         ThresholdForcePlus.setVisible(true);
-        ActionListener taskPerformer = new ActionListener() 
-        {
-            public void actionPerformed(ActionEvent evt)
-            {
+        ActionListener taskPerformer = new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 ThresholdForceMinus.setVisible(false);
                 ThresholdForcePlus.setVisible(false);
             }
@@ -606,36 +599,18 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
     }//GEN-LAST:event_ThresholdForceLabelMouseClicked
 
     private void ThresholdForcePlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThresholdForcePlusMouseClicked
-        if (forceGoal < 3000)
-        {
-            forceGoal += 500;
+        if (forceThreshold < 1000) {
+            forceThreshold += 100;
         }
-        else if (forceGoal < 10000)
-        {
-            forceGoal += 1000;
-        }
-        else if (forceGoal < 100000)
-        {
-            forceGoal += 5000;
-        }
-        ThresholdForceLabel.setText(String.format("%,d", forceGoal));
+        ThresholdForceLabel.setText(String.format("%,d", forceThreshold));
     }//GEN-LAST:event_ThresholdForcePlusMouseClicked
 
     private void ThresholdForceMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThresholdForceMinusMouseClicked
-        if (forceGoal <= 3000)
-        {
-            forceGoal -= 500;
+        if (forceThreshold > 0) {
+            forceThreshold -= 100;
         }
-        else if (forceGoal <= 10000)
-        {
-            forceGoal -= 1000;
-        }
-        else if (forceGoal <= 100000)
-        {
-            forceGoal -= 5000;
-        }
-        String frcGoal = String.valueOf(forceGoal);
-        ThresholdForceLabel.setText(frcGoal);
+        String decreasedThreshold = String.format("%,d", forceThreshold);
+        ThresholdForceLabel.setText(decreasedThreshold);
     }//GEN-LAST:event_ThresholdForceMinusMouseClicked
 
     private void TimedModeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TimedModeButtonMouseClicked
@@ -721,7 +696,10 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
     }//GEN-LAST:event_SettingsButtonActionPerformed
 
     private void HoursMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HoursMinusMouseClicked
-        // TODO add your handling code here:
+        if (running == false) {
+            hoursMinus();
+            renderTime();
+        }
     }//GEN-LAST:event_HoursMinusMouseClicked
 
     private void HoursLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HoursLabelMouseClicked
@@ -729,7 +707,10 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
     }//GEN-LAST:event_HoursLabelMouseClicked
 
     private void HoursPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HoursPlusMouseClicked
-        // TODO add your handling code here:
+        if (running == false) {
+            hoursPlus();
+            renderTime();
+        }
     }//GEN-LAST:event_HoursPlusMouseClicked
 
     private void MinutesMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinutesMinusMouseClicked
@@ -744,11 +725,17 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
     }//GEN-LAST:event_MinutesLabelMouseClicked
 
     private void MinutesPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinutesPlusMouseClicked
-        // TODO add your handling code here:
+        if (running == false) {
+            minutesPlus();
+            renderTime();
+        }
     }//GEN-LAST:event_MinutesPlusMouseClicked
 
     private void SecondsMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SecondsMinusMouseClicked
-        // TODO add your handling code here:
+        if (running == false) {
+            secondsMinus();
+            renderTime();
+        }
     }//GEN-LAST:event_SecondsMinusMouseClicked
 
     private void SecondsLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SecondsLabelMouseClicked
@@ -756,7 +743,10 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
     }//GEN-LAST:event_SecondsLabelMouseClicked
 
     private void SecondsPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SecondsPlusMouseClicked
-        
+        if (running == false) {
+            secondsPlus();
+            renderTime();
+        }
     }//GEN-LAST:event_SecondsPlusMouseClicked
     
     private void secondsPlus() {

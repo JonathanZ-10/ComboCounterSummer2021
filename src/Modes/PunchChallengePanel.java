@@ -25,7 +25,12 @@ public class PunchChallengePanel extends javax.swing.JPanel {
     private int ms;
     private int forceThreshold;
     private int[] punchForces;
-    private int punchCounter;
+    private int punchCounter = 0;
+    private int invalidPunches = 0;
+    private int validPunches = 0;
+    private int num = 0;
+    private boolean start = false;
+    private boolean running = false;
         
     // TODO
     public PunchChallengePanel(int hours, int minutes, int seconds, int forceThreshold) {
@@ -260,12 +265,11 @@ public class PunchChallengePanel extends javax.swing.JPanel {
         punchForces = new int[numOfPunches];
         int maxForce = forceThreshold * 2;
         punchForces = fillArray(punchForces, maxForce);
-        punchCounter = 0;
         
         // TODO edit
         Thread timer = new Thread() {
             public void run() {
-                while(start == true) {
+                while (start == true) {
                     try {
                         sleep(1000);
                         timerSec-= 1;
@@ -310,7 +314,8 @@ public class PunchChallengePanel extends javax.swing.JPanel {
             }
         };
         
-        if (paused == true) {
+        if (paused == true && !(hours == 0 && minutes == 0 && seconds == 0)) {
+            
             start = true;
             paused = false;
             
@@ -318,10 +323,14 @@ public class PunchChallengePanel extends javax.swing.JPanel {
             
             timer.start();
             avgForceCalc.start();
+            
         } else if (paused == false) {
+            
             start = false;
             paused = true;
+            
             PlayPauseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/playIcon.png")));
+        
         }
     }//GEN-LAST:event_PlayPauseButtonMouseClicked
 

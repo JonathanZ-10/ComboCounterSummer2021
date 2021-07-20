@@ -25,13 +25,8 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
     private int hours = 0;
     private int minutes = 0;
     private int seconds = 30;
-    private int ms = 0;
-    private int invalid = 0;
-    private int valid = 0;
-    private int num = 0;
-    private boolean start = false;
     private int forceThreshold = 200;
-    private boolean running = false;
+    
         
     
     Timer timer;
@@ -696,10 +691,8 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
     }//GEN-LAST:event_SettingsButtonActionPerformed
 
     private void HoursMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HoursMinusMouseClicked
-        if (running == false) {
-            hoursMinus();
-            renderTime();
-        }
+        hoursMinus();
+        renderTime();
     }//GEN-LAST:event_HoursMinusMouseClicked
 
     private void HoursLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HoursLabelMouseClicked
@@ -707,17 +700,13 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
     }//GEN-LAST:event_HoursLabelMouseClicked
 
     private void HoursPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HoursPlusMouseClicked
-        if (running == false) {
-            hoursPlus();
-            renderTime();
-        }
+        hoursPlus();
+        renderTime();
     }//GEN-LAST:event_HoursPlusMouseClicked
 
     private void MinutesMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinutesMinusMouseClicked
-        if (running == false) {
-            minutesMinus();
-            renderTime();
-        }
+        minutesMinus();
+        renderTime();
     }//GEN-LAST:event_MinutesMinusMouseClicked
 
     private void MinutesLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinutesLabelMouseClicked
@@ -725,17 +714,13 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
     }//GEN-LAST:event_MinutesLabelMouseClicked
 
     private void MinutesPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinutesPlusMouseClicked
-        if (running == false) {
-            minutesPlus();
-            renderTime();
-        }
+        minutesPlus();
+        renderTime();
     }//GEN-LAST:event_MinutesPlusMouseClicked
 
     private void SecondsMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SecondsMinusMouseClicked
-        if (running == false) {
-            secondsMinus();
-            renderTime();
-        }
+        secondsMinus();
+        renderTime();
     }//GEN-LAST:event_SecondsMinusMouseClicked
 
     private void SecondsLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SecondsLabelMouseClicked
@@ -743,10 +728,8 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
     }//GEN-LAST:event_SecondsLabelMouseClicked
 
     private void SecondsPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SecondsPlusMouseClicked
-        if (running == false) {
-            secondsPlus();
-            renderTime();
-        }
+        secondsPlus();
+        renderTime();
     }//GEN-LAST:event_SecondsPlusMouseClicked
     
     private void secondsPlus() {

@@ -2,7 +2,6 @@ package Modes;
 
 import Main.Main;
 import static java.lang.Thread.sleep;
-import java.util.Arrays;
 import java.util.Random;
 import javax.swing.JOptionPane;
 
@@ -17,42 +16,33 @@ public class PunchChallengePanel extends javax.swing.JPanel {
         boolean countDown = true;
         boolean paused = true;
         int index = 0;
-        int totalForce = 0;
         boolean start;
     // TODO
     
+    private int hours;
+    private int minutes;
+    private int seconds;
+    private int ms;
+    private int forceThreshold;
     private int[] punchForces;
     private int punchCounter;
         
-    public PunchChallengePanel(int timerMin, int timerSec) {
+    // TODO
+    public PunchChallengePanel(int hours, int minutes, int seconds, int forceThreshold) {
         initComponents();
         
-        this.timerMin = timerMin;
-        this.timerSec = timerSec;
-        update();
+        this.hours = hours;
+        this.minutes = minutes;
+        this.seconds = seconds;
+        updateTimeLabel();
         
-        // Setting states
+        this.forceThreshold = forceThreshold;
+        
         SideBar.setVisible(false);
+        
+        // TODO figure out what to do with these
         NextPlayer.setVisible(false);
         PreviousPlayer.setVisible(false);
-    }
-    
-    /**
-     * Updates the timer text
-     */
-    public void update() {
-        String minute_str = String.format("%02d", timerMin);
-        String second_str = String.format("%02d", timerSec);
-        TimeLabel.setText(minute_str + ":" + second_str);
-    }
-    
-    public static int[] generateRandNums(int max, int[] randNums) {
-        Random r = new Random();
-        for(int i = 0; i < randNums.length; i++){
-            randNums[i] = r.nextInt(max) + 1000;
-        }
-        Arrays.sort(randNums);
-        return randNums;
     }
     
     /**
@@ -90,15 +80,15 @@ public class PunchChallengePanel extends javax.swing.JPanel {
         AboutButton.setOpaque(false);
         AboutButton.setContentAreaFilled(false);
         //jButton1.setBorderPainted(false);
-        jPanel3 = new javax.swing.JPanel();
-        PlayPauseButton = new javax.swing.JLabel();
-        PreviousPlayer = new javax.swing.JLabel();
-        ResetButton = new javax.swing.JLabel();
-        SaveButton = new javax.swing.JLabel();
-        NextPlayer = new javax.swing.JLabel();
         TimeLabel = new javax.swing.JLabel();
         AverageForceTitle = new javax.swing.JLabel();
         AverageForceLabel = new javax.swing.JLabel();
+        ControlPanel = new javax.swing.JPanel();
+        PreviousPlayer = new javax.swing.JLabel();
+        NextPlayer = new javax.swing.JLabel();
+        PlayPauseButton = new javax.swing.JLabel();
+        SaveButton = new javax.swing.JLabel();
+        ResetButton = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(0, 0, 55));
@@ -214,36 +204,6 @@ public class PunchChallengePanel extends javax.swing.JPanel {
 
         add(SideBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(505, 80, 250, 530));
 
-        jPanel3.setBackground(new java.awt.Color(51, 51, 56));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        PlayPauseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/playIcon.png"))); // NOI18N
-        PlayPauseButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PlayPauseButtonMouseClicked(evt);
-            }
-        });
-        jPanel3.add(PlayPauseButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 300, 290));
-
-        PreviousPlayer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backPlayerIcon.png"))); // NOI18N
-        jPanel3.add(PreviousPlayer, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 10, 80, 80));
-
-        ResetButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/retryIcon.png"))); // NOI18N
-        ResetButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ResetButtonMouseClicked(evt);
-            }
-        });
-        jPanel3.add(ResetButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 270, 80, 80));
-
-        SaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/saveIcon2.png"))); // NOI18N
-        jPanel3.add(SaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, 80, 80));
-
-        NextPlayer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/nextPlayerIcon.png"))); // NOI18N
-        jPanel3.add(NextPlayer, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 80, 80));
-
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 635, 755, 350));
-
         TimeLabel.setFont(new java.awt.Font("Tahoma", 0, 100)); // NOI18N
         TimeLabel.setForeground(new java.awt.Color(240, 240, 240));
         TimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -261,69 +221,121 @@ public class PunchChallengePanel extends javax.swing.JPanel {
         AverageForceLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         AverageForceLabel.setText("0");
         add(AverageForceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 550, 210, 60));
+
+        ControlPanel.setBackground(new java.awt.Color(51, 51, 56));
+        ControlPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        PreviousPlayer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backPlayerIcon.png"))); // NOI18N
+        ControlPanel.add(PreviousPlayer, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 10, 80, 80));
+
+        NextPlayer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/nextPlayerIcon.png"))); // NOI18N
+        ControlPanel.add(NextPlayer, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 80, 80));
+
+        PlayPauseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/playIcon.png"))); // NOI18N
+        PlayPauseButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PlayPauseButtonMouseClicked(evt);
+            }
+        });
+        ControlPanel.add(PlayPauseButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 300, 290));
+
+        SaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/saveIcon2.png"))); // NOI18N
+        ControlPanel.add(SaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, 80, 80));
+
+        ResetButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/retryIcon.png"))); // NOI18N
+        ResetButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ResetButtonMouseClicked(evt);
+            }
+        });
+        ControlPanel.add(ResetButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 270, 80, 80));
+
+        add(ControlPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 635, 755, 350));
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 60, 80));
     }// </editor-fold>//GEN-END:initComponents
 
+    // TODO
     private void PlayPauseButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlayPauseButtonMouseClicked
-        if (paused == true)
-        {
-            int[] randNumbs = new int [40];
-            generateRandNums(8000, randNumbs);
-            paused = false;
-            PlayPauseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pauseIcon.png")));
-            start = true;
-            Thread th;
-
-            th = new Thread(){
-                @Override
-                public void run(){
-                    while(start == true){
-                        try{
-                            sleep(1000);
-                            timerSec-= 1;
-                            
-                            // Increases Total Force randomly
-                            if (timerSec % 2 == 0)
-                            {
-                                totalForce += randNumbs[index];
-                                String tf = String.valueOf(totalForce);
-                                AverageForceLabel.setText(tf);
-                                index++;
-                            }
-                            
-                            if(timerSec == -1){
-                                timerMin--;
-                                timerSec = 59;
-                            }
-                            
-                            if(timerSec == 0 && timerMin == 0){
-                                update();
-                                return;
-                            }
-                            update();
-                        }catch(InterruptedException e){
-                            System.out.println("Error");
+        int numOfPunches = (hours * 3600) + (minutes * 60) + seconds;
+        punchForces = new int[numOfPunches];
+        int maxForce = forceThreshold * 2;
+        punchForces = fillArray(punchForces, maxForce);
+        punchCounter = 0;
+        
+        // TODO edit
+        Thread timer = new Thread() {
+            public void run() {
+                while(start == true) {
+                    try {
+                        sleep(1000);
+                        timerSec-= 1;
+                        
+                        // Increases Total Force randomly
+                        if (timerSec % 2 == 0) {
+                            // totalForce += randNumbs[index];
+                            // String tf = String.valueOf(totalForce);
+                            // AverageForceLabel.setText(tf);
+                            index++;
                         }
+                        
+                        if(timerSec == -1) {
+                            timerMin--;
+                            timerSec = 59;
+                        }
+                        
+                        if(timerSec == 0 && timerMin == 0) {
+                            updateTimeLabel();
+                            return;
+                        }
+                        updateTimeLabel();
+                    } catch(InterruptedException e) {
+                        System.out.println("Error in Timer thread.");
                     }
                 }
-            };
-            th.start();
-        }
-        else if (paused == false) {
+            }
+        };
+        
+        Thread avgForceCalc = new Thread() {
+            public void run() {
+                while (start == true) {
+                    try {
+                        sleep(1000);
+                        punchCounter++;
+                        int avgForce = calculateAvgForce();
+                        AverageForceLabel.setText(Integer.toString(avgForce));
+                    } catch(Exception e) {
+                        System.out.println("Error in Average Force thread.");
+                    }
+                }
+            }
+        };
+        
+        if (paused == true) {
+            start = true;
+            paused = false;
+            
+            PlayPauseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pauseIcon.png")));
+            
+            timer.start();
+            avgForceCalc.start();
+        } else if (paused == false) {
             start = false;
             paused = true;
             PlayPauseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/playIcon.png")));
         }
     }//GEN-LAST:event_PlayPauseButtonMouseClicked
 
+    // TODO
     private void ResetButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResetButtonMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_ResetButtonMouseClicked
 
+    // TODO
     private void BackButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackButtonMouseClicked
         Main.setup(3);
     }//GEN-LAST:event_BackButtonMouseClicked
 
+    // TODO
     private void AboutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AboutButtonMouseClicked
         /*start = false;
         int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
@@ -331,6 +343,7 @@ public class PunchChallengePanel extends javax.swing.JPanel {
            // Page to transition to*/
     }//GEN-LAST:event_AboutButtonMouseClicked
 
+    // TODO
     private void SettingsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SettingsButtonMouseClicked
         start = false;
         int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
@@ -338,6 +351,7 @@ public class PunchChallengePanel extends javax.swing.JPanel {
             Main.transitionToPage(2);
     }//GEN-LAST:event_SettingsButtonMouseClicked
 
+    // TODO
     private void ProfileButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProfileButtonMouseClicked
         /*start = false;
         int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
@@ -345,13 +359,15 @@ public class PunchChallengePanel extends javax.swing.JPanel {
            // Page to transition to*/
     }//GEN-LAST:event_ProfileButtonMouseClicked
 
+    // TODO
     private void ActivityButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ActivityButtonMouseClicked
         /*start = false;
         int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
         if (response == JOptionPane.YES_OPTION)
            // Page to transition to*/
     }//GEN-LAST:event_ActivityButtonMouseClicked
-
+    
+    // TODO
     private void FeedbackButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FeedbackButtonMouseClicked
         /*start = false;
         int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
@@ -359,28 +375,32 @@ public class PunchChallengePanel extends javax.swing.JPanel {
            // Page to transition to*/
     }//GEN-LAST:event_FeedbackButtonMouseClicked
     
+    // TODO
+    public void updateTimeLabel() {
+        String minute_str = String.format("%02d", timerMin);
+        String second_str = String.format("%02d", timerSec);
+        TimeLabel.setText(minute_str + ":" + second_str);
+    }
+    
     private void SidebarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SidebarButtonMouseClicked
-        if (Main.sidebarOpen == false)
-        {
+        if (Main.sidebarOpen == false) {
             SideBar.setVisible(true) ;
             Main.sidebarOpen = true ;
-        }
-        else if (Main.sidebarOpen == true)
-        {
+        } else if (Main.sidebarOpen == true) {
             SideBar.setVisible(false);
             Main.sidebarOpen = false ;
         }
     }//GEN-LAST:event_SidebarButtonMouseClicked
 
-   private int[] fillArray(int[] array, int max) {
+    private int[] fillArray(int[] array, int max) {
     Random randomGenerator = new Random();
     for (int i = 0; i < array.length; i++) {
         array[i] = randomGenerator.nextInt(max) + 1;
     }
     return array;
   }
-  
-  private int calculateAvgForce() {
+
+    private int calculateAvgForce() {
     // TODO figure out if we need to use locks for this
     int avgForce = 0;
     for (int i = 0; i < punchCounter; i++) {
@@ -396,6 +416,7 @@ public class PunchChallengePanel extends javax.swing.JPanel {
     private javax.swing.JLabel AverageForceTitle;
     private javax.swing.JLabel BackButton;
     private javax.swing.JLabel ComboCounterTitle;
+    private javax.swing.JPanel ControlPanel;
     private javax.swing.JButton FeedbackButton;
     private javax.swing.JLabel NextPlayer;
     private javax.swing.JLabel PlayPauseButton;
@@ -409,6 +430,5 @@ public class PunchChallengePanel extends javax.swing.JPanel {
     private javax.swing.JLabel TimeLabel;
     private javax.swing.JPanel TopBar;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }

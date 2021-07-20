@@ -17,7 +17,7 @@ public class PunchChallengePanel extends javax.swing.JPanel {
     private int hours;
     private int minutes;
     private int seconds;
-    private int ms = 0;
+    private int ms;
     private int forceThreshold;
     private int[] punchForces;
     private int punchCounter = 0;
@@ -33,6 +33,7 @@ public class PunchChallengePanel extends javax.swing.JPanel {
         this.hours = hours;
         this.minutes = minutes;
         this.seconds = seconds;
+        this.ms = 0;
         updateTimeLabel();
         
         this.forceThreshold = forceThreshold;

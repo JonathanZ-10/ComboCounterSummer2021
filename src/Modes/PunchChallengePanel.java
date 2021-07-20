@@ -10,13 +10,9 @@ import javax.swing.JOptionPane;
  */
 public class PunchChallengePanel extends javax.swing.JPanel {
     // TODO figure out what to do with these
-        int timerMin = 0;
-        int timerSec = 15;
         int playerNum = 2;
         boolean countDown = true;
-        boolean paused = true;
         int index = 0;
-        boolean start;
     // TODO
     
     private int hours;
@@ -28,10 +24,9 @@ public class PunchChallengePanel extends javax.swing.JPanel {
     private int punchCounter = 0;
     private int invalidPunches = 0;
     private int validPunches = 0;
-    private int num = 0;
     private boolean start = false;
-    private boolean running = false;
-        
+    private boolean paused = true;
+    
     // TODO
     public PunchChallengePanel(int hours, int minutes, int seconds, int forceThreshold) {
         initComponents();
@@ -272,22 +267,22 @@ public class PunchChallengePanel extends javax.swing.JPanel {
                 while (start == true) {
                     try {
                         sleep(1000);
-                        timerSec-= 1;
+                        seconds -= 1;
                         
                         // Increases Total Force randomly
-                        if (timerSec % 2 == 0) {
+                        if (seconds % 2 == 0) {
                             // totalForce += randNumbs[index];
                             // String tf = String.valueOf(totalForce);
                             // AverageForceLabel.setText(tf);
                             index++;
                         }
                         
-                        if(timerSec == -1) {
-                            timerMin--;
-                            timerSec = 59;
+                        if(seconds == -1) {
+                            minutes--;
+                            seconds = 59;
                         }
                         
-                        if(timerSec == 0 && timerMin == 0) {
+                        if(seconds == 0 && minutes == 0) {
                             updateTimeLabel();
                             return;
                         }
@@ -386,8 +381,8 @@ public class PunchChallengePanel extends javax.swing.JPanel {
     
     // TODO
     public void updateTimeLabel() {
-        String minute_str = String.format("%02d", timerMin);
-        String second_str = String.format("%02d", timerSec);
+        String minute_str = String.format("%02d", minutes);
+        String second_str = String.format("%02d", seconds);
         TimeLabel.setText(minute_str + ":" + second_str);
     }
     

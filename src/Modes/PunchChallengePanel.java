@@ -12,13 +12,12 @@ public class PunchChallengePanel extends javax.swing.JPanel {
     // TODO figure out what to do with these
         int playerNum = 2;
         boolean countDown = true;
-        int index = 0;
     // TODO
     
     private int hours;
     private int minutes;
     private int seconds;
-    private int ms;
+    private int ms = 0;
     private int forceThreshold;
     private int[] punchForces;
     private int punchCounter = 0;
@@ -207,8 +206,8 @@ public class PunchChallengePanel extends javax.swing.JPanel {
         TimeLabel.setFont(new java.awt.Font("Tahoma", 0, 100)); // NOI18N
         TimeLabel.setForeground(new java.awt.Color(240, 240, 240));
         TimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TimeLabel.setText("--:--");
-        add(TimeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 500, -1));
+        TimeLabel.setText("--:--:--.--");
+        add(TimeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 570, -1));
 
         AverageForceTitle.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         AverageForceTitle.setForeground(new java.awt.Color(240, 240, 240));
@@ -266,27 +265,38 @@ public class PunchChallengePanel extends javax.swing.JPanel {
             public void run() {
                 while (start == true) {
                     try {
-                        sleep(1000);
-                        seconds -= 1;
                         
-                        // Increases Total Force randomly
-                        if (seconds % 2 == 0) {
-                            // totalForce += randNumbs[index];
-                            // String tf = String.valueOf(totalForce);
-                            // AverageForceLabel.setText(tf);
-                            index++;
+                        sleep(10);
+                        ms--;
+                        
+                        if (ms <= -1) {
+                            if (seconds % 2 == 0) {
+                                validPunches++;
+                                renderValidInvalidPunches();
+                            }
+                            
+                            if (seconds % 3 == 0) {
+                                invalidPunches++;
+                                renderValidInvalidPunches();
+                            }
+                            seconds--;
+                            ms = 99;
                         }
-                        
                         if(seconds == -1) {
                             minutes--;
                             seconds = 59;
                         }
-                        
-                        if(seconds == 0 && minutes == 0) {
-                            updateTimeLabel();
-                            return;
+                        if (minutes == -1) {
+                            hours--;
+                            minutes = 59;
                         }
                         updateTimeLabel();
+                                                
+                        if(ms == 0 && seconds == 0 && minutes == 0 && hours == 0) {
+                            break;
+                        }
+                        
+                        
                     } catch(InterruptedException e) {
                         System.out.println("Error in Timer thread.");
                     }
@@ -379,11 +389,12 @@ public class PunchChallengePanel extends javax.swing.JPanel {
            // Page to transition to*/
     }//GEN-LAST:event_FeedbackButtonMouseClicked
     
-    // TODO
     public void updateTimeLabel() {
-        String minute_str = String.format("%02d", minutes);
-        String second_str = String.format("%02d", seconds);
-        TimeLabel.setText(minute_str + ":" + second_str);
+        String hoursString = String.format("%02d", hours);
+        String minutesString = String.format("%02d", minutes);
+        String secondsString = String.format("%02d", seconds);
+        String msString = String.format("%02d", ms);
+        TimeLabel.setText(hoursString + ":" + minutesString + ":" + secondsString + "." + msString);
     }
     
     private void SidebarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SidebarButtonMouseClicked

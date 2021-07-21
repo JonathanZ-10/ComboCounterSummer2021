@@ -6,6 +6,8 @@ import Modes.ComboModePanel;
 import Modes.ForceModePanel;
 import Modes.Setup.TimedModeSetup;
 import Modes.StrengthModePanel;
+import Modes.PunchChallengePanel;
+import Modes.Setup.PunchChallengeSetup;
 import javax.swing.JFrame;
 /**
  *
@@ -147,14 +149,14 @@ public class Main {
             //    Frame.repaint();
             //    Frame.revalidate();
             //    break;
-            //case 5:
-            //    Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            //    Frame.setContentPane(new PunchChallengeSetup());
-            //    Frame.setSize(768,1024);
-            //    Frame.setResizable(false);
-            //    Frame.repaint();
-            //    Frame.revalidate();
-            //    break;
+            case 5:
+                Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                Frame.setContentPane(new PunchChallengeSetup());
+                Frame.setSize(768,1024);
+                Frame.setResizable(false);
+                Frame.repaint();
+                Frame.revalidate();
+                break;
         }
     }
     

@@ -15,6 +15,7 @@
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="jPanel1.setVisible(false);"/>
+        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="PunchChallengeSetup_jPanel1"/>
       </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
@@ -41,6 +42,9 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="About_ButtonMouseClicked"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="About_Button.setOpaque(false);&#xa;About_Button.setContentAreaFilled(false);&#xa;//jButton1.setBorderPainted(false);"/>
           </AuxValues>
@@ -73,6 +77,9 @@
             </Property>
             <Property name="focusPainted" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Settings_ButtonMouseClicked"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="About_Button.setOpaque(false);&#xa;About_Button.setContentAreaFilled(false);&#xa;//jButton1.setBorderPainted(false);"/>
           </AuxValues>
@@ -102,6 +109,9 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Profile_ButtonMouseClicked"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="About_Button.setOpaque(false);&#xa;About_Button.setContentAreaFilled(false);&#xa;//jButton1.setBorderPainted(false);"/>
           </AuxValues>
@@ -131,6 +141,9 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Activity_ButtonMouseClicked"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="About_Button.setOpaque(false);&#xa;About_Button.setContentAreaFilled(false);&#xa;//jButton1.setBorderPainted(false);"/>
           </AuxValues>
@@ -160,6 +173,9 @@
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Feedback_ButtonMouseClicked"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="About_Button.setOpaque(false);&#xa;About_Button.setContentAreaFilled(false);&#xa;//jButton1.setBorderPainted(false);"/>
           </AuxValues>

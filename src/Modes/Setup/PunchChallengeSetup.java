@@ -143,6 +143,11 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         About_Button.setText(" About");
         About_Button.setBorder(null);
         About_Button.setContentAreaFilled(false);
+        About_Button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                About_ButtonMouseClicked(evt);
+            }
+        });
         jPanel1.add(About_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 160, 60));
 
         Settings_Button.setBackground(new java.awt.Color(51, 51, 56));
@@ -153,6 +158,11 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         Settings_Button.setBorder(null);
         Settings_Button.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Settings_Button.setFocusPainted(false);
+        Settings_Button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Settings_ButtonMouseClicked(evt);
+            }
+        });
         jPanel1.add(Settings_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 190, 60));
 
         Profile_Button.setBackground(new java.awt.Color(51, 51, 56));
@@ -162,6 +172,11 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         Profile_Button.setText(" Profile");
         Profile_Button.setBorder(null);
         Profile_Button.setContentAreaFilled(false);
+        Profile_Button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Profile_ButtonMouseClicked(evt);
+            }
+        });
         jPanel1.add(Profile_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 150, 60));
 
         Activity_Button.setBackground(new java.awt.Color(51, 51, 56));
@@ -171,6 +186,11 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         Activity_Button.setText(" Activity");
         Activity_Button.setBorder(null);
         Activity_Button.setContentAreaFilled(false);
+        Activity_Button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Activity_ButtonMouseClicked(evt);
+            }
+        });
         jPanel1.add(Activity_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 160, 60));
 
         Feedback_Button.setBackground(new java.awt.Color(51, 51, 56));
@@ -180,6 +200,11 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         Feedback_Button.setText(" Feedback");
         Feedback_Button.setBorder(null);
         Feedback_Button.setContentAreaFilled(false);
+        Feedback_Button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Feedback_ButtonMouseClicked(evt);
+            }
+        });
         jPanel1.add(Feedback_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 180, 60));
 
         setBackground(new java.awt.Color(0, 0, 55));
@@ -675,6 +700,30 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         secondsPlus();
         renderTime();
     }//GEN-LAST:event_SecondsPlusMouseClicked
+
+    // TODO
+    private void Feedback_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Feedback_ButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Feedback_ButtonMouseClicked
+
+    // TODO
+    private void Activity_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Activity_ButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Activity_ButtonMouseClicked
+
+    // TODO
+    private void Profile_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Profile_ButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Profile_ButtonMouseClicked
+
+    // TODO
+    private void Settings_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Settings_ButtonMouseClicked
+        Main.transitionToPage(2);
+    }//GEN-LAST:event_Settings_ButtonMouseClicked
+
+    private void About_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_About_ButtonMouseClicked
+
+    }//GEN-LAST:event_About_ButtonMouseClicked
 
    
     private void secondsPlus() {

@@ -387,10 +387,8 @@ public class PunchChallengePanel extends javax.swing.JPanel {
 
     // TODO
     private void SettingsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SettingsButtonMouseClicked
-        paused = true;
         int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
-        if (response == JOptionPane.YES_OPTION)
-            Main.transitionToPage(2);
+        if (response == JOptionPane.YES_OPTION) Main.transitionToPage(2);
     }//GEN-LAST:event_SettingsButtonMouseClicked
 
     // TODO

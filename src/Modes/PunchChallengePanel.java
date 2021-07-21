@@ -10,8 +10,8 @@ import javax.swing.JOptionPane;
  * Cell #: 305-343-5864
  */
 public class PunchChallengePanel extends javax.swing.JPanel {
-    int playerNum = 2;
-    boolean countDown = true;
+    int playerNum = 2; // placeholder variable for future functionality
+    boolean countDown = true; // placeholder variable for future functionality
     private int originalHours;
     private int originalMinutes;
     private int originalSeconds;

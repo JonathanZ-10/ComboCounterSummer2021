@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
  * Cell #: 305-343-5864
  */
 public class PunchChallengeSetup extends javax.swing.JPanel {
-    // Declaring variables
     
     // TODO figure out what to do with these
         int roundsNum = 1;
@@ -21,16 +20,15 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         int forceGoal = 500;
         boolean countDown = true;
         boolean multiplayer = false;
+        Timer timer;
     // TODO
         
     private int hours = 0;
     private int minutes = 0;
     private int seconds = 30;
-    private int forceThreshold = 200;
+    private int thresholdForce = 200;
     
-        
-    
-    Timer timer;
+    // TODO    
     public PunchChallengeSetup() {
         initComponents();       
         Main.playerNum = 2;
@@ -41,6 +39,7 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         TrainingButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
     }
     
+    // TODO
     public void invisible() {
         ThresholdForceMinus.setVisible(false);
         ThresholdForcePlus.setVisible(false);
@@ -395,11 +394,6 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         HoursLabel.setForeground(new java.awt.Color(240, 240, 240));
         HoursLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         HoursLabel.setText("0");
-        HoursLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                HoursLabelMouseClicked(evt);
-            }
-        });
         add(HoursLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 410, 190, 40));
 
         HoursPlus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plusIcon.png"))); // NOI18N
@@ -428,11 +422,6 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         MinutesLabel.setForeground(new java.awt.Color(240, 240, 240));
         MinutesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         MinutesLabel.setText("0");
-        MinutesLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                MinutesLabelMouseClicked(evt);
-            }
-        });
         add(MinutesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 520, 190, 40));
 
         MinutesPlus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plusIcon.png"))); // NOI18N
@@ -461,11 +450,6 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         SecondsLabel.setForeground(new java.awt.Color(240, 240, 240));
         SecondsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         SecondsLabel.setText("30");
-        SecondsLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SecondsLabelMouseClicked(evt);
-            }
-        });
         add(SecondsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 620, 190, 40));
 
         SecondsPlus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plusIcon.png"))); // NOI18N
@@ -549,7 +533,8 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         });
         add(StartButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 960, 180, 70));
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    // TODO
     private void SidebarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SidebarButtonMouseClicked
         if (Main.sidebarOpen == false) {
             SideBar.setVisible(true) ;
@@ -560,26 +545,32 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_SidebarButtonMouseClicked
 
+    // TODO
     private void About_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_About_ButtonMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_About_ButtonMouseClicked
 
+    // TODO
     private void Settings_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Settings_ButtonMouseClicked
         Main.transitionToPage(2);
     }//GEN-LAST:event_Settings_ButtonMouseClicked
 
+    // TODO
     private void Profile_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Profile_ButtonMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_Profile_ButtonMouseClicked
 
+    // TODO
     private void Activity_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Activity_ButtonMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_Activity_ButtonMouseClicked
 
+    // TODO
     private void Feedback_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Feedback_ButtonMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_Feedback_ButtonMouseClicked
 
+    // TODO
     private void ThresholdForceLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThresholdForceLabelMouseClicked
         ThresholdForceMinus.setVisible(true);
         ThresholdForcePlus.setVisible(true);
@@ -594,25 +585,29 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         timer.start();
     }//GEN-LAST:event_ThresholdForceLabelMouseClicked
 
+    // TODO
     private void ThresholdForcePlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThresholdForcePlusMouseClicked
-        if (forceThreshold < 1000) {
-            forceThreshold += 100;
+        if (thresholdForce < 1000) {
+            thresholdForce += 100;
         }
-        ThresholdForceLabel.setText(String.format("%,d", forceThreshold));
+        ThresholdForceLabel.setText(String.format("%,d", thresholdForce));
     }//GEN-LAST:event_ThresholdForcePlusMouseClicked
 
+    // TODO
     private void ThresholdForceMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThresholdForceMinusMouseClicked
-        if (forceThreshold > 0) {
-            forceThreshold -= 100;
+        if (thresholdForce > 0) {
+            thresholdForce -= 100;
         }
-        String decreasedThreshold = String.format("%,d", forceThreshold);
+        String decreasedThreshold = String.format("%,d", thresholdForce);
         ThresholdForceLabel.setText(decreasedThreshold);
     }//GEN-LAST:event_ThresholdForceMinusMouseClicked
 
+    // TODO
     private void TimedModeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TimedModeButtonMouseClicked
         Main.setup(3);
     }//GEN-LAST:event_TimedModeButtonMouseClicked
 
+    // TODO
     private void TrainingButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TrainingButtonMouseClicked
         if (multiplayer == true) {
             multiplayer = false ;
@@ -627,6 +622,7 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_TrainingButtonMouseClicked
 
+    // TODO
     private void NumOfPlayersPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NumOfPlayersPlusMouseClicked
         if (Main.playerNum < 10) {
             Main.playerNum++;
@@ -635,6 +631,7 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_NumOfPlayersPlusMouseClicked
 
+    // TODO
     private void NumOfPlayersMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NumOfPlayersMinusMouseClicked
         if (Main.playerNum > 2) {
             Main.playerNum--;
@@ -643,6 +640,7 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_NumOfPlayersMinusMouseClicked
 
+    // TODO
     private void CompetitionButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CompetitionButtonMouseClicked
         if (multiplayer == false) {
             multiplayer = true ;
@@ -658,6 +656,7 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_CompetitionButtonMouseClicked
 
+    // TODO
     private void StartButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartButtonMouseClicked
        /* if (multiplayer == false)
         Main.createForceMode(##Variables to create force mode##);
@@ -667,26 +666,32 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
 
     }//GEN-LAST:event_StartButtonMouseClicked
 
+    // TODO
     private void AboutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AboutButtonMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_AboutButtonMouseClicked
 
+    // TODO
     private void SettingsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SettingsButtonMouseClicked
         Main.transitionToPage(2);
     }//GEN-LAST:event_SettingsButtonMouseClicked
 
+    // TODO
     private void ProfileButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProfileButtonMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_ProfileButtonMouseClicked
 
+    // TODO
     private void ActivityButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ActivityButtonMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_ActivityButtonMouseClicked
 
+    // TODO
     private void FeedbackButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FeedbackButtonMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_FeedbackButtonMouseClicked
 
+    // TODO
     private void SettingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingsButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SettingsButtonActionPerformed
@@ -695,10 +700,6 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         hoursMinus();
         renderTime();
     }//GEN-LAST:event_HoursMinusMouseClicked
-
-    private void HoursLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HoursLabelMouseClicked
-        // tried to get rid of this method but couldn't, so I'm just gonna leave it blank.
-    }//GEN-LAST:event_HoursLabelMouseClicked
 
     private void HoursPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HoursPlusMouseClicked
         hoursPlus();
@@ -710,10 +711,6 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         renderTime();
     }//GEN-LAST:event_MinutesMinusMouseClicked
 
-    private void MinutesLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinutesLabelMouseClicked
-        // tried to get rid of this method but couldn't, so I'm just gonna leave it blank.
-    }//GEN-LAST:event_MinutesLabelMouseClicked
-
     private void MinutesPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinutesPlusMouseClicked
         minutesPlus();
         renderTime();
@@ -723,10 +720,6 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         secondsMinus();
         renderTime();
     }//GEN-LAST:event_SecondsMinusMouseClicked
-
-    private void SecondsLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SecondsLabelMouseClicked
-        // tried to get rid of this method but couldn't, so I'm just gonna leave it blank.
-    }//GEN-LAST:event_SecondsLabelMouseClicked
 
     private void SecondsPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SecondsPlusMouseClicked
         secondsPlus();

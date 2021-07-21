@@ -20,7 +20,7 @@ public class PunchChallengePanel extends javax.swing.JPanel {
     private int minutes;
     private int seconds;
     private int ms;
-    private int forceThreshold; // TODO should this be final?
+    private int thresholdForce; // TODO should this be final?
     private int[] punchForces;
     private int punchCounter = 0;
     private int invalidPunches = 0;
@@ -28,7 +28,7 @@ public class PunchChallengePanel extends javax.swing.JPanel {
     private boolean paused = true;
     
     // TODO
-    public PunchChallengePanel(int hours, int minutes, int seconds, int forceThreshold) {
+    public PunchChallengePanel(int hours, int minutes, int seconds, int thresholdForce) {
         initComponents();
         
         this.originalHours = hours;
@@ -41,10 +41,10 @@ public class PunchChallengePanel extends javax.swing.JPanel {
         this.ms = this.originalMs;
         updateTimeLabel();
         
-        this.forceThreshold = forceThreshold;
+        this.thresholdForce = thresholdForce;
         int numOfPunches = (hours * 3600) + (minutes * 60) + seconds;
         punchForces = new int[numOfPunches];
-        int maxForce = this.forceThreshold * 2;
+        int maxForce = this.thresholdForce * 2;
         punchForces = fillArray(punchForces, maxForce);
         
         SideBar.setVisible(false);

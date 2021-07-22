@@ -34,15 +34,7 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         Main.playerNum = 2;
         // Setting Plus and Minus state
         SideBar.setVisible(false);
-        ThresholdForceMinus.setVisible(false);
-        ThresholdForcePlus.setVisible(false);
         TrainingButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-    }
-    
-    // TODO
-    public void invisible() {
-        ThresholdForceMinus.setVisible(false);
-        ThresholdForcePlus.setVisible(false);
     }
 
     /**
@@ -327,6 +319,11 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         add(ComboModeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 30, 30));
 
         ForceModeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/emptyCircleIcon.png"))); // NOI18N
+        ForceModeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ForceModeButtonMouseClicked(evt);
+            }
+        });
         add(ForceModeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, 30, 30));
 
         TimedModeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/emptyCircleIcon.png"))); // NOI18N
@@ -353,11 +350,6 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         ThresholdForceLabel.setForeground(new java.awt.Color(240, 240, 240));
         ThresholdForceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ThresholdForceLabel.setText("200");
-        ThresholdForceLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ThresholdForceLabelMouseClicked(evt);
-            }
-        });
         add(ThresholdForceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 190, 40));
 
         ThresholdForcePlus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plusIcon.png"))); // NOI18N
@@ -393,7 +385,7 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         HoursLabel.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         HoursLabel.setForeground(new java.awt.Color(240, 240, 240));
         HoursLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        HoursLabel.setText("0");
+        HoursLabel.setText("00");
         add(HoursLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 410, 190, 40));
 
         HoursPlus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plusIcon.png"))); // NOI18N
@@ -421,7 +413,7 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         MinutesLabel.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         MinutesLabel.setForeground(new java.awt.Color(240, 240, 240));
         MinutesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        MinutesLabel.setText("0");
+        MinutesLabel.setText("00");
         add(MinutesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 520, 190, 40));
 
         MinutesPlus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plusIcon.png"))); // NOI18N
@@ -545,30 +537,14 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_SidebarButtonMouseClicked
 
-    // TODO
-    private void ThresholdForceLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThresholdForceLabelMouseClicked
-        ThresholdForceMinus.setVisible(true);
-        ThresholdForcePlus.setVisible(true);
-        ActionListener taskPerformer = new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                ThresholdForceMinus.setVisible(false);
-                ThresholdForcePlus.setVisible(false);
-            }
-        };
-        Timer timer = new Timer(7000, taskPerformer);
-        timer.setRepeats(false);
-        timer.start();
-    }//GEN-LAST:event_ThresholdForceLabelMouseClicked
-
-    // TODO
     private void ThresholdForcePlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThresholdForcePlusMouseClicked
         if (thresholdForce < 1000) {
             thresholdForce += 100;
         }
-        ThresholdForceLabel.setText(String.format("%,d", thresholdForce));
+        String increasedThreshold = String.format("%,d", thresholdForce);
+        ThresholdForceLabel.setText(increasedThreshold);
     }//GEN-LAST:event_ThresholdForcePlusMouseClicked
 
-    // TODO
     private void ThresholdForceMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThresholdForceMinusMouseClicked
         if (thresholdForce > 0) {
             thresholdForce -= 100;
@@ -577,7 +553,6 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         ThresholdForceLabel.setText(decreasedThreshold);
     }//GEN-LAST:event_ThresholdForceMinusMouseClicked
 
-    // TODO
     private void TimedModeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TimedModeButtonMouseClicked
         Main.setup(3);
     }//GEN-LAST:event_TimedModeButtonMouseClicked
@@ -724,6 +699,10 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
     private void About_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_About_ButtonMouseClicked
 
     }//GEN-LAST:event_About_ButtonMouseClicked
+
+    private void ForceModeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForceModeButtonMouseClicked
+        Main.setup(2);
+    }//GEN-LAST:event_ForceModeButtonMouseClicked
 
    
     private void secondsPlus() {

@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
  * @author Jonathan Attias Khoudari
  * Cell #: 305-343-5864
  */
-public class PunchChallengePanel extends javax.swing.JPanel {
+public final class PunchChallengePanel extends javax.swing.JPanel {
     int playerNum = 2; // placeholder variable for future functionality
     boolean countDown = true; // placeholder variable for future functionality
     private int originalHours;
@@ -20,11 +20,11 @@ public class PunchChallengePanel extends javax.swing.JPanel {
     private int minutes;
     private int seconds;
     private int ms;
-    private int thresholdForce; // TODO should this be final?
     private int[] punchForces;
     private int punchCounter = 0;
     private int invalidPunches = 0;
     private int validPunches = 0;
+    private final int thresholdForce;
     private boolean paused = true;
     
     // TODO
@@ -49,7 +49,7 @@ public class PunchChallengePanel extends javax.swing.JPanel {
         
         SideBar.setVisible(false);
         
-        // TODO figure out what to do with these
+        // Person working on multiplayer will use these
         NextPlayer.setVisible(false);
         PreviousPlayer.setVisible(false);
     }
@@ -63,12 +63,7 @@ public class PunchChallengePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TopBar = new javax.swing.JPanel();
-        ComboCounterTitle = new javax.swing.JLabel();
-        BackButton = new javax.swing.JLabel();
-        SidebarButton = new javax.swing.JLabel();
         SideBar = new javax.swing.JPanel();
-        jPanel1.setVisible(false);
         SettingsButton = new javax.swing.JButton();
         AboutButton.setOpaque(false);
         AboutButton.setContentAreaFilled(false);
@@ -89,6 +84,10 @@ public class PunchChallengePanel extends javax.swing.JPanel {
         AboutButton.setOpaque(false);
         AboutButton.setContentAreaFilled(false);
         //jButton1.setBorderPainted(false);
+        TopBar = new javax.swing.JPanel();
+        ComboCounterTitle = new javax.swing.JLabel();
+        BackButton = new javax.swing.JLabel();
+        SidebarButton = new javax.swing.JLabel();
         TimeLabel = new javax.swing.JLabel();
         ValidPunchesTitle = new javax.swing.JLabel();
         ValidPunchesLabel = new javax.swing.JLabel();
@@ -102,42 +101,12 @@ public class PunchChallengePanel extends javax.swing.JPanel {
         PlayPauseButton = new javax.swing.JLabel();
         SaveButton = new javax.swing.JLabel();
         ResetButton = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(0, 0, 55));
         setMaximumSize(new java.awt.Dimension(768, 1024));
         setMinimumSize(new java.awt.Dimension(768, 1024));
         setPreferredSize(new java.awt.Dimension(768, 1024));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        TopBar.setBackground(new java.awt.Color(51, 51, 56));
-        TopBar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        ComboCounterTitle.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        ComboCounterTitle.setForeground(new java.awt.Color(240, 240, 240));
-        ComboCounterTitle.setText("ComboCounter");
-        TopBar.add(ComboCounterTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
-
-        BackButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backIcon.png"))); // NOI18N
-        BackButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BackButtonMouseClicked(evt);
-            }
-        });
-        TopBar.add(BackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        SidebarButton.setBackground(new java.awt.Color(51, 51, 56));
-        SidebarButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        SidebarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/menuIcon.png"))); // NOI18N
-        SidebarButton.setOpaque(true);
-        SidebarButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SidebarButtonMouseClicked(evt);
-            }
-        });
-        TopBar.add(SidebarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 60, 55));
-
-        add(TopBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 755, 80));
 
         SideBar.setBackground(new java.awt.Color(51, 51, 56));
         SideBar.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 5, 5, 0, new java.awt.Color(0, 0, 0)));
@@ -217,10 +186,39 @@ public class PunchChallengePanel extends javax.swing.JPanel {
 
         add(SideBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(505, 80, 250, 530));
 
+        TopBar.setBackground(new java.awt.Color(51, 51, 56));
+        TopBar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ComboCounterTitle.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        ComboCounterTitle.setForeground(new java.awt.Color(240, 240, 240));
+        ComboCounterTitle.setText("ComboCounter");
+        TopBar.add(ComboCounterTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
+
+        BackButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backIcon.png"))); // NOI18N
+        BackButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BackButtonMouseClicked(evt);
+            }
+        });
+        TopBar.add(BackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        SidebarButton.setBackground(new java.awt.Color(51, 51, 56));
+        SidebarButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        SidebarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/menuIcon.png"))); // NOI18N
+        SidebarButton.setOpaque(true);
+        SidebarButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SidebarButtonMouseClicked(evt);
+            }
+        });
+        TopBar.add(SidebarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 60, 55));
+
+        add(TopBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 755, 80));
+
         TimeLabel.setFont(new java.awt.Font("Tahoma", 0, 100)); // NOI18N
         TimeLabel.setForeground(new java.awt.Color(240, 240, 240));
         TimeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TimeLabel.setText("--:--:--.--");
+        TimeLabel.setText("--:--");
         add(TimeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 570, -1));
 
         ValidPunchesTitle.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
@@ -288,7 +286,6 @@ public class PunchChallengePanel extends javax.swing.JPanel {
         ControlPanel.add(ResetButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 270, 80, 80));
 
         add(ControlPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 635, 755, 350));
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 60, 80));
     }// </editor-fold>//GEN-END:initComponents
 
     private void PlayPauseButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlayPauseButtonMouseClicked
@@ -374,6 +371,9 @@ public class PunchChallengePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_ResetButtonMouseClicked
 
     private void BackButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackButtonMouseClicked
+        paused = true;
+        int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
+        if (response == JOptionPane.YES_OPTION)
         Main.setup(5);
     }//GEN-LAST:event_BackButtonMouseClicked
 
@@ -480,6 +480,5 @@ public class PunchChallengePanel extends javax.swing.JPanel {
     private javax.swing.JPanel TopBar;
     private javax.swing.JLabel ValidPunchesLabel;
     private javax.swing.JLabel ValidPunchesTitle;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

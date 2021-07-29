@@ -2,8 +2,6 @@ package Modes.Setup;
 
 import Main.Main;
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * @author Jonathan Attias Khoudari
@@ -28,13 +26,19 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
     private int seconds = 30;
     private int thresholdForce = 200;
     
-    // TODO    
     public PunchChallengeSetup() {
-        initComponents();       
+        initComponents();
+        
+        // Setting default states
         Main.playerNum = 2;
-        // Setting Plus and Minus state
         SideBar.setVisible(false);
         TrainingButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        NumPlayersMinus.setVisible(false);
+        NumPlayersPlus.setVisible(false);
+        NumPlayersText.setVisible(false);
+        NumPlayers.setVisible(false);
+        NumPlayersPlus.setVisible(false);
+        NumPlayersMinus.setVisible(false);
     }
 
     /**
@@ -46,52 +50,19 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel1.setVisible(false);
-        About_Button = new javax.swing.JButton();
-        About_Button.setOpaque(false);
-        About_Button.setContentAreaFilled(false);
-        //jButton1.setBorderPainted(false);
-        Settings_Button = new javax.swing.JButton();
-        About_Button.setOpaque(false);
-        About_Button.setContentAreaFilled(false);
-        //jButton1.setBorderPainted(false);
-        Profile_Button = new javax.swing.JButton();
-        About_Button.setOpaque(false);
-        About_Button.setContentAreaFilled(false);
-        //jButton1.setBorderPainted(false);
-        Activity_Button = new javax.swing.JButton();
-        About_Button.setOpaque(false);
-        About_Button.setContentAreaFilled(false);
-        //jButton1.setBorderPainted(false);
-        Feedback_Button = new javax.swing.JButton();
-        About_Button.setOpaque(false);
-        About_Button.setContentAreaFilled(false);
-        //jButton1.setBorderPainted(false);
         TopBar = new javax.swing.JPanel();
         ComboCounterTitle = new javax.swing.JLabel();
         SidebarButton = new javax.swing.JLabel();
         SideBar = new javax.swing.JPanel();
-        jPanel1.setVisible(false);
         SettingsButton = new javax.swing.JButton();
-        About_Button.setOpaque(false);
-        About_Button.setContentAreaFilled(false);
         //jButton1.setBorderPainted(false);
         ProfileButton = new javax.swing.JButton();
-        About_Button.setOpaque(false);
-        About_Button.setContentAreaFilled(false);
         //jButton1.setBorderPainted(false);
         ActivityButton = new javax.swing.JButton();
-        About_Button.setOpaque(false);
-        About_Button.setContentAreaFilled(false);
         //jButton1.setBorderPainted(false);
         FeedbackButton = new javax.swing.JButton();
-        About_Button.setOpaque(false);
-        About_Button.setContentAreaFilled(false);
         //jButton1.setBorderPainted(false);
         AboutButton = new javax.swing.JButton();
-        About_Button.setOpaque(false);
-        About_Button.setContentAreaFilled(false);
         //jButton1.setBorderPainted(false);
         PunchChallengeTitle = new javax.swing.JLabel();
         ComboModeButton = new javax.swing.JLabel();
@@ -118,86 +89,11 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         PlayerSettingTitle = new javax.swing.JLabel();
         TrainingButton = new javax.swing.JLabel();
         CompetitionButton = new javax.swing.JLabel();
-        NumOfPlayersTitle = new javax.swing.JLabel();
-        NumOfPlayers = new javax.swing.JLabel();
-        NumOfPlayersPlus = new javax.swing.JLabel();
-        NumOfPlayersMinus = new javax.swing.JLabel();
+        NumPlayersText = new javax.swing.JLabel();
+        NumPlayers = new javax.swing.JLabel();
+        NumPlayersPlus = new javax.swing.JLabel();
+        NumPlayersMinus = new javax.swing.JLabel();
         StartButton = new javax.swing.JButton();
-
-        jPanel1.setBackground(new java.awt.Color(51, 51, 56));
-        jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 5, 5, 0, new java.awt.Color(0, 0, 0)));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        About_Button.setBackground(new java.awt.Color(51, 51, 56));
-        About_Button.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
-        About_Button.setForeground(new java.awt.Color(240, 240, 240));
-        About_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/aboutIcon.png"))); // NOI18N
-        About_Button.setText(" About");
-        About_Button.setBorder(null);
-        About_Button.setContentAreaFilled(false);
-        About_Button.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                About_ButtonMouseClicked(evt);
-            }
-        });
-        jPanel1.add(About_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 160, 60));
-
-        Settings_Button.setBackground(new java.awt.Color(51, 51, 56));
-        Settings_Button.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
-        Settings_Button.setForeground(new java.awt.Color(240, 240, 240));
-        Settings_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/settingsIcon.png"))); // NOI18N
-        Settings_Button.setText(" Settings");
-        Settings_Button.setBorder(null);
-        Settings_Button.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Settings_Button.setFocusPainted(false);
-        Settings_Button.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Settings_ButtonMouseClicked(evt);
-            }
-        });
-        jPanel1.add(Settings_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 190, 60));
-
-        Profile_Button.setBackground(new java.awt.Color(51, 51, 56));
-        Profile_Button.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
-        Profile_Button.setForeground(new java.awt.Color(240, 240, 240));
-        Profile_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/profileIcon.png"))); // NOI18N
-        Profile_Button.setText(" Profile");
-        Profile_Button.setBorder(null);
-        Profile_Button.setContentAreaFilled(false);
-        Profile_Button.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Profile_ButtonMouseClicked(evt);
-            }
-        });
-        jPanel1.add(Profile_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 150, 60));
-
-        Activity_Button.setBackground(new java.awt.Color(51, 51, 56));
-        Activity_Button.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
-        Activity_Button.setForeground(new java.awt.Color(240, 240, 240));
-        Activity_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/activityIcon.png"))); // NOI18N
-        Activity_Button.setText(" Activity");
-        Activity_Button.setBorder(null);
-        Activity_Button.setContentAreaFilled(false);
-        Activity_Button.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Activity_ButtonMouseClicked(evt);
-            }
-        });
-        jPanel1.add(Activity_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 160, 60));
-
-        Feedback_Button.setBackground(new java.awt.Color(51, 51, 56));
-        Feedback_Button.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
-        Feedback_Button.setForeground(new java.awt.Color(240, 240, 240));
-        Feedback_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/feedbackIcon.png"))); // NOI18N
-        Feedback_Button.setText(" Feedback");
-        Feedback_Button.setBorder(null);
-        Feedback_Button.setContentAreaFilled(false);
-        Feedback_Button.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Feedback_ButtonMouseClicked(evt);
-            }
-        });
-        jPanel1.add(Feedback_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 180, 60));
 
         setBackground(new java.awt.Color(0, 0, 55));
         setMaximumSize(new java.awt.Dimension(768, 1024));
@@ -242,11 +138,6 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         SettingsButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 SettingsButtonMouseClicked(evt);
-            }
-        });
-        SettingsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SettingsButtonActionPerformed(evt);
             }
         });
         SideBar.add(SettingsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 190, 60));
@@ -484,33 +375,33 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         });
         add(CompetitionButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 780, 210, 60));
 
-        NumOfPlayersTitle.setFont(new java.awt.Font("Tahoma", 0, 32)); // NOI18N
-        NumOfPlayersTitle.setForeground(new java.awt.Color(240, 240, 240));
-        NumOfPlayersTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        NumOfPlayersTitle.setText("# of Players:");
-        add(NumOfPlayersTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 870, 220, 50));
+        NumPlayersText.setFont(new java.awt.Font("Tahoma", 0, 32)); // NOI18N
+        NumPlayersText.setForeground(new java.awt.Color(240, 240, 240));
+        NumPlayersText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        NumPlayersText.setText("# of Players:");
+        add(NumPlayersText, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 870, 220, 50));
 
-        NumOfPlayers.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        NumOfPlayers.setForeground(new java.awt.Color(240, 240, 240));
-        NumOfPlayers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        NumOfPlayers.setText("2");
-        add(NumOfPlayers, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 870, 60, 50));
+        NumPlayers.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        NumPlayers.setForeground(new java.awt.Color(240, 240, 240));
+        NumPlayers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        NumPlayers.setText("2");
+        add(NumPlayers, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 870, 60, 50));
 
-        NumOfPlayersPlus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/circlePlusIcon.png"))); // NOI18N
-        NumOfPlayersPlus.addMouseListener(new java.awt.event.MouseAdapter() {
+        NumPlayersPlus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/circlePlusIcon.png"))); // NOI18N
+        NumPlayersPlus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                NumOfPlayersPlusMouseClicked(evt);
+                NumPlayersPlusMouseClicked(evt);
             }
         });
-        add(NumOfPlayersPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 880, -1, 40));
+        add(NumPlayersPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 880, -1, 40));
 
-        NumOfPlayersMinus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/circleMinusIcon.png"))); // NOI18N
-        NumOfPlayersMinus.addMouseListener(new java.awt.event.MouseAdapter() {
+        NumPlayersMinus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/circleMinusIcon.png"))); // NOI18N
+        NumPlayersMinus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                NumOfPlayersMinusMouseClicked(evt);
+                NumPlayersMinusMouseClicked(evt);
             }
         });
-        add(NumOfPlayersMinus, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 880, -1, 40));
+        add(NumPlayersMinus, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 880, -1, 40));
 
         StartButton.setBackground(new java.awt.Color(51, 51, 56));
         StartButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -565,30 +456,30 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
             CompetitionButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
             // Removes # of Players Visibility
-            NumOfPlayersTitle.setVisible(false);
-            NumOfPlayers.setVisible(false);
-            NumOfPlayersPlus.setVisible(false);
-            NumOfPlayersMinus.setVisible(false);
+            NumPlayersText.setVisible(false);
+            NumPlayers.setVisible(false);
+            NumPlayersPlus.setVisible(false);
+            NumPlayersMinus.setVisible(false);
         }
     }//GEN-LAST:event_TrainingButtonMouseClicked
 
     // TODO
-    private void NumOfPlayersPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NumOfPlayersPlusMouseClicked
+    private void NumPlayersPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NumPlayersPlusMouseClicked
         if (Main.playerNum < 10) {
             Main.playerNum++;
             String num = String.valueOf(Main.playerNum);
-            NumOfPlayers.setText(num);
+            NumPlayers.setText(num);
         }
-    }//GEN-LAST:event_NumOfPlayersPlusMouseClicked
+    }//GEN-LAST:event_NumPlayersPlusMouseClicked
 
     // TODO
-    private void NumOfPlayersMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NumOfPlayersMinusMouseClicked
+    private void NumPlayersMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NumPlayersMinusMouseClicked
         if (Main.playerNum > 2) {
             Main.playerNum--;
             String num = String.valueOf(Main.playerNum);
-            NumOfPlayers.setText(num);
+            NumPlayers.setText(num);
         }
-    }//GEN-LAST:event_NumOfPlayersMinusMouseClicked
+    }//GEN-LAST:event_NumPlayersMinusMouseClicked
 
     // TODO
     private void CompetitionButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CompetitionButtonMouseClicked
@@ -598,10 +489,10 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
             TrainingButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
             // Visiblity to add players
-            NumOfPlayersTitle.setVisible(true);
-            NumOfPlayers.setVisible(true);
-            NumOfPlayersPlus.setVisible(true);
-            NumOfPlayersMinus.setVisible(true);
+            NumPlayersText.setVisible(true);
+            NumPlayers.setVisible(true);
+            NumPlayersPlus.setVisible(true);
+            NumPlayersMinus.setVisible(true);
 
         }
     }//GEN-LAST:event_CompetitionButtonMouseClicked
@@ -641,11 +532,6 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_FeedbackButtonMouseClicked
 
-    // TODO
-    private void SettingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingsButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SettingsButtonActionPerformed
-
     private void HoursMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HoursMinusMouseClicked
         hoursMinus();
         renderTime();
@@ -675,30 +561,6 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         secondsPlus();
         renderTime();
     }//GEN-LAST:event_SecondsPlusMouseClicked
-
-    // TODO
-    private void Feedback_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Feedback_ButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Feedback_ButtonMouseClicked
-
-    // TODO
-    private void Activity_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Activity_ButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Activity_ButtonMouseClicked
-
-    // TODO
-    private void Profile_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Profile_ButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Profile_ButtonMouseClicked
-
-    // TODO
-    private void Settings_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Settings_ButtonMouseClicked
-        Main.transitionToPage(2);
-    }//GEN-LAST:event_Settings_ButtonMouseClicked
-
-    private void About_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_About_ButtonMouseClicked
-
-    }//GEN-LAST:event_About_ButtonMouseClicked
 
     private void ForceModeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForceModeButtonMouseClicked
         Main.setup(2);
@@ -753,14 +615,11 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AboutButton;
-    private javax.swing.JButton About_Button;
     private javax.swing.JButton ActivityButton;
-    private javax.swing.JButton Activity_Button;
     private javax.swing.JLabel ComboCounterTitle;
     private javax.swing.JLabel ComboModeButton;
     private javax.swing.JLabel CompetitionButton;
     private javax.swing.JButton FeedbackButton;
-    private javax.swing.JButton Feedback_Button;
     private javax.swing.JLabel ForceModeButton;
     private javax.swing.JLabel HoursLabel;
     private javax.swing.JLabel HoursMinus;
@@ -770,13 +629,12 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
     private javax.swing.JLabel MinutesMinus;
     private javax.swing.JLabel MinutesPlus;
     private javax.swing.JLabel MinutesTitle;
-    private javax.swing.JLabel NumOfPlayers;
-    private javax.swing.JLabel NumOfPlayersMinus;
-    private javax.swing.JLabel NumOfPlayersPlus;
-    private javax.swing.JLabel NumOfPlayersTitle;
+    private javax.swing.JLabel NumPlayers;
+    private javax.swing.JLabel NumPlayersMinus;
+    private javax.swing.JLabel NumPlayersPlus;
+    private javax.swing.JLabel NumPlayersText;
     private javax.swing.JLabel PlayerSettingTitle;
     private javax.swing.JButton ProfileButton;
-    private javax.swing.JButton Profile_Button;
     private javax.swing.JLabel PunchChallengeButton;
     private javax.swing.JLabel PunchChallengeTitle;
     private javax.swing.JLabel SecondsLabel;
@@ -784,7 +642,6 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
     private javax.swing.JLabel SecondsPlus;
     private javax.swing.JLabel SecondsTitle;
     private javax.swing.JButton SettingsButton;
-    private javax.swing.JButton Settings_Button;
     private javax.swing.JPanel SideBar;
     private javax.swing.JLabel SidebarButton;
     private javax.swing.JButton StartButton;
@@ -796,6 +653,5 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
     private javax.swing.JLabel TimedModeButton;
     private javax.swing.JPanel TopBar;
     private javax.swing.JLabel TrainingButton;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

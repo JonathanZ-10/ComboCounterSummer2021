@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 /**
- * @author Jonathan Zamora
+ * @author JunJie Yang
  */
 public class ForceModeSetup extends javax.swing.JPanel {
     // Declaring vars
@@ -563,12 +563,11 @@ public class ForceModeSetup extends javax.swing.JPanel {
     }//GEN-LAST:event_Competition_ButtonMouseClicked
 
     private void StartButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartButtonMouseClicked
-       /* if (multiplayer == false)
-        Main.createForceMode(##Variables to create force mode##);
-        else {
+       if (multiplayer == false){
+        Main.createForceMode(forceGoal);
+       }else {
             // Code to create competition
-        }*/
-
+        }
     }//GEN-LAST:event_StartButtonMouseClicked
 
     private void About_Button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_About_Button1MouseClicked

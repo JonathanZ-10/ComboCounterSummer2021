@@ -360,6 +360,7 @@ public class TimedModePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_Profile_ButtonMouseClicked
 
     private void Activity_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Activity_ButtonMouseClicked
+        Main.createActivityMode();
         /*start = false;
         int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
         if (response == JOptionPane.YES_OPTION)
@@ -399,7 +400,7 @@ public class TimedModePanel extends javax.swing.JPanel {
         DateTimeFormatter time = DateTimeFormatter.ofPattern("HH:mm");
         LocalTime localTime = LocalTime.now();
   
-        Main.createActivityMode(originMin, originSec, localTime, localDate, "Timed Mode", totalForce);
+        Main.createActivity(originMin, originSec, localTime, localDate, "Timed Mode", totalForce);
     }//GEN-LAST:event_SaveButtonMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

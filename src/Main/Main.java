@@ -1,7 +1,5 @@
 package Main;
 
-import Modes.Activity;
-import Modes.ActivityModePanel1;
 import Modes.Setup.ForceModeSetup;
 import Modes.TimedModePanel;
 import Modes.ComboModePanel;
@@ -113,13 +111,19 @@ public class Main {
         Frame.revalidate();
     }
     
-        public static void createActivityMode (int min, int sec, LocalTime time, LocalDate date, String mode, int totalForce)
+    ///////////////////////////////////////////////////////////////////////////////////
+    //  The following code needs to be completely reworked, the "save" button on     //
+    //  any game mode must save the information but not take you to the activity     //
+    //  panel. This means that the information must be sent to the activity panel    //
+    //  but without opening said activity panel.                                     //
+    ///////////////////////////////////////////////////////////////////////////////////
+    public static void createActivityMode (int min, int sec, LocalTime time, LocalDate date, String mode, int totalForce)
     {
         Activity act = new Activity(min, sec, time, date, mode, totalForce);   
         activityList.add(act);
         
         Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Frame.setContentPane(new ActivityModePanel1(activityList));
+        Frame.setContentPane(new ActivityModePanel(activityList));
         Frame.setSize(768,1024);
         Frame.setResizable(false);
         Frame.repaint();

@@ -95,7 +95,6 @@ public class TimedModeSetup extends javax.swing.JPanel {
         NumOfPlayersText = new javax.swing.JLabel();
         TimerMinus = new javax.swing.JLabel();
         TimerPlus = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(0, 0, 55));
         setMaximumSize(new java.awt.Dimension(768, 1024));
@@ -333,7 +332,6 @@ public class TimedModeSetup extends javax.swing.JPanel {
             }
         });
         add(TimerPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, -1, 40));
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 90, 100));
     }// </editor-fold>//GEN-END:initComponents
 
     private void TimerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TimerMouseClicked
@@ -551,7 +549,6 @@ public class TimedModeSetup extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

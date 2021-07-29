@@ -244,7 +244,6 @@ public class SettingsPanel extends javax.swing.JPanel {
 
     private void Activity_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Activity_ButtonMouseClicked
         // TODO add your handling code here:
-        Main.createActivityMode();
     }//GEN-LAST:event_Activity_ButtonMouseClicked
 
     private void Feedback_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Feedback_ButtonMouseClicked

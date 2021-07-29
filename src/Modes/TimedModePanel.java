@@ -2,6 +2,10 @@ package Modes;
 
 import Main.Main;
 import static java.lang.Thread.sleep;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Random;
 import javax.swing.JOptionPane;
@@ -14,6 +18,8 @@ public class TimedModePanel extends javax.swing.JPanel {
     // Declaring vars
     int timerMin = 0;
     int timerSec = 15;
+    int originMin = 0;
+    int originSec = 15;
     int playerNum = 2;
     boolean countDown = true;
     boolean paused = true;
@@ -32,6 +38,8 @@ public class TimedModePanel extends javax.swing.JPanel {
         
         this.timerMin = timerMin;
         this.timerSec = timerSec;
+        this.originMin = timerMin;
+        this.originSec = timerSec;
         update();
         
         // Setting states
@@ -102,6 +110,7 @@ public class TimedModePanel extends javax.swing.JPanel {
         TotalForce = new javax.swing.JLabel();
         timer = new javax.swing.JLabel();
         TotalForceLabel = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(0, 0, 55));
         setMaximumSize(new java.awt.Dimension(768, 1024));
@@ -239,6 +248,11 @@ public class TimedModePanel extends javax.swing.JPanel {
         jPanel3.add(ResetButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 270, 80, 80));
 
         SaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/saveIcon2.png"))); // NOI18N
+        SaveButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SaveButtonMouseClicked(evt);
+            }
+        });
         jPanel3.add(SaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, 80, 80));
 
         NextPlayer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/nextPlayerIcon.png"))); // NOI18N
@@ -256,13 +270,14 @@ public class TimedModePanel extends javax.swing.JPanel {
         timer.setForeground(new java.awt.Color(240, 240, 240));
         timer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         timer.setText("--:--");
-        add(timer, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 500, -1));
+        add(timer, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 500, -1));
 
         TotalForceLabel.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         TotalForceLabel.setForeground(new java.awt.Color(240, 240, 240));
         TotalForceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TotalForceLabel.setText("Total Force:");
         add(TotalForceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, 280, 80));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 60, 80));
     }// </editor-fold>//GEN-END:initComponents
 
     private void PlayPauseButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlayPauseButtonMouseClicked
@@ -337,7 +352,7 @@ public class TimedModePanel extends javax.swing.JPanel {
         start = false;
         int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
         if (response == JOptionPane.YES_OPTION)
-            Main.transitionToPage(3);
+            Main.transitionToPage(2);
     }//GEN-LAST:event_Settings_ButtonMouseClicked
 
     private void Profile_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Profile_ButtonMouseClicked
@@ -374,6 +389,16 @@ public class TimedModePanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_SidebarButtonMouseClicked
 
+    private void SaveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveButtonMouseClicked
+        DateTimeFormatter date = DateTimeFormatter.ofPattern("uuuu/MM/dd");
+        LocalDate localDate = LocalDate.now();
+        
+        DateTimeFormatter time = DateTimeFormatter.ofPattern("HH:mm");
+        LocalTime localTime = LocalTime.now();
+  
+        Main.createActivityMode(originMin, originSec, localTime, localDate, "Timed Mode", totalForce);
+    }//GEN-LAST:event_SaveButtonMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton About_Button;
     private javax.swing.JButton Activity_Button;
@@ -391,6 +416,7 @@ public class TimedModePanel extends javax.swing.JPanel {
     private javax.swing.JLabel SidebarButton;
     private javax.swing.JLabel TotalForce;
     private javax.swing.JLabel TotalForceLabel;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel timer;

@@ -113,15 +113,11 @@ public class Main {
         Frame.revalidate();
     }
     
-    public static void createActivity (int min, int sec, LocalTime time, LocalDate date, String mode, int totalForce)
+        public static void createActivityMode (int min, int sec, LocalTime time, LocalDate date, String mode, int totalForce)
     {
         Activity act = new Activity(min, sec, time, date, mode, totalForce);   
         activityList.add(act);
-
-    }
-    
-    public static void createActivityMode ()
-    {
+        
         Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Frame.setContentPane(new ActivityModePanel1(activityList));
         Frame.setSize(768,1024);

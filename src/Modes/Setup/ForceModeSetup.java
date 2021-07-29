@@ -9,9 +9,14 @@ import java.awt.event.ActionListener;
  */
 public class ForceModeSetup extends javax.swing.JPanel {
     // Declaring vars
-    int forceGoal = 500;
-    boolean countDown = true;
-    boolean multiplayer = false;
+        int roundsNum = 1;
+        int roundTimeMin = 1;
+        int roundTimeSec = 0;
+        int restTimeMin = 0;
+        int restTimeSec = 30;
+        int forceGoal = 500;
+        boolean countDown = true;
+        boolean multiplayer = false;
         
     /**
      * Creates new form homePagePanel
@@ -25,10 +30,6 @@ public class ForceModeSetup extends javax.swing.JPanel {
         SideBar.setVisible(false);
         ForceGoalMinus.setVisible(false);
         ForceGoalPlus.setVisible(false);
-        NumOfPlayers.setVisible(false);
-        NumOfPlayersText.setVisible(false);
-        NumPlayersPlus.setVisible(false);
-        NumPlayersMinus.setVisible(false);
         Training_Button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
     }
     
@@ -444,7 +445,7 @@ public class ForceModeSetup extends javax.swing.JPanel {
     }//GEN-LAST:event_About_ButtonMouseClicked
 
     private void Settings_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Settings_ButtonMouseClicked
-        Main.transitionToPage(3);
+        Main.transitionToPage(2);
     }//GEN-LAST:event_Settings_ButtonMouseClicked
 
     private void Profile_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Profile_ButtonMouseClicked
@@ -562,8 +563,11 @@ public class ForceModeSetup extends javax.swing.JPanel {
     }//GEN-LAST:event_Competition_ButtonMouseClicked
 
     private void StartButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartButtonMouseClicked
-        if (multiplayer == false)
-        Main.createForceMode(forceGoal);
+       /* if (multiplayer == false)
+        Main.createForceMode(##Variables to create force mode##);
+        else {
+            // Code to create competition
+        }*/
 
     }//GEN-LAST:event_StartButtonMouseClicked
 
@@ -572,7 +576,7 @@ public class ForceModeSetup extends javax.swing.JPanel {
     }//GEN-LAST:event_About_Button1MouseClicked
 
     private void Settings_Button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Settings_Button1MouseClicked
-        Main.transitionToPage(3);
+        Main.transitionToPage(2);
     }//GEN-LAST:event_Settings_Button1MouseClicked
 
     private void Profile_Button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Profile_Button1MouseClicked

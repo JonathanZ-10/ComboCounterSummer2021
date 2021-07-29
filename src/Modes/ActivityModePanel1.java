@@ -18,7 +18,7 @@ import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 
 /**
- * @author JunJie Yang
+ * @author Jonathan Zamora
  */
 public class ActivityModePanel1 extends javax.swing.JPanel {
     
@@ -65,25 +65,16 @@ public class ActivityModePanel1 extends javax.swing.JPanel {
     }
     
     public void updateMonthYear(){
-        if(activityList.size() != 0){
-            int listSize = activityList.size();
-            int year = activityList.get(listSize-1).getDate().getYear();
-            int month = activityList.get(listSize-1).getDate().getMonthValue();
-            System.out.println("Year: " + year + " Month: " + month);
+        int listSize = activityList.size();
+        int year = activityList.get(listSize-1).getDate().getYear();
+        int month = activityList.get(listSize-1).getDate().getMonthValue();
+        System.out.println("Year: " + year + " Month: " + month);
 
-
-            int yearIndex = Integer.parseInt(yearChoice.getItem(0)) - year;
-
-            monthChoice.select(month - 1);
-            yearChoice.select(yearIndex);
-        } else{
-            Date date = new Date();
-            LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            int month  = localDate.getMonthValue();
-            yearChoice.select(0);
-            monthChoice.select(month - 1);
-        }
         
+        int yearIndex = Integer.parseInt(yearChoice.getItem(0)) - year;
+        
+        monthChoice.select(month-1);
+        yearChoice.select(yearIndex);
     }
     
     public void addItemsToYearChoice(){

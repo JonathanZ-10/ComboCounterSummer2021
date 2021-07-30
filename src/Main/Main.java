@@ -5,7 +5,7 @@ import Modes.TimedModePanel;
 import Modes.ComboModePanel;
 import Modes.Setup.TimedModeSetup;
 import Modes.StrengthModePanel;
-import Modes.ForceModePanel1;
+import Modes.ForceModePanel;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -52,30 +52,6 @@ public class Main {
                 Frame.repaint();
                 Frame.revalidate();
                 break;
-            case 3:
-                Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                Frame.setContentPane(new ComboModePanel());
-                Frame.setSize(768,1024);
-                Frame.setResizable(false);
-                Frame.repaint();
-                Frame.revalidate();
-                break;
-            case 4:
-                Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                Frame.setContentPane(new ForceModePanel1());
-                Frame.setSize(768,1024);
-                Frame.setResizable(false);
-                Frame.repaint();
-                Frame.revalidate();
-                break;
-            case 6:
-                Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                Frame.setContentPane(new StrengthModePanel());
-                Frame.setSize(768,1024);
-                Frame.setResizable(false);
-                Frame.repaint();
-                Frame.revalidate();
-                break;
             default:
                 break;
         }
@@ -91,15 +67,15 @@ public class Main {
         Frame.revalidate();
     }*/
     
-    /*public static void createForceMode ()
+    public static void createForceMode (int force)
     {
         Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Frame.setContentPane(new ForceModePanel());
+        Frame.setContentPane(new ForceModePanel(force));
         Frame.setSize(768,1024);
         Frame.setResizable(false);
         Frame.repaint();
         Frame.revalidate();
-    }*/
+    }
     
     public static void createTimedMode (int min, int sec)
     {
@@ -111,28 +87,26 @@ public class Main {
         Frame.revalidate();
     }
     
-    public static void createForceMode (int force)
-    {
-        Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Frame.setContentPane(new ForceModePanel1(force));
-        Frame.setSize(768,1024);
-        Frame.setResizable(false);
-        Frame.repaint();
-        Frame.revalidate();
-    }
     ///////////////////////////////////////////////////////////////////////////////////
     //  The following code needs to be completely reworked, the "save" button on     //
     //  any game mode must save the information but not take you to the activity     //
     //  panel. This means that the information must be sent to the activity panel    //
     //  but without opening said activity panel.                                     //
     ///////////////////////////////////////////////////////////////////////////////////
-    public static void createActivity (int min, int sec, LocalTime time, LocalDate date, String mode, int totalForce)
+    public static void createActivity(int min, int sec, LocalTime time, LocalDate date, String mode, int totalForce)
     {
         Activity act = new Activity(min, sec, time, date, mode, totalForce);   
         activityList.add(act);
+        
+        Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Frame.setContentPane(new ActivityModePanel(activityList));
+        Frame.setSize(768,1024);
+        Frame.setResizable(false);
+        Frame.repaint();
+        Frame.revalidate();
     }
     
-    public static void createActivityMode ()
+    public static void createActivity()
     {
         Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Frame.setContentPane(new ActivityModePanel(activityList));
@@ -141,6 +115,7 @@ public class Main {
         Frame.repaint();
         Frame.revalidate();
     }
+        
     /*public static void createStrengthMode ()
     {
         Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.Random;
 
 /**
- * @author JunJie Yang
+ * @author Jonathan Zamora
  */
 public final class ActivityModePanel extends javax.swing.JPanel {
     
@@ -44,7 +44,7 @@ public final class ActivityModePanel extends javax.swing.JPanel {
     {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("hh:mm a");
         activityList.forEach(a -> {
-            jTextArea1.append("   " + a.getMode() + "\t\t\t" + a.getTime().format(dtf) + "\n" + 
+            jTextArea1.append("   " + a.getMode() + "\t\t\t\t" + a.getTime().format(dtf) + "\n" + 
                     "      Time: " + a.getMin() + " min " + a.getSec() + " sec\n" +
                             "      Score: " + a.getTotalForce() + "\n\n");
         });

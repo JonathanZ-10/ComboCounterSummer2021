@@ -10,7 +10,7 @@ import java.time.LocalTime;
 
 /**
  *
- * @author JunJie Yang
+ * @author shamc
  */
 public class Activity {
     private int min;

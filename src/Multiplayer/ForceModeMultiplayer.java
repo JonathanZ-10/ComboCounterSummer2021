@@ -1,7 +1,7 @@
 package Multiplayer;
 
 import Main.Main;
-import Modes.ForceModePanel1;
+import Modes.ForceModePanel;
 import javax.swing.JFrame;
 /*
  * To change this license header, choose License Headers in Project Properties.

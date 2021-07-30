@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 /**
- * @author JunJie Yang
+ * @author Jonathan Zamora
  */
 public class ForceModeSetup extends javax.swing.JPanel {
     // Declaring vars
@@ -25,11 +25,18 @@ public class ForceModeSetup extends javax.swing.JPanel {
     public ForceModeSetup() 
     {
         initComponents();       
+
+        // Setting Default States
         Main.playerNum = 2;
-        // Setting Plus and Minus state
         SideBar.setVisible(false);
         ForceGoalMinus.setVisible(false);
         ForceGoalPlus.setVisible(false);
+        NumOfPlayersText.setVisible(false);
+        NumOfPlayers.setVisible(false);
+        NumPlayersPlus.setVisible(false);
+        NumPlayersMinus.setVisible(false);
+        NumPlayersMinus.setVisible(false);
+        NumPlayersPlus.setVisible(false);
         Training_Button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
     }
     
@@ -563,11 +570,12 @@ public class ForceModeSetup extends javax.swing.JPanel {
     }//GEN-LAST:event_Competition_ButtonMouseClicked
 
     private void StartButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartButtonMouseClicked
-       if (multiplayer == false){
+        if (multiplayer == false)
         Main.createForceMode(forceGoal);
-       }else {
+        else {
             // Code to create competition
         }
+
     }//GEN-LAST:event_StartButtonMouseClicked
 
     private void About_Button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_About_Button1MouseClicked
@@ -583,7 +591,7 @@ public class ForceModeSetup extends javax.swing.JPanel {
     }//GEN-LAST:event_Profile_Button1MouseClicked
 
     private void Activity_Button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Activity_Button1MouseClicked
-        // TODO add your handling code here:
+        Main.createActivity();
     }//GEN-LAST:event_Activity_Button1MouseClicked
 
     private void Feedback_Button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Feedback_Button1MouseClicked

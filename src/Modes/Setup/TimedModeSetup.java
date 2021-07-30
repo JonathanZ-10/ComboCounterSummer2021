@@ -26,11 +26,11 @@ public class TimedModeSetup extends javax.swing.JPanel {
         
         // Setting Visibility States
         SideBar.setVisible(false);
+        Training_Button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         TimerPlus.setVisible(false);
         TimerMinus.setVisible(false);
         NumPlayersMinus.setVisible(false);
         NumPlayersPlus.setVisible(false);
-        Training_Button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         NumOfPlayersText.setVisible(false);
         NumOfPlayers.setVisible(false);
         NumPlayersPlus.setVisible(false);

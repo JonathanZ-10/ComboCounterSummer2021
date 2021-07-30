@@ -370,11 +370,11 @@ public final class PunchChallengePanel extends javax.swing.JPanel {
             updateTimeLabel();
     }//GEN-LAST:event_ResetButtonMouseClicked
 
+    // TODO
     private void BackButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackButtonMouseClicked
         paused = true;
         int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
-        if (response == JOptionPane.YES_OPTION)
-        Main.setup(5);
+        if (response == JOptionPane.YES_OPTION) Main.setup(5);
     }//GEN-LAST:event_BackButtonMouseClicked
 
     // TODO

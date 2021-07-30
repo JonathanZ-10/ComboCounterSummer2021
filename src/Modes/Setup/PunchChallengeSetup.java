@@ -463,7 +463,6 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_TrainingButtonMouseClicked
 
-    // TODO
     private void NumPlayersPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NumPlayersPlusMouseClicked
         if (Main.playerNum < 10) {
             Main.playerNum++;
@@ -472,7 +471,6 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_NumPlayersPlusMouseClicked
 
-    // TODO
     private void NumPlayersMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NumPlayersMinusMouseClicked
         if (Main.playerNum > 2) {
             Main.playerNum--;
@@ -499,11 +497,13 @@ public class PunchChallengeSetup extends javax.swing.JPanel {
 
     // TODO
     private void StartButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartButtonMouseClicked
-       /* if (multiplayer == false)
+        /*if (multiplayer == false)
         Main.createForceMode(##Variables to create force mode##);
         else {
             // Code to create competition
         }*/
+        
+        Main.createPunchChallengeMode(hours, minutes, seconds, thresholdForce);
 
     }//GEN-LAST:event_StartButtonMouseClicked
 

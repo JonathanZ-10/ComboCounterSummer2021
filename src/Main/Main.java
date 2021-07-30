@@ -3,6 +3,8 @@ package Main;
 import Modes.Setup.ForceModeSetup;
 import Modes.TimedModePanel;
 import Modes.ComboModePanel;
+import Modes.PunchChallengePanel;
+import Modes.Setup.PunchChallengeSetup;
 import Modes.Setup.TimedModeSetup;
 import Modes.StrengthModePanel;
 import Modes.ForceModePanel;
@@ -126,15 +128,15 @@ public class Main {
         Frame.revalidate();
     }*/
     
-    /*public static void createPunchChallengeMode ()
+    public static void createPunchChallengeMode (int hours, int minutes, int seconds, int thresholdForce)
     {
         Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Frame.setContentPane(new PunchchallengeModePanel());
+        Frame.setContentPane(new PunchChallengePanel(hours, minutes, seconds, thresholdForce));
         Frame.setSize(768,1024);
         Frame.setResizable(false);
         Frame.repaint();
         Frame.revalidate();
-    }*/
+    }
     
     /**
      * Transition to match setup
@@ -175,14 +177,14 @@ public class Main {
             //    Frame.repaint();
             //    Frame.revalidate();
             //    break;
-            //case 5:
-            //    Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            //    Frame.setContentPane(new PunchChallengeSetup());
-            //    Frame.setSize(768,1024);
-            //    Frame.setResizable(false);
-            //    Frame.repaint();
-            //    Frame.revalidate();
-            //    break;
+            case 5:
+                Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                Frame.setContentPane(new PunchChallengeSetup());
+                Frame.setSize(768,1024);
+                Frame.setResizable(false);
+                Frame.repaint();
+                Frame.revalidate();
+                break;
         }
     }
     

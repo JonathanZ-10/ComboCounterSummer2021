@@ -65,25 +65,14 @@ public final class PunchChallengePanel extends javax.swing.JPanel {
 
         SideBar = new javax.swing.JPanel();
         SettingsButton = new javax.swing.JButton();
-        AboutButton.setOpaque(false);
-        AboutButton.setContentAreaFilled(false);
         //jButton1.setBorderPainted(false);
         ProfileButton = new javax.swing.JButton();
-        AboutButton.setOpaque(false);
-        AboutButton.setContentAreaFilled(false);
         //jButton1.setBorderPainted(false);
         ActivityButton = new javax.swing.JButton();
-        AboutButton.setOpaque(false);
-        AboutButton.setContentAreaFilled(false);
         //jButton1.setBorderPainted(false);
         FeedbackButton = new javax.swing.JButton();
-        AboutButton.setOpaque(false);
-        AboutButton.setContentAreaFilled(false);
         //jButton1.setBorderPainted(false);
         AboutButton = new javax.swing.JButton();
-        AboutButton.setOpaque(false);
-        AboutButton.setContentAreaFilled(false);
-        //jButton1.setBorderPainted(false);
         TopBar = new javax.swing.JPanel();
         ComboCounterTitle = new javax.swing.JLabel();
         BackButton = new javax.swing.JLabel();

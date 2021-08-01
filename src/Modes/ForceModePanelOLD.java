@@ -1,41 +1,24 @@
 package Modes;
 
-
-import Main.Main;
-import java.util.Arrays;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+import Main.Main;
+import java.util.Arrays;
+import java.util.Random;
 /**
  *
  * @author RezTheCoward
  */
-public class StrengthModePanel extends javax.swing.JPanel {
+public class ForceModePanelOLD extends javax.swing.JPanel {
 
-    int timerSec = 0 ;
-    int timerMin = 0 ;
-    int forceGoal ;
-    int playerNum = 2;
-    boolean countDown = true;
-    boolean paused = true;
-    int index = 0;
-    int totalForce = 0;
-    boolean start;
     /**
-     * Creates new form PunchCountPanel
+     * Creates new form TotalTimePanel
      */
-    public StrengthModePanel() {
+    public ForceModePanelOLD() {
         initComponents();
-        
-        
     }
 
     /**
@@ -57,6 +40,8 @@ public class StrengthModePanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
@@ -71,23 +56,16 @@ public class StrengthModePanel extends javax.swing.JPanel {
         jButton9.setOpaque(false);
         jButton9.setContentAreaFilled(false);
         //jButton1.setBorderPainted(false);
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 0, 55));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
         add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 50));
@@ -135,32 +113,44 @@ public class StrengthModePanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 100)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(240, 240, 240));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("00:30");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 570, 500, -1));
+        jLabel1.setText("0");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 720, 500, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 80)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(240, 240, 240));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Strength Mode");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 130, 560, -1));
+        jLabel2.setText("Timed Mode");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 130, 500, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 75)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(240, 240, 240));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Time Setting");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 500, 500, -1));
+        jLabel3.setText("Force Accrued");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 610, 500, -1));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 75)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(240, 240, 240));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Current Time");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 290, 500, -1));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 100)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(240, 240, 240));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("00:00.0");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 400, 500, -1));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 75)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(240, 240, 240));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Invalid Punches");
+        jLabel6.setText("Time Setting");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 500, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 100)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(240, 240, 240));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("0");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, 500, -1));
+        jLabel7.setText("00:30");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, 500, -1));
 
         jButton8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton8.setForeground(new java.awt.Color(21, 140, 75));
@@ -171,7 +161,7 @@ public class StrengthModePanel extends javax.swing.JPanel {
                 jButton8ActionPerformed(evt);
             }
         });
-        add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 520, 160, 50));
+        add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 560, 160, 50));
 
         jButton7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton7.setForeground(new java.awt.Color(242, 0, 0));
@@ -182,7 +172,7 @@ public class StrengthModePanel extends javax.swing.JPanel {
                 jButton7ActionPerformed(evt);
             }
         });
-        add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 650, 160, 50));
+        add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1330, 560, 160, 50));
 
         jButton9.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton9.setForeground(new java.awt.Color(246, 225, 17));
@@ -193,64 +183,27 @@ public class StrengthModePanel extends javax.swing.JPanel {
                 jButton9ActionPerformed(evt);
             }
         });
-        add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 780, 160, 50));
+        add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1630, 560, 160, 50));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Threshold Force");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 710, 500, -1));
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 100)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("200");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 780, 500, -1));
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Valid Punches");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 290, 500, -1));
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 100)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("0");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 360, 500, -1));
-
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("Current Time");
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 500, 500, -1));
-
-        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 100)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("00:00.00");
-        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 570, 500, -1));
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("Last Hit");
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 710, 500, -1));
-
-        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 100)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel21.setText("N/A");
-        add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 780, 500, -1));
+        jButton4.setBorderPainted(false);
+        jButton4.setContentAreaFilled(false);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 320, 50));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Main.transitionToPage(1);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private int minute;
     private int second;
     private int ms;
-    private int invalid = 0;
-    private int valid = 0;
-    private int num = 0;
-    // boolean start;
+    private int num;
+    private boolean start;
     
     public static int[] generateRandNums(int max, int[] randNums){
         Random r = new Random();
@@ -263,12 +216,13 @@ public class StrengthModePanel extends javax.swing.JPanel {
     
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         
+        int[] randNumbs = new int [40];
+        generateRandNums(14000, randNumbs);
         minute = 0;
         second = 30;
         ms = 0;
-        int[] randNumbs = new int [30];
-        generateRandNums(6000, randNumbs);
         start = true;
+        num = 0;
         Thread t = new Thread(){
             public void run(){
                 while(start == true){
@@ -277,15 +231,9 @@ public class StrengthModePanel extends javax.swing.JPanel {
                         ms--;
                         if(ms == -1){
                             if(second % 2 == 0){
-                                jLabel21.setText(String.valueOf(randNumbs[num]));
-                                num++;
-                                valid++;
-                                jLabel12.setText(String.valueOf(valid));
+                                jLabel1.setText(String.valueOf(randNumbs[num]));
                             }
-                            if(second % 3 == 0){
-                                invalid++;
-                                jLabel7.setText(String.valueOf(invalid));
-                            }
+                            num++;
                             second--;
                             ms = 99;
                         }
@@ -299,7 +247,7 @@ public class StrengthModePanel extends javax.swing.JPanel {
                         String minute_str = String.format("%02d", minute);
                         String second_str = String.format("%02d", second);
                         String ms_str = String.format("%02d", ms);
-                        jLabel14.setText(minute_str + ":" + second_str + "." + ms_str);
+                        jLabel5.setText(minute_str + ":" + second_str + "." + ms_str);
                     }catch(Exception e){
                         System.out.println("Error");
                     }
@@ -310,63 +258,54 @@ public class StrengthModePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        
         start = false;
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        Main.transitionToPage(5) ;
-        /*start = false;
+        
+        start = false;
         ms = 0;
         second = 0;
         minute = 0;
-        invalid = 0;
-        valid = 0;
+        jLabel1.setText("0");
         String minute_str = String.format("%02d", minute);
         String second_str = String.format("%02d", second);
         String ms_str = String.format("%02d", ms);
-        jLabel14.setText(minute_str + ":" + second_str + "." + ms_str);
-        jLabel7.setText(String.valueOf(invalid));
-        jLabel12.setText(String.valueOf(valid));
-        jLabel21.setText("0");*/
+        jLabel5.setText(minute_str + ":" + second_str + "." + ms_str);
     }//GEN-LAST:event_jButton9ActionPerformed
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        Main.transitionToPage(1);
-    }//GEN-LAST:event_jButton2MouseClicked
-
-    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        
         Main.transitionToPage(6);
-    }//GEN-LAST:event_jLabel17MouseClicked
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
         
     }//GEN-LAST:event_jLabel20MouseClicked
 
+    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
+        Main.transitionToPage(6);
+    }//GEN-LAST:event_jLabel17MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }

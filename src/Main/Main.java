@@ -3,26 +3,28 @@ package Main;
 import Modes.Setup.ForceModeSetup;
 import Modes.TimedModePanel;
 import Modes.ComboModePanel;
-import Modes.PunchChallengePanel;
-import Modes.Setup.PunchChallengeSetup;
+import Modes.ForceModePanel;
+//import Modes.Setup.ComboModeSetup;
+import Modes.Setup.ComboModeSetup1;
+//import Modes.Setup.StrengthModeSetup;
+import Modes.Setup.StrengthModeSetup1;
 import Modes.Setup.TimedModeSetup;
 import Modes.StrengthModePanel;
-import Modes.ForceModePanel;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.ArrayList;
+import Modes.StrengthModePanel1;
+//import Multiplayer.ForceModeMultiplayer;
+import Multiplayer.MultiplayerForce;
+import Multiplayer.MultiplayerStrength;
+import Multiplayer.MultiplayerTime;
 import javax.swing.JFrame;
 /**
  *
  * @author Jonathan Zamora
  */
 public class Main {
-    static JFrame Frame = new JFrame();
-    static ArrayList<Activity> activityList = new ArrayList<Activity>();
-    
+   public static JFrame Frame = new JFrame();
     public static void main(String [] args){
         Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Frame.setContentPane(new LoginPanel());
+        Frame.setContentPane(new FirstPage());
         Frame.setSize(768,1024);
         Frame.setResizable(false);
         Frame.setVisible(true);
@@ -31,8 +33,7 @@ public class Main {
     
     /**
      * Transitions program to new page
-     * @param i 1=Login 2=Settings 3=ComboMode 4=ForceMode 5=TimedMode 
-     * 6=StrengthMode 7=PunchChallenge
+     * @param i 1=Login 2=Register 3=Settings
      */
     
     public static void transitionToPage(int i)
@@ -45,8 +46,14 @@ public class Main {
                 Frame.setResizable(false);
                 Frame.repaint();
                 Frame.revalidate();
-                break;
             case 2:
+                Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                Frame.setContentPane(new RegisterPanel());
+                Frame.setSize(768,1024);
+                Frame.setResizable(false);
+                Frame.repaint();
+                Frame.revalidate();
+            case 3:
                 Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 Frame.setContentPane(new SettingsPanel());
                 Frame.setSize(768,1024);
@@ -59,7 +66,8 @@ public class Main {
         }
     }
     
-    /*public static void createComboMode ()
+    
+    public static void createComboMode ()
     {
         Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Frame.setContentPane(new ComboModePanel());
@@ -67,12 +75,12 @@ public class Main {
         Frame.setResizable(false);
         Frame.repaint();
         Frame.revalidate();
-    }*/
+    }
     
-    public static void createForceMode (int force)
+    public static void createForceMode (boolean multiplayer, int forceGoal, int timerMin, int timerSec)
     {
         Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Frame.setContentPane(new ForceModePanel(force));
+        Frame.setContentPane(new ForceModePanel(multiplayer,forceGoal, timerMin, timerSec));
         Frame.setSize(768,1024);
         Frame.setResizable(false);
         Frame.repaint();
@@ -89,70 +97,66 @@ public class Main {
         Frame.revalidate();
     }
     
-    ///////////////////////////////////////////////////////////////////////////////////
-    //  The following code needs to be completely reworked, the "save" button on     //
-    //  any game mode must save the information but not take you to the activity     //
-    //  panel. This means that the information must be sent to the activity panel    //
-    //  but without opening said activity panel.                                     //
-    ///////////////////////////////////////////////////////////////////////////////////
-    public static void createActivity(int min, int sec, LocalTime time, LocalDate date, String mode, int totalForce)
+    public static void createStrengthMode ()
     {
-        Activity act = new Activity(min, sec, time, date, mode, totalForce);   
-        activityList.add(act);
-        
         Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Frame.setContentPane(new ActivityModePanel(activityList));
+        Frame.setContentPane(new StrengthModePanel1());
         Frame.setSize(768,1024);
         Frame.setResizable(false);
         Frame.repaint();
         Frame.revalidate();
     }
     
-    public static void createActivity()
+    /*public static void createPunchChallengeMode ()
     {
         Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Frame.setContentPane(new ActivityModePanel(activityList));
-        Frame.setSize(768,1024);
-        Frame.setResizable(false);
-        Frame.repaint();
-        Frame.revalidate();
-    }
-        
-    /*public static void createStrengthMode ()
-    {
-        Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Frame.setContentPane(new StrengthModePanel());
+        Frame.setContentPane(new PunchchallengeModePanel());
         Frame.setSize(768,1024);
         Frame.setResizable(false);
         Frame.repaint();
         Frame.revalidate();
     }*/
     
-    public static void createPunchChallengeMode (int hours, int minutes, int seconds, int thresholdForce)
-    {
+    /**
+     * Transition to match setup
+     * @param numPlayers
+     * @param i 1=ComboMode 2=ForceMode 3=TimedMode 4=StrengthMode 5=PunchChallenge
+     */
+    public static void multiplayer(int numPlayers){
         Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Frame.setContentPane(new PunchChallengePanel(hours, minutes, seconds, thresholdForce));
+        Frame.setContentPane(new MultiplayerForce(numPlayers));
         Frame.setSize(768,1024);
         Frame.setResizable(false);
         Frame.repaint();
         Frame.revalidate();
     }
-    
-    /**
-     * Transition to match setup
-     * @param i 1=ComboMode 2=ForceMode 3=TimedMode 4=StrengthMode 5=PunchChallenge
-     */
+    public static void multiplayerTimed(int numPlayers){
+        Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Frame.setContentPane(new MultiplayerTime(numPlayers));
+        Frame.setSize(768,1024);
+        Frame.setResizable(false);
+        Frame.repaint();
+        Frame.revalidate();
+    }
+    public static void multiplayerStrength(int numPlayers){
+        Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Frame.setContentPane(new MultiplayerStrength(numPlayers));
+        Frame.setSize(768,1024);
+        Frame.setResizable(false);
+        Frame.repaint();
+        Frame.revalidate();
+    }
     public static void setup (int i)
     {
         switch (i){
-            //case 1:
-            //    Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            //    Frame.setContentPane(new ComboModeSetup());
-            //    Frame.setSize(768,1024);
-            //    Frame.setResizable(false);
-            //    Frame.repaint();
-            //    Frame.revalidate();
-            //    break;
+            case 1:
+                Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+               Frame.setContentPane(new ComboModeSetup1());
+                Frame.setSize(768,1024);
+                Frame.setResizable(false);
+                Frame.repaint();
+                Frame.revalidate();
+                break;
             case 2:
                 Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 Frame.setContentPane(new ForceModeSetup());
@@ -169,28 +173,23 @@ public class Main {
                 Frame.repaint();
                 Frame.revalidate();
                 break;
-            //case 4:
+            case 4:
+                Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                Frame.setContentPane(new StrengthModeSetup1());
+                Frame.setSize(768,1024);
+                Frame.setResizable(false);
+                Frame.repaint();
+             Frame.revalidate();
+               break;
+            //case 5:
             //    Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            //    Frame.setContentPane(new StrengthModeSetup());
+            //    Frame.setContentPane(new PunchChallengeSetup());
             //    Frame.setSize(768,1024);
             //    Frame.setResizable(false);
             //    Frame.repaint();
             //    Frame.revalidate();
             //    break;
-            case 5:
-                Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                Frame.setContentPane(new PunchChallengeSetup());
-                Frame.setSize(768,1024);
-                Frame.setResizable(false);
-                Frame.repaint();
-                Frame.revalidate();
-                break;
         }
-    }
-    
-    public static void closeFrame(){
-        Frame.dispose();
-        System.exit(0);
     }
     
     public static void done(){
@@ -205,13 +204,16 @@ public class Main {
         
         setup(selectedGameMode);
     }
-    
+      public static void closeFrame(){
+        Frame.dispose();
+        System.exit(0);
+    }
     // Var Declarations
     public static String name1 = "Player 1", name2 = "Player 2", 
             name3 = "Player 3", name4 = "Player 4", name5 = "Player 5",
                                                             name6 = "Player 6";
     
-    public static String score1, score2, score3, score4, score5, score6;
+    public static String score1 = " ", score2 = " ", score3 = " ", score4 = " ", score5 = " ", score6 = " ";
     
     public static int currentPlayer = -1;
     public static int selectedGameMode = 2;
@@ -219,4 +221,5 @@ public class Main {
     public static boolean priority = false;
     public static boolean doneFlag = false;
     public static boolean sidebarOpen = false;
+    public static boolean countDown = false ;
 }

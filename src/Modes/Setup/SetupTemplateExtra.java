@@ -386,7 +386,7 @@ public class SetupTemplateExtra extends javax.swing.JPanel {
     }//GEN-LAST:event_About_ButtonMouseClicked
 
     private void Settings_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Settings_ButtonMouseClicked
-        Main.transitionToPage(2);
+        Main.transitionToPage(3);
     }//GEN-LAST:event_Settings_ButtonMouseClicked
 
     private void Profile_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Profile_ButtonMouseClicked

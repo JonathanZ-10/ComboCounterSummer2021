@@ -1,6 +1,7 @@
 package Modes.Setup;
 
 import Main.Main;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,14 +10,12 @@ import java.awt.event.ActionListener;
  */
 public class ForceModeSetup extends javax.swing.JPanel {
     // Declaring vars
-        int roundsNum = 1;
-        int roundTimeMin = 1;
-        int roundTimeSec = 0;
-        int restTimeMin = 0;
-        int restTimeSec = 30;
-        int forceGoal = 500;
-        boolean countDown = true;
-        boolean multiplayer = false;
+    int timerMin;
+    int timerSec;
+    int forceGoal = 500;
+    int numPlayers = 6;
+    boolean countDown = true;
+    boolean multiplayer = false;
         
     /**
      * Creates new form homePagePanel
@@ -25,18 +24,16 @@ public class ForceModeSetup extends javax.swing.JPanel {
     public ForceModeSetup() 
     {
         initComponents();       
-
-        // Setting Default States
         Main.playerNum = 2;
+       
+        // Setting Plus and Minus state
         SideBar.setVisible(false);
         ForceGoalMinus.setVisible(false);
         ForceGoalPlus.setVisible(false);
-        NumOfPlayersText.setVisible(false);
         NumOfPlayers.setVisible(false);
+        NumOfPlayersText.setVisible(false);
         NumPlayersPlus.setVisible(false);
         NumPlayersMinus.setVisible(false);
-        NumPlayersMinus.setVisible(false);
-        NumPlayersPlus.setVisible(false);
         Training_Button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
     }
     
@@ -302,11 +299,6 @@ public class ForceModeSetup extends javax.swing.JPanel {
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 755, 80));
 
         PunchChallengeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/emptyCircleIcon.png"))); // NOI18N
-        PunchChallengeButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PunchChallengeButtonMouseClicked(evt);
-            }
-        });
         add(PunchChallengeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 30, 30));
 
         ForceModeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/filledCircleIcon.png"))); // NOI18N
@@ -321,9 +313,19 @@ public class ForceModeSetup extends javax.swing.JPanel {
         add(TimedModeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 30, 30));
 
         ComboModeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/emptyCircleIcon.png"))); // NOI18N
+        ComboModeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ComboModeButtonMouseClicked(evt);
+            }
+        });
         add(ComboModeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 30, 30));
 
         StrengthModeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/emptyCircleIcon.png"))); // NOI18N
+        StrengthModeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                StrengthModeButtonMouseClicked(evt);
+            }
+        });
         add(StrengthModeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 30, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -457,7 +459,7 @@ public class ForceModeSetup extends javax.swing.JPanel {
     }//GEN-LAST:event_About_ButtonMouseClicked
 
     private void Settings_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Settings_ButtonMouseClicked
-        Main.transitionToPage(2);
+        Main.transitionToPage(3);
     }//GEN-LAST:event_Settings_ButtonMouseClicked
 
     private void Profile_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Profile_ButtonMouseClicked
@@ -576,11 +578,11 @@ public class ForceModeSetup extends javax.swing.JPanel {
 
     private void StartButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartButtonMouseClicked
         if (multiplayer == false)
-        Main.createForceMode(forceGoal);
-        else {
-            // Code to create competition
+        Main.createForceMode(multiplayer, forceGoal, timerMin, timerSec);
+        else 
+        {
+            Main.multiplayer(numPlayers);
         }
-
     }//GEN-LAST:event_StartButtonMouseClicked
 
     private void About_Button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_About_Button1MouseClicked
@@ -588,7 +590,7 @@ public class ForceModeSetup extends javax.swing.JPanel {
     }//GEN-LAST:event_About_Button1MouseClicked
 
     private void Settings_Button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Settings_Button1MouseClicked
-        Main.transitionToPage(2);
+        Main.transitionToPage(3);
     }//GEN-LAST:event_Settings_Button1MouseClicked
 
     private void Profile_Button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Profile_Button1MouseClicked
@@ -596,16 +598,22 @@ public class ForceModeSetup extends javax.swing.JPanel {
     }//GEN-LAST:event_Profile_Button1MouseClicked
 
     private void Activity_Button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Activity_Button1MouseClicked
-        Main.createActivity();
+        // TODO add your handling code here:
     }//GEN-LAST:event_Activity_Button1MouseClicked
 
     private void Feedback_Button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Feedback_Button1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_Feedback_Button1MouseClicked
 
-    private void PunchChallengeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PunchChallengeButtonMouseClicked
-        Main.setup(5);
-    }//GEN-LAST:event_PunchChallengeButtonMouseClicked
+    private void StrengthModeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StrengthModeButtonMouseClicked
+        // TODO add your handling code here:
+        Main.setup(4);
+    }//GEN-LAST:event_StrengthModeButtonMouseClicked
+
+    private void ComboModeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ComboModeButtonMouseClicked
+        // TODO add your handling code here:
+        Main.setup(1);
+    }//GEN-LAST:event_ComboModeButtonMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton About_Button;

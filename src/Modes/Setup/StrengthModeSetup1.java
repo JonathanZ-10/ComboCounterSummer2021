@@ -1,33 +1,34 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Modes.Setup;
 
 import Main.Main;
-import Modes.TimedModePanel;
-
-import javax.swing.*;
+import static Main.Main.multiplayer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.Timer;
+
 /**
- * @author Jonathan Zamora
+ *
+ * @author Ylope
  */
-public class TimedModeSetup extends javax.swing.JPanel {
-    // Declaring vars
+public class StrengthModeSetup1 extends javax.swing.JPanel {
         int timerMin = 0;
         int timerSec = 15;
         int numOfPlayers = 2;
+        int forceGoal = 500;
         boolean countDown = true;
         boolean multiplayer = false;
-        
     /**
-     * Creates new form homePagePanel
+     * Creates new form StrengthModeSetup1
      */
-    Timer timer;
-    public TimedModeSetup() 
-    {
-        //Main.playerNum = 2;
-        initComponents();       
+    public StrengthModeSetup1() {
+        initComponents();
         
-        // Setting Visibility States
-        SideBar.setVisible(false);
+          SideBar.setVisible(false);
         TimerPlus.setVisible(false);
         TimerMinus.setVisible(false);
         NumPlayersMinus.setVisible(false);
@@ -37,15 +38,14 @@ public class TimedModeSetup extends javax.swing.JPanel {
         NumOfPlayers.setVisible(false);
         NumPlayersPlus.setVisible(false);
         NumPlayersMinus.setVisible(false);
-    }
     
-    public void update()
+    }
+ public void update()
     {
         String sec = String.format("%02d", timerSec);
         String min = String.valueOf(timerMin);
         Timer.setText(min + ":" + sec);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,22 +56,10 @@ public class TimedModeSetup extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        ComboCounterTitle1 = new javax.swing.JLabel();
-        SidebarButton1 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        Timer1 = new javax.swing.JLabel();
-        NumPlayersPlus1 = new javax.swing.JLabel();
-        NumPlayersMinus1 = new javax.swing.JLabel();
-        StartButton1 = new javax.swing.JButton();
-        Competition_Button1 = new javax.swing.JLabel();
-        Training_Button1 = new javax.swing.JLabel();
-        NumOfPlayers1 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        NumOfPlayersText1 = new javax.swing.JLabel();
-        TimerMinus1 = new javax.swing.JLabel();
-        TimerPlus1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        SidebarButton = new javax.swing.JLabel();
+        ComboCounterTitle = new javax.swing.JLabel();
         SideBar = new javax.swing.JPanel();
         jPanel1.setVisible(false);
         About_Button = new javax.swing.JButton();
@@ -94,14 +82,11 @@ public class TimedModeSetup extends javax.swing.JPanel {
         About_Button.setOpaque(false);
         About_Button.setContentAreaFilled(false);
         //jButton1.setBorderPainted(false);
-        jPanel2 = new javax.swing.JPanel();
-        ComboCounterTitle = new javax.swing.JLabel();
-        SidebarButton = new javax.swing.JLabel();
-        PunchChallengeButton1 = new javax.swing.JLabel();
+        PunchChallengeButton = new javax.swing.JLabel();
         ForceModeButton = new javax.swing.JLabel();
-        TimedModeButton = new javax.swing.JLabel();
-        ComboModeButton = new javax.swing.JLabel();
         StrengthModeButton = new javax.swing.JLabel();
+        ComboModeButton = new javax.swing.JLabel();
+        TimeModeButton = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         Timer = new javax.swing.JLabel();
@@ -115,12 +100,16 @@ public class TimedModeSetup extends javax.swing.JPanel {
         NumOfPlayersText = new javax.swing.JLabel();
         TimerMinus = new javax.swing.JLabel();
         TimerPlus = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        ForceGoal = new javax.swing.JLabel();
+        ForceGoalMinus = new javax.swing.JLabel();
+        ForceGoalPlus = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 55));
+        setAlignmentX(0.0F);
+        setAlignmentY(0.0F);
         setMaximumSize(new java.awt.Dimension(768, 1024));
         setMinimumSize(new java.awt.Dimension(768, 1024));
-        setPreferredSize(new java.awt.Dimension(768, 1024));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 55));
         jPanel1.setMaximumSize(new java.awt.Dimension(768, 1024));
@@ -128,140 +117,31 @@ public class TimedModeSetup extends javax.swing.JPanel {
         jPanel1.setPreferredSize(new java.awt.Dimension(768, 1024));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(51, 51, 56));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.setBackground(new java.awt.Color(0, 0, 55));
+        jPanel2.setMaximumSize(new java.awt.Dimension(768, 1024));
+        jPanel2.setMinimumSize(new java.awt.Dimension(768, 1024));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        ComboCounterTitle1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        ComboCounterTitle1.setForeground(new java.awt.Color(240, 240, 240));
-        ComboCounterTitle1.setText("ComboCounter");
-        jPanel3.add(ComboCounterTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
+        jPanel4.setBackground(new java.awt.Color(51, 51, 56));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        SidebarButton1.setBackground(new java.awt.Color(51, 51, 56));
-        SidebarButton1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        SidebarButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/menuIcon.png"))); // NOI18N
-        SidebarButton1.setOpaque(true);
-        SidebarButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        SidebarButton.setBackground(new java.awt.Color(51, 51, 56));
+        SidebarButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        SidebarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/menuIcon.png"))); // NOI18N
+        SidebarButton.setOpaque(true);
+        SidebarButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SidebarButton1MouseClicked(evt);
+                SidebarButtonMouseClicked(evt);
             }
         });
-        jPanel3.add(SidebarButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 60, 55));
+        jPanel4.add(SidebarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 60, 55));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 755, 80));
+        ComboCounterTitle.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        ComboCounterTitle.setForeground(new java.awt.Color(240, 240, 240));
+        ComboCounterTitle.setText("ComboCounter");
+        jPanel4.add(ComboCounterTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Timer");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 280, 180, 40));
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("Timed Mode");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 230, 50));
-
-        Timer1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        Timer1.setForeground(new java.awt.Color(240, 240, 240));
-        Timer1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Timer1.setText("0:15");
-        Timer1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Timer1MouseClicked(evt);
-            }
-        });
-        jPanel1.add(Timer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 170, 40));
-
-        NumPlayersPlus1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/circlePlusIcon.png"))); // NOI18N
-        NumPlayersPlus1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                NumPlayersPlus1MouseClicked(evt);
-            }
-        });
-        jPanel1.add(NumPlayersPlus1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 690, -1, 40));
-
-        NumPlayersMinus1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/circleMinusIcon.png"))); // NOI18N
-        NumPlayersMinus1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                NumPlayersMinus1MouseClicked(evt);
-            }
-        });
-        jPanel1.add(NumPlayersMinus1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 690, -1, 40));
-
-        StartButton1.setBackground(new java.awt.Color(51, 51, 56));
-        StartButton1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        StartButton1.setForeground(new java.awt.Color(240, 240, 240));
-        StartButton1.setText("Start");
-        StartButton1.setContentAreaFilled(false);
-        StartButton1.setFocusPainted(false);
-        StartButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                StartButton1MouseClicked(evt);
-            }
-        });
-        jPanel1.add(StartButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 790, 180, 70));
-
-        Competition_Button1.setBackground(new java.awt.Color(51, 51, 56));
-        Competition_Button1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Competition_Button1.setForeground(new java.awt.Color(240, 240, 240));
-        Competition_Button1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Competition_Button1.setText("Competition");
-        Competition_Button1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Competition_Button1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Competition_Button1MouseClicked(evt);
-            }
-        });
-        jPanel1.add(Competition_Button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 580, 210, 60));
-
-        Training_Button1.setBackground(new java.awt.Color(51, 51, 56));
-        Training_Button1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        Training_Button1.setForeground(new java.awt.Color(240, 240, 240));
-        Training_Button1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Training_Button1.setText("Training");
-        Training_Button1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Training_Button1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Training_Button1MouseClicked(evt);
-            }
-        });
-        jPanel1.add(Training_Button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 580, 210, 60));
-
-        NumOfPlayers1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        NumOfPlayers1.setForeground(new java.awt.Color(240, 240, 240));
-        NumOfPlayers1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        NumOfPlayers1.setText("2");
-        jPanel1.add(NumOfPlayers1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 680, 60, 50));
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Player Setting");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 470, 260, 50));
-
-        NumOfPlayersText1.setFont(new java.awt.Font("Tahoma", 0, 32)); // NOI18N
-        NumOfPlayersText1.setForeground(new java.awt.Color(240, 240, 240));
-        NumOfPlayersText1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        NumOfPlayersText1.setText("# of Players:");
-        jPanel1.add(NumOfPlayersText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 680, 220, 50));
-
-        TimerMinus1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/minusIcon.png"))); // NOI18N
-        TimerMinus1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TimerMinus1MouseClicked(evt);
-            }
-        });
-        jPanel1.add(TimerMinus1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, -1, 40));
-
-        TimerPlus1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plusIcon.png"))); // NOI18N
-        TimerPlus1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TimerPlus1MouseClicked(evt);
-            }
-        });
-        jPanel1.add(TimerPlus1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, -1, 40));
-
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 755, 80));
 
         SideBar.setBackground(new java.awt.Color(51, 51, 56));
         SideBar.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 5, 5, 0, new java.awt.Color(0, 0, 0)));
@@ -339,31 +219,10 @@ public class TimedModeSetup extends javax.swing.JPanel {
         });
         SideBar.add(Feedback_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 180, 60));
 
-        add(SideBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(505, 80, 250, 530));
+        jPanel2.add(SideBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(505, 80, 250, 530));
 
-        jPanel2.setBackground(new java.awt.Color(51, 51, 56));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        ComboCounterTitle.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        ComboCounterTitle.setForeground(new java.awt.Color(240, 240, 240));
-        ComboCounterTitle.setText("ComboCounter");
-        jPanel2.add(ComboCounterTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
-
-        SidebarButton.setBackground(new java.awt.Color(51, 51, 56));
-        SidebarButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        SidebarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/menuIcon.png"))); // NOI18N
-        SidebarButton.setOpaque(true);
-        SidebarButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SidebarButtonMouseClicked(evt);
-            }
-        });
-        jPanel2.add(SidebarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 60, 55));
-
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 755, 80));
-
-        PunchChallengeButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/emptyCircleIcon.png"))); // NOI18N
-        add(PunchChallengeButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 30, 30));
+        PunchChallengeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/emptyCircleIcon.png"))); // NOI18N
+        jPanel2.add(PunchChallengeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, 30, 30));
 
         ForceModeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/emptyCircleIcon.png"))); // NOI18N
         ForceModeButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -371,10 +230,10 @@ public class TimedModeSetup extends javax.swing.JPanel {
                 ForceModeButtonMouseClicked(evt);
             }
         });
-        add(ForceModeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, 30, 30));
+        jPanel2.add(ForceModeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, 30, 30));
 
-        TimedModeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/filledCircleIcon.png"))); // NOI18N
-        add(TimedModeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 30, 30));
+        StrengthModeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/filledCircleIcon.png"))); // NOI18N
+        jPanel2.add(StrengthModeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 30, 30));
 
         ComboModeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/emptyCircleIcon.png"))); // NOI18N
         ComboModeButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -382,27 +241,27 @@ public class TimedModeSetup extends javax.swing.JPanel {
                 ComboModeButtonMouseClicked(evt);
             }
         });
-        add(ComboModeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 30, 30));
+        jPanel2.add(ComboModeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 30, 30));
 
-        StrengthModeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/emptyCircleIcon.png"))); // NOI18N
-        StrengthModeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        TimeModeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/emptyCircleIcon.png"))); // NOI18N
+        TimeModeButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                StrengthModeButtonMouseClicked(evt);
+                TimeModeButtonMouseClicked(evt);
             }
         });
-        add(StrengthModeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 30, 30));
+        jPanel2.add(TimeModeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 30, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(240, 240, 240));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Timer");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 280, 180, 40));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 180, 40));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(240, 240, 240));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Timed Mode");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 230, 50));
+        jLabel11.setText("Strength Mode");
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 320, 50));
 
         Timer.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         Timer.setForeground(new java.awt.Color(240, 240, 240));
@@ -413,7 +272,7 @@ public class TimedModeSetup extends javax.swing.JPanel {
                 TimerMouseClicked(evt);
             }
         });
-        add(Timer, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 170, 40));
+        jPanel2.add(Timer, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 170, 40));
 
         NumPlayersPlus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/circlePlusIcon.png"))); // NOI18N
         NumPlayersPlus.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -421,7 +280,7 @@ public class TimedModeSetup extends javax.swing.JPanel {
                 NumPlayersPlusMouseClicked(evt);
             }
         });
-        add(NumPlayersPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 690, -1, 40));
+        jPanel2.add(NumPlayersPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 690, -1, 40));
 
         NumPlayersMinus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/circleMinusIcon.png"))); // NOI18N
         NumPlayersMinus.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -429,7 +288,7 @@ public class TimedModeSetup extends javax.swing.JPanel {
                 NumPlayersMinusMouseClicked(evt);
             }
         });
-        add(NumPlayersMinus, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 690, -1, 40));
+        jPanel2.add(NumPlayersMinus, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 690, -1, 40));
 
         StartButton.setBackground(new java.awt.Color(51, 51, 56));
         StartButton.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -442,7 +301,7 @@ public class TimedModeSetup extends javax.swing.JPanel {
                 StartButtonMouseClicked(evt);
             }
         });
-        add(StartButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 790, 180, 70));
+        jPanel2.add(StartButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 790, 180, 70));
 
         Competition_Button.setBackground(new java.awt.Color(51, 51, 56));
         Competition_Button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -455,7 +314,7 @@ public class TimedModeSetup extends javax.swing.JPanel {
                 Competition_ButtonMouseClicked(evt);
             }
         });
-        add(Competition_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 580, 210, 60));
+        jPanel2.add(Competition_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 580, 210, 60));
 
         Training_Button.setBackground(new java.awt.Color(51, 51, 56));
         Training_Button.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -468,25 +327,25 @@ public class TimedModeSetup extends javax.swing.JPanel {
                 Training_ButtonMouseClicked(evt);
             }
         });
-        add(Training_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 580, 210, 60));
+        jPanel2.add(Training_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 580, 210, 60));
 
         NumOfPlayers.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         NumOfPlayers.setForeground(new java.awt.Color(240, 240, 240));
         NumOfPlayers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         NumOfPlayers.setText("2");
-        add(NumOfPlayers, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 680, 60, 50));
+        jPanel2.add(NumOfPlayers, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 680, 60, 50));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(240, 240, 240));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Player Setting");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 470, 260, 50));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 500, 260, 50));
 
         NumOfPlayersText.setFont(new java.awt.Font("Tahoma", 0, 32)); // NOI18N
         NumOfPlayersText.setForeground(new java.awt.Color(240, 240, 240));
         NumOfPlayersText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         NumOfPlayersText.setText("# of Players:");
-        add(NumOfPlayersText, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 680, 220, 50));
+        jPanel2.add(NumOfPlayersText, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 680, 220, 50));
 
         TimerMinus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/minusIcon.png"))); // NOI18N
         TimerMinus.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -494,7 +353,7 @@ public class TimedModeSetup extends javax.swing.JPanel {
                 TimerMinusMouseClicked(evt);
             }
         });
-        add(TimerMinus, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, -1, 40));
+        jPanel2.add(TimerMinus, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, -1, 40));
 
         TimerPlus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plusIcon.png"))); // NOI18N
         TimerPlus.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -502,8 +361,85 @@ public class TimedModeSetup extends javax.swing.JPanel {
                 TimerPlusMouseClicked(evt);
             }
         });
-        add(TimerPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, -1, 40));
+        jPanel2.add(TimerPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 300, -1, 40));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(240, 240, 240));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel8.setText("Force Goal");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, 180, 40));
+
+        ForceGoal.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        ForceGoal.setForeground(new java.awt.Color(240, 240, 240));
+        ForceGoal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ForceGoal.setText("500");
+        ForceGoal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ForceGoalMouseClicked(evt);
+            }
+        });
+        jPanel2.add(ForceGoal, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 430, 190, 40));
+
+        ForceGoalMinus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/minusIcon.png"))); // NOI18N
+        ForceGoalMinus.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ForceGoalMinusMouseClicked(evt);
+            }
+        });
+        jPanel2.add(ForceGoalMinus, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 430, -1, 40));
+
+        ForceGoalPlus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plusIcon.png"))); // NOI18N
+        ForceGoalPlus.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ForceGoalPlusMouseClicked(evt);
+            }
+        });
+        jPanel2.add(ForceGoalPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 430, -1, 40));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(751, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 803, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(366, 366, 366))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1920, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(57, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 999, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void SidebarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SidebarButtonMouseClicked
+         if (Main.sidebarOpen == false)
+        {
+            SideBar.setVisible(true) ;
+            Main.sidebarOpen = true ;
+        }
+        else if (Main.sidebarOpen == true)
+        {
+            SideBar.setVisible(false);
+            Main.sidebarOpen = false ;
+        }
+    }//GEN-LAST:event_SidebarButtonMouseClicked
+
+    private void ForceModeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForceModeButtonMouseClicked
+        Main.setup(2);
+    }//GEN-LAST:event_ForceModeButtonMouseClicked
 
     private void TimerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TimerMouseClicked
         TimerMinus.setVisible(true);
@@ -516,118 +452,6 @@ public class TimedModeSetup extends javax.swing.JPanel {
         time.setRepeats(false);
         time.start();
     }//GEN-LAST:event_TimerMouseClicked
-
-    private void Competition_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Competition_ButtonMouseClicked
-        if (multiplayer == false)
-        {
-            multiplayer = true ;
-            Competition_Button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-            Training_Button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-            
-            // Visiblity to add players
-            NumOfPlayersText.setVisible(true);
-            NumOfPlayers.setVisible(true);
-            NumPlayersPlus.setVisible(true);
-            NumPlayersMinus.setVisible(true);
-            
-        }
-    }//GEN-LAST:event_Competition_ButtonMouseClicked
-
-    private void Training_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Training_ButtonMouseClicked
-        if (multiplayer == true)
-        {
-            multiplayer = false ;
-            Training_Button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-            Competition_Button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-            
-            // Removes # of Players Visibility
-            NumOfPlayersText.setVisible(false);
-            NumOfPlayers.setVisible(false);
-            NumPlayersPlus.setVisible(false);
-            NumPlayersMinus.setVisible(false);
-        }
-    }//GEN-LAST:event_Training_ButtonMouseClicked
-
-    private void TimerMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TimerMinusMouseClicked
-        // 0:15 - 2:00 decreases by 15s | 2:00-5:00 decreases by 30s
-        // 5:00 - 20:00 decreases by 1m | 20:00 - 30:00 decreases by 5m
-        if (timerMin == 0 && timerSec == 15)
-            return;
-        
-        if (timerMin < 2)
-        {   
-            if(timerSec == 00)
-            {
-                timerMin--;
-                timerSec = 45;
-            }
-            else
-                timerSec -= 15;
-
-            update();
-        }
-        else if (timerMin < 5)
-        {
-            if(timerSec == 00)
-            {
-                timerMin--;
-                timerSec = 30;
-            }
-            else
-                timerSec -= 30;
-
-            update();
-        }
-        else if (timerMin < 20)
-        {
-            timerMin-= 1;
-            update();
-        }
-        else if (timerMin < 30)
-        {
-            timerMin-= 5;
-            update();
-        }
-    }//GEN-LAST:event_TimerMinusMouseClicked
-
-    private void TimerPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TimerPlusMouseClicked
-        // 0:15 - 2:00 increases by 15s | 2:00-5:00 increases by 30s
-        // 5:00 - 20:00 increases by 1m | 20:00 - 30:00 increases by 5m
-        if (timerMin < 2)
-        {   
-            if(timerSec == 45)
-            {
-                timerMin++;
-                timerSec = 0;
-            }
-            else
-                timerSec += 15;
-
-            update();
-        }
-        else if (timerMin < 5)
-        {   
-            if(timerSec == 30)
-            {
-                timerMin++;
-                timerSec = 0;
-            }
-            else
-                timerSec += 30;
-
-            update();
-        }
-        else if (timerMin < 20)
-        {
-            timerMin+= 1;
-            update();
-        }
-        else if (timerMin < 30)
-        {
-            timerMin+= 5;
-            update();
-        }
-    }//GEN-LAST:event_TimerPlusMouseClicked
 
     private void NumPlayersPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NumPlayersPlusMouseClicked
         if (Main.playerNum < 10)
@@ -649,12 +473,183 @@ public class TimedModeSetup extends javax.swing.JPanel {
 
     private void StartButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartButtonMouseClicked
         if (multiplayer == false)
-            Main.createTimedMode(timerMin, timerSec);
+        Main.createStrengthMode();
         else {
-          Main.multiplayerTimed(numOfPlayers);
-                    }
-        
+        Main.multiplayerStrength(numOfPlayers);
+        }
+
     }//GEN-LAST:event_StartButtonMouseClicked
+
+    private void Competition_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Competition_ButtonMouseClicked
+        if (multiplayer == false)
+        {
+            multiplayer = true ;
+            Competition_Button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+            Training_Button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+            // Visiblity to add players
+            NumOfPlayersText.setVisible(true);
+            NumOfPlayers.setVisible(true);
+            NumPlayersPlus.setVisible(true);
+            NumPlayersMinus.setVisible(true);
+
+        }
+    }//GEN-LAST:event_Competition_ButtonMouseClicked
+
+    private void Training_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Training_ButtonMouseClicked
+        if (multiplayer == true)
+        {
+            multiplayer = false ;
+            Training_Button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+            Competition_Button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+            // Removes # of Players Visibility
+            NumOfPlayersText.setVisible(false);
+            NumOfPlayers.setVisible(false);
+            NumPlayersPlus.setVisible(false);
+            NumPlayersMinus.setVisible(false);
+        }
+    }//GEN-LAST:event_Training_ButtonMouseClicked
+
+    private void TimerMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TimerMinusMouseClicked
+        // 0:15 - 2:00 decreases by 15s | 2:00-5:00 decreases by 30s
+        // 5:00 - 20:00 decreases by 1m | 20:00 - 30:00 decreases by 5m
+        if (timerMin == 0 && timerSec == 15)
+        return;
+
+        if (timerMin < 2)
+        {
+            if(timerSec == 00)
+            {
+                timerMin--;
+                timerSec = 45;
+            }
+            else
+            timerSec -= 15;
+
+            update();
+        }
+        else if (timerMin < 5)
+        {
+            if(timerSec == 00)
+            {
+                timerMin--;
+                timerSec = 30;
+            }
+            else
+            timerSec -= 30;
+
+            update();
+        }
+        else if (timerMin < 20)
+        {
+            timerMin-= 1;
+            update();
+        }
+        else if (timerMin < 30)
+        {
+            timerMin-= 5;
+            update();
+        }
+    }//GEN-LAST:event_TimerMinusMouseClicked
+
+    private void TimerPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TimerPlusMouseClicked
+        // 0:15 - 2:00 increases by 15s | 2:00-5:00 increases by 30s
+        // 5:00 - 20:00 increases by 1m | 20:00 - 30:00 increases by 5m
+        if (timerMin < 2)
+        {
+            if(timerSec == 45)
+            {
+                timerMin++;
+                timerSec = 0;
+            }
+            else
+            timerSec += 15;
+
+            update();
+        }
+        else if (timerMin < 5)
+        {
+            if(timerSec == 30)
+            {
+                timerMin++;
+                timerSec = 0;
+            }
+            else
+            timerSec += 30;
+
+            update();
+        }
+        else if (timerMin < 20)
+        {
+            timerMin+= 1;
+            update();
+        }
+        else if (timerMin < 30)
+        {
+            timerMin+= 5;
+            update();
+        }
+    }//GEN-LAST:event_TimerPlusMouseClicked
+
+    private void TimeModeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TimeModeButtonMouseClicked
+        // TODO add your handling code here:
+        Main.setup(3);
+    }//GEN-LAST:event_TimeModeButtonMouseClicked
+
+    private void ForceGoalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForceGoalMouseClicked
+        ForceGoalMinus.setVisible(true);
+        ForceGoalPlus.setVisible(true);
+        ActionListener taskPerformer = new ActionListener()
+        {
+            public void actionPerformed(ActionEvent evt)
+            {
+                ForceGoalMinus.setVisible(false);
+                ForceGoalPlus.setVisible(false);
+            }
+        };
+        Timer timer = new Timer(7000, taskPerformer);
+        timer.setRepeats(false);
+        timer.start();
+    }//GEN-LAST:event_ForceGoalMouseClicked
+
+    private void ForceGoalMinusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForceGoalMinusMouseClicked
+        if (forceGoal <= 3000)
+        {
+            forceGoal -= 500;
+        }
+        else if (forceGoal <= 10000)
+        {
+            forceGoal -= 1000;
+        }
+        else if (forceGoal <= 100000)
+        {
+            forceGoal -= 5000;
+        }
+        String frcGoal = String.valueOf(forceGoal);
+        ForceGoal.setText(frcGoal);
+    }//GEN-LAST:event_ForceGoalMinusMouseClicked
+
+    private void ForceGoalPlusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForceGoalPlusMouseClicked
+        if (forceGoal < 3000)
+        {
+            forceGoal += 500;
+        }
+        else if (forceGoal < 10000)
+        {
+            forceGoal += 1000;
+        }
+        else if (forceGoal < 100000)
+        {
+            forceGoal += 5000;
+        }
+        ForceGoal.setText(String.format("%,d", forceGoal));
+    }//GEN-LAST:event_ForceGoalPlusMouseClicked
+
+    private void ComboModeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ComboModeButtonMouseClicked
+        // TODO add your handling code here:
+        Main.setup(1);
+    }//GEN-LAST:event_ComboModeButtonMouseClicked
 
     private void About_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_About_ButtonMouseClicked
         // TODO add your handling code here:
@@ -676,114 +671,40 @@ public class TimedModeSetup extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Feedback_ButtonMouseClicked
 
-    private void SidebarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SidebarButtonMouseClicked
-        if (Main.sidebarOpen == false)
-        {
-            SideBar.setVisible(true) ;
-            Main.sidebarOpen = true ;
-        }
-        else if (Main.sidebarOpen == true)
-        {
-            SideBar.setVisible(false);
-            Main.sidebarOpen = false ;
-        }
-    }//GEN-LAST:event_SidebarButtonMouseClicked
-
-    private void Timer1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Timer1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Timer1MouseClicked
-
-    private void NumPlayersPlus1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NumPlayersPlus1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NumPlayersPlus1MouseClicked
-
-    private void NumPlayersMinus1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NumPlayersMinus1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NumPlayersMinus1MouseClicked
-
-    private void StartButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartButton1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_StartButton1MouseClicked
-
-    private void Competition_Button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Competition_Button1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Competition_Button1MouseClicked
-
-    private void Training_Button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Training_Button1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Training_Button1MouseClicked
-
-    private void TimerMinus1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TimerMinus1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TimerMinus1MouseClicked
-
-    private void TimerPlus1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TimerPlus1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TimerPlus1MouseClicked
-
-    private void SidebarButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SidebarButton1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SidebarButton1MouseClicked
-
-    private void StrengthModeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StrengthModeButtonMouseClicked
-        // TODO add your handling code here:
-        Main.setup(4);
-    }//GEN-LAST:event_StrengthModeButtonMouseClicked
-
-    private void ComboModeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ComboModeButtonMouseClicked
-        // TODO add your handling code here:
-        Main.setup(1);
-    }//GEN-LAST:event_ComboModeButtonMouseClicked
-
-    private void ForceModeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForceModeButtonMouseClicked
-        // TODO add your handling code here:
-        Main.setup(2);
-    }//GEN-LAST:event_ForceModeButtonMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton About_Button;
     private javax.swing.JButton Activity_Button;
     private javax.swing.JLabel ComboCounterTitle;
-    private javax.swing.JLabel ComboCounterTitle1;
     private javax.swing.JLabel ComboModeButton;
     private javax.swing.JLabel Competition_Button;
-    private javax.swing.JLabel Competition_Button1;
     private javax.swing.JButton Feedback_Button;
+    private javax.swing.JLabel ForceGoal;
+    private javax.swing.JLabel ForceGoalMinus;
+    private javax.swing.JLabel ForceGoalPlus;
     private javax.swing.JLabel ForceModeButton;
     private javax.swing.JLabel NumOfPlayers;
-    private javax.swing.JLabel NumOfPlayers1;
     private javax.swing.JLabel NumOfPlayersText;
-    private javax.swing.JLabel NumOfPlayersText1;
     private javax.swing.JLabel NumPlayersMinus;
-    private javax.swing.JLabel NumPlayersMinus1;
     private javax.swing.JLabel NumPlayersPlus;
-    private javax.swing.JLabel NumPlayersPlus1;
     private javax.swing.JButton Profile_Button;
-    private javax.swing.JLabel PunchChallengeButton1;
+    private javax.swing.JLabel PunchChallengeButton;
     private javax.swing.JButton Settings_Button;
     private javax.swing.JPanel SideBar;
     private javax.swing.JLabel SidebarButton;
-    private javax.swing.JLabel SidebarButton1;
     private javax.swing.JButton StartButton;
-    private javax.swing.JButton StartButton1;
     private javax.swing.JLabel StrengthModeButton;
-    private javax.swing.JLabel TimedModeButton;
+    private javax.swing.JLabel TimeModeButton;
     private javax.swing.JLabel Timer;
-    private javax.swing.JLabel Timer1;
     private javax.swing.JLabel TimerMinus;
-    private javax.swing.JLabel TimerMinus1;
     private javax.swing.JLabel TimerPlus;
-    private javax.swing.JLabel TimerPlus1;
     private javax.swing.JLabel Training_Button;
-    private javax.swing.JLabel Training_Button1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }

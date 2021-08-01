@@ -1,64 +1,39 @@
-package Modes;
-
-import Main.Main;
-import static java.lang.Thread.sleep;
-import java.util.Arrays;
-import java.util.Random;
-import javax.swing.JOptionPane;
-
-/**
- * @author Jonathan Zamora
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
-public class TimedModePanel extends javax.swing.JPanel {
-    
-    // Declaring vars
-    int timerMin = 0;
-    int timerSec = 15;
+package Modes;
+import Main.Main;
+import static Modes.ForceModePanel.generateRandNums;
+import javax.swing.JOptionPane;
+/**
+ *
+ * @author Ylope
+ */
+public class StrengthModePanel1 extends javax.swing.JPanel {
+
+    int timerSec = 0 ;
+    int timerMin = 0 ;
+    int forceGoal ;
     int playerNum = 2;
     boolean countDown = true;
     boolean paused = true;
     int index = 0;
     int totalForce = 0;
     boolean start;
-        
     /**
-     * Initiates TimedModePanel components
-     * @param timerMin
-     * @param timerSec
+     * Creates new form StrengthModePanel1
      */
-    public TimedModePanel(int timerMin, int timerSec) 
-    {
+    public StrengthModePanel1() {
         initComponents();
-        
-        this.timerMin = timerMin;
-        this.timerSec = timerSec;
-        update();
-        
-        // Setting states
-        SideBar.setVisible(false);
-        NextPlayer.setVisible(false);
-        PreviousPlayer.setVisible(false);
     }
-    
-    /**
-     * Updates the timer text
-     */
-    public void update()
+public void update()
     {
         String minute_str = String.format("%02d", timerMin);
         String second_str = String.format("%02d", timerSec);
         timer.setText(minute_str + ":" + second_str);
     }
-    
-    public static int[] generateRandNums(int max, int[] randNums){
-        Random r = new Random();
-        for(int i = 0; i < randNums.length; i++){
-            randNums[i] = r.nextInt(max) + 1000;
-        }
-        Arrays.sort(randNums);
-        return randNums;
-    }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -68,7 +43,9 @@ public class TimedModePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         SideBar = new javax.swing.JPanel();
+        jPanel1.setVisible(false);
         About_Button = new javax.swing.JButton();
         About_Button.setOpaque(false);
         About_Button.setContentAreaFilled(false);
@@ -89,10 +66,6 @@ public class TimedModePanel extends javax.swing.JPanel {
         About_Button.setOpaque(false);
         About_Button.setContentAreaFilled(false);
         //jButton1.setBorderPainted(false);
-        jPanel2 = new javax.swing.JPanel();
-        ComboCounterTitle = new javax.swing.JLabel();
-        BackButton = new javax.swing.JLabel();
-        SidebarButton = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         PlayPauseButton = new javax.swing.JLabel();
         PreviousPlayer = new javax.swing.JLabel();
@@ -102,12 +75,29 @@ public class TimedModePanel extends javax.swing.JPanel {
         TotalForce = new javax.swing.JLabel();
         timer = new javax.swing.JLabel();
         TotalForceLabel = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        ComboCounterTitle = new javax.swing.JLabel();
+        BackButton = new javax.swing.JLabel();
+        SidebarButton = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 55));
         setMaximumSize(new java.awt.Dimension(768, 1024));
         setMinimumSize(new java.awt.Dimension(768, 1024));
-        setPreferredSize(new java.awt.Dimension(768, 1024));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(0, 0, 55));
+        jPanel1.setMaximumSize(new java.awt.Dimension(768, 1024));
+        jPanel1.setMinimumSize(new java.awt.Dimension(768, 1024));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
         SideBar.setBackground(new java.awt.Color(51, 51, 56));
         SideBar.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 5, 5, 0, new java.awt.Color(0, 0, 0)));
@@ -169,6 +159,11 @@ public class TimedModePanel extends javax.swing.JPanel {
                 Activity_ButtonMouseClicked(evt);
             }
         });
+        Activity_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Activity_ButtonActionPerformed(evt);
+            }
+        });
         SideBar.add(Activity_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 160, 60));
 
         Feedback_Button.setBackground(new java.awt.Color(51, 51, 56));
@@ -184,37 +179,6 @@ public class TimedModePanel extends javax.swing.JPanel {
             }
         });
         SideBar.add(Feedback_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 180, 60));
-
-        add(SideBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(505, 80, 250, 530));
-
-        jPanel2.setBackground(new java.awt.Color(51, 51, 56));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        ComboCounterTitle.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        ComboCounterTitle.setForeground(new java.awt.Color(240, 240, 240));
-        ComboCounterTitle.setText("ComboCounter");
-        jPanel2.add(ComboCounterTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
-
-        BackButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backIcon.png"))); // NOI18N
-        BackButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BackButtonMouseClicked(evt);
-            }
-        });
-        jPanel2.add(BackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        SidebarButton.setBackground(new java.awt.Color(51, 51, 56));
-        SidebarButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        SidebarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/menuIcon.png"))); // NOI18N
-        SidebarButton.setOpaque(true);
-        SidebarButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SidebarButtonMouseClicked(evt);
-            }
-        });
-        jPanel2.add(SidebarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 60, 55));
-
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 755, 80));
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 56));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -244,26 +208,138 @@ public class TimedModePanel extends javax.swing.JPanel {
         NextPlayer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/nextPlayerIcon.png"))); // NOI18N
         jPanel3.add(NextPlayer, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 80, 80));
 
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 635, 755, 350));
-
         TotalForce.setFont(new java.awt.Font("Tahoma", 0, 60)); // NOI18N
         TotalForce.setForeground(new java.awt.Color(240, 240, 240));
         TotalForce.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         TotalForce.setText("0");
-        add(TotalForce, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 550, 210, 60));
 
         timer.setFont(new java.awt.Font("Tahoma", 0, 100)); // NOI18N
         timer.setForeground(new java.awt.Color(240, 240, 240));
         timer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         timer.setText("--:--");
-        add(timer, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 500, -1));
 
         TotalForceLabel.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         TotalForceLabel.setForeground(new java.awt.Color(240, 240, 240));
         TotalForceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TotalForceLabel.setText("Total Force:");
-        add(TotalForceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, 280, 80));
+
+        jPanel2.setBackground(new java.awt.Color(51, 51, 56));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ComboCounterTitle.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        ComboCounterTitle.setForeground(new java.awt.Color(240, 240, 240));
+        ComboCounterTitle.setText("ComboCounter");
+        jPanel2.add(ComboCounterTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
+
+        BackButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backIcon.png"))); // NOI18N
+        BackButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BackButtonMouseClicked(evt);
+            }
+        });
+        jPanel2.add(BackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        SidebarButton.setBackground(new java.awt.Color(51, 51, 56));
+        SidebarButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        SidebarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/menuIcon.png"))); // NOI18N
+        SidebarButton.setOpaque(true);
+        SidebarButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SidebarButtonMouseClicked(evt);
+            }
+        });
+        jPanel2.add(SidebarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 60, 55));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(251, 251, 251)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(517, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 755, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(TotalForceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(290, 290, 290)
+                                    .addComponent(TotalForce, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(495, 495, 495)
+                                    .addComponent(SideBar, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(140, 140, 140)
+                                    .addComponent(timer, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 755, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(155, 155, 155)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(869, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(460, 460, 460)
+                            .addComponent(TotalForceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(470, 470, 470)
+                            .addComponent(TotalForce, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(SideBar, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(160, 160, 160)
+                            .addComponent(timer)))
+                    .addGap(15, 15, 15)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void About_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_About_ButtonMouseClicked
+        /*start = false;
+        int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
+        if (response == JOptionPane.YES_OPTION)
+        // Page to transition to*/
+    }//GEN-LAST:event_About_ButtonMouseClicked
+
+    private void Settings_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Settings_ButtonMouseClicked
+        start = false;
+        int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
+        if (response == JOptionPane.YES_OPTION)
+        Main.transitionToPage(2);
+    }//GEN-LAST:event_Settings_ButtonMouseClicked
+
+    private void Profile_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Profile_ButtonMouseClicked
+        /*start = false;
+        int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
+        if (response == JOptionPane.YES_OPTION)
+        // Page to transition to*/
+    }//GEN-LAST:event_Profile_ButtonMouseClicked
+
+    private void Activity_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Activity_ButtonMouseClicked
+        /*start = false;
+        int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
+        if (response == JOptionPane.YES_OPTION)
+        // Page to transition to*/
+    }//GEN-LAST:event_Activity_ButtonMouseClicked
+
+    private void Feedback_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Feedback_ButtonMouseClicked
+        /*start = false;
+        int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
+        if (response == JOptionPane.YES_OPTION)
+        // Page to transition to*/
+    }//GEN-LAST:event_Feedback_ButtonMouseClicked
 
     private void PlayPauseButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlayPauseButtonMouseClicked
         if (paused == true)
@@ -282,7 +358,7 @@ public class TimedModePanel extends javax.swing.JPanel {
                         try{
                             sleep(1000);
                             timerSec-= 1;
-                            
+
                             // Increases Total Force randomly
                             if (timerSec % 2 == 0)
                             {
@@ -291,12 +367,12 @@ public class TimedModePanel extends javax.swing.JPanel {
                                 TotalForce.setText(tf);
                                 index++;
                             }
-                            
+
                             if(timerSec == -1){
                                 timerMin--;
                                 timerSec = 59;
                             }
-                            
+
                             if(timerSec == 0 && timerMin == 0){
                                 update();
                                 return;
@@ -326,41 +402,6 @@ public class TimedModePanel extends javax.swing.JPanel {
         Main.setup(3);
     }//GEN-LAST:event_BackButtonMouseClicked
 
-    private void About_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_About_ButtonMouseClicked
-        /*start = false;
-        int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
-        if (response == JOptionPane.YES_OPTION)
-           // Page to transition to*/
-    }//GEN-LAST:event_About_ButtonMouseClicked
-
-    private void Settings_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Settings_ButtonMouseClicked
-        start = false;
-        int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
-        if (response == JOptionPane.YES_OPTION)
-            Main.transitionToPage(3);
-    }//GEN-LAST:event_Settings_ButtonMouseClicked
-
-    private void Profile_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Profile_ButtonMouseClicked
-        /*start = false;
-        int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
-        if (response == JOptionPane.YES_OPTION)
-           // Page to transition to*/
-    }//GEN-LAST:event_Profile_ButtonMouseClicked
-
-    private void Activity_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Activity_ButtonMouseClicked
-        /*start = false;
-        int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
-        if (response == JOptionPane.YES_OPTION)
-           // Page to transition to*/
-    }//GEN-LAST:event_Activity_ButtonMouseClicked
-
-    private void Feedback_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Feedback_ButtonMouseClicked
-        /*start = false;
-        int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
-        if (response == JOptionPane.YES_OPTION)
-           // Page to transition to*/
-    }//GEN-LAST:event_Feedback_ButtonMouseClicked
-
     private void SidebarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SidebarButtonMouseClicked
         if (Main.sidebarOpen == false)
         {
@@ -373,6 +414,11 @@ public class TimedModePanel extends javax.swing.JPanel {
             Main.sidebarOpen = false ;
         }
     }//GEN-LAST:event_SidebarButtonMouseClicked
+
+    private void Activity_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Activity_ButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Activity_ButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton About_Button;
@@ -391,6 +437,7 @@ public class TimedModePanel extends javax.swing.JPanel {
     private javax.swing.JLabel SidebarButton;
     private javax.swing.JLabel TotalForce;
     private javax.swing.JLabel TotalForceLabel;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel timer;

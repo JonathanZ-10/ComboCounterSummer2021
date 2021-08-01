@@ -353,7 +353,7 @@ public class ComboModePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel17MouseClicked
 
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
-        Main.closeFrame();
+        
     }//GEN-LAST:event_jLabel20MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked

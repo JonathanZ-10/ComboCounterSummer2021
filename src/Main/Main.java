@@ -4,17 +4,17 @@ import Modes.Setup.ForceModeSetup;
 import Modes.TimedModePanel;
 import Modes.ComboModePanel;
 import Modes.ForceModePanel;
-//import Modes.Setup.ComboModeSetup;
-import Modes.Setup.ComboModeSetup1;
-//import Modes.Setup.StrengthModeSetup;
-import Modes.Setup.StrengthModeSetup1;
+import Modes.PunchChallengePanel;
+import Modes.Setup.ComboModeSetup;
+import Modes.Setup.StrengthModeSetup;
 import Modes.Setup.TimedModeSetup;
 import Modes.StrengthModePanel;
-import Modes.StrengthModePanel1;
-//import Multiplayer.ForceModeMultiplayer;
 import Multiplayer.MultiplayerForce;
 import Multiplayer.MultiplayerStrength;
 import Multiplayer.MultiplayerTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 /**
  *
@@ -22,6 +22,7 @@ import javax.swing.JFrame;
  */
 public class Main {
    public static JFrame Frame = new JFrame();
+   static ArrayList<Activity> activityList = new ArrayList<Activity>();
     public static void main(String [] args){
         Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Frame.setContentPane(new FirstPage());
@@ -66,6 +67,34 @@ public class Main {
         }
     }
     
+    ///////////////////////////////////////////////////////////////////////////////////
+    //  The following code needs to be completely reworked, the "save" button on     //
+    //  any game mode must save the information but not take you to the activity     //
+    //  panel. This means that the information must be sent to the activity panel    //
+    //  but without opening said activity panel.                                     //
+    ///////////////////////////////////////////////////////////////////////////////////
+    public static void createActivity(int min, int sec, LocalTime time, LocalDate date, String mode, int totalForce)
+    {
+        Activity act = new Activity(min, sec, time, date, mode, totalForce);   
+        activityList.add(act);
+        
+        Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Frame.setContentPane(new ActivityModePanel(activityList));
+        Frame.setSize(768,1024);
+        Frame.setResizable(false);
+        Frame.repaint();
+        Frame.revalidate();
+    }
+    
+    public static void createActivity()
+    {
+        Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Frame.setContentPane(new ActivityModePanel(activityList));
+        Frame.setSize(768,1024);
+        Frame.setResizable(false);
+        Frame.repaint();
+        Frame.revalidate();
+    }
     
     public static void createComboMode ()
     {
@@ -100,22 +129,22 @@ public class Main {
     public static void createStrengthMode ()
     {
         Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Frame.setContentPane(new StrengthModePanel1());
+        Frame.setContentPane(new StrengthModePanel());
         Frame.setSize(768,1024);
         Frame.setResizable(false);
         Frame.repaint();
         Frame.revalidate();
     }
     
-    /*public static void createPunchChallengeMode ()
+    public static void createPunchChallengeMode (int hours, int minutes, int seconds, int thresholdForce)
     {
         Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Frame.setContentPane(new PunchchallengeModePanel());
+        Frame.setContentPane(new PunchChallengePanel(hours, minutes, seconds, thresholdForce));
         Frame.setSize(768,1024);
         Frame.setResizable(false);
         Frame.repaint();
         Frame.revalidate();
-    }*/
+    }
     
     /**
      * Transition to match setup
@@ -151,7 +180,7 @@ public class Main {
         switch (i){
             case 1:
                 Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-               Frame.setContentPane(new ComboModeSetup1());
+               Frame.setContentPane(new ComboModeSetup());
                 Frame.setSize(768,1024);
                 Frame.setResizable(false);
                 Frame.repaint();
@@ -175,7 +204,7 @@ public class Main {
                 break;
             case 4:
                 Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                Frame.setContentPane(new StrengthModeSetup1());
+                Frame.setContentPane(new StrengthModeSetup());
                 Frame.setSize(768,1024);
                 Frame.setResizable(false);
                 Frame.repaint();

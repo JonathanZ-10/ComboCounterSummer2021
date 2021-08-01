@@ -1,22 +1,15 @@
-package Modes;
-
-
-import Main.Main;
-import java.util.Arrays;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+package Modes;
+import Main.Main;
+import static Modes.ForceModePanel.generateRandNums;
+import javax.swing.JOptionPane;
 /**
  *
- * @author RezTheCoward
+ * @author Ylope
  */
 public class StrengthModePanel extends javax.swing.JPanel {
 
@@ -30,14 +23,17 @@ public class StrengthModePanel extends javax.swing.JPanel {
     int totalForce = 0;
     boolean start;
     /**
-     * Creates new form PunchCountPanel
+     * Creates new form StrengthModePanel1
      */
     public StrengthModePanel() {
         initComponents();
-        
-        
     }
-
+public void update()
+    {
+        String minute_str = String.format("%02d", timerMin);
+        String second_str = String.format("%02d", timerSec);
+        timer.setText(minute_str + ":" + second_str);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,326 +43,403 @@ public class StrengthModePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
-        jButton8.setOpaque(false);
-        jButton8.setContentAreaFilled(false);
+        jPanel1 = new javax.swing.JPanel();
+        SideBar = new javax.swing.JPanel();
+        jPanel1.setVisible(false);
+        About_Button = new javax.swing.JButton();
+        About_Button.setOpaque(false);
+        About_Button.setContentAreaFilled(false);
         //jButton1.setBorderPainted(false);
-        jButton7 = new javax.swing.JButton();
-        jButton7.setOpaque(false);
-        jButton7.setContentAreaFilled(false);
+        Settings_Button = new javax.swing.JButton();
+        About_Button.setOpaque(false);
+        About_Button.setContentAreaFilled(false);
         //jButton1.setBorderPainted(false);
-        jButton9 = new javax.swing.JButton();
-        jButton9.setOpaque(false);
-        jButton9.setContentAreaFilled(false);
+        Profile_Button = new javax.swing.JButton();
+        About_Button.setOpaque(false);
+        About_Button.setContentAreaFilled(false);
         //jButton1.setBorderPainted(false);
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
+        Activity_Button = new javax.swing.JButton();
+        About_Button.setOpaque(false);
+        About_Button.setContentAreaFilled(false);
+        //jButton1.setBorderPainted(false);
+        Feedback_Button = new javax.swing.JButton();
+        About_Button.setOpaque(false);
+        About_Button.setContentAreaFilled(false);
+        //jButton1.setBorderPainted(false);
+        jPanel3 = new javax.swing.JPanel();
+        PlayPauseButton = new javax.swing.JLabel();
+        PreviousPlayer = new javax.swing.JLabel();
+        ResetButton = new javax.swing.JLabel();
+        SaveButton = new javax.swing.JLabel();
+        NextPlayer = new javax.swing.JLabel();
+        TotalForce = new javax.swing.JLabel();
+        timer = new javax.swing.JLabel();
+        TotalForceLabel = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        ComboCounterTitle = new javax.swing.JLabel();
+        BackButton = new javax.swing.JLabel();
+        SidebarButton = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 55));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setMaximumSize(new java.awt.Dimension(768, 1024));
+        setMinimumSize(new java.awt.Dimension(768, 1024));
 
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanel1.setBackground(new java.awt.Color(0, 0, 55));
+        jPanel1.setMaximumSize(new java.awt.Dimension(768, 1024));
+        jPanel1.setMinimumSize(new java.awt.Dimension(768, 1024));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        SideBar.setBackground(new java.awt.Color(51, 51, 56));
+        SideBar.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 5, 5, 0, new java.awt.Color(0, 0, 0)));
+        SideBar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        About_Button.setBackground(new java.awt.Color(51, 51, 56));
+        About_Button.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
+        About_Button.setForeground(new java.awt.Color(240, 240, 240));
+        About_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/aboutIcon.png"))); // NOI18N
+        About_Button.setText(" About");
+        About_Button.setBorder(null);
+        About_Button.setContentAreaFilled(false);
+        About_Button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                About_ButtonMouseClicked(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 50));
+        SideBar.add(About_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 160, 60));
 
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-punching-bag-50.png"))); // NOI18N
-        jLabel16.setOpaque(true);
-        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 320, -1));
-
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-gear-50.png"))); // NOI18N
-        jLabel17.setOpaque(true);
-        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
+        Settings_Button.setBackground(new java.awt.Color(51, 51, 56));
+        Settings_Button.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
+        Settings_Button.setForeground(new java.awt.Color(240, 240, 240));
+        Settings_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/settingsIcon.png"))); // NOI18N
+        Settings_Button.setText(" Settings");
+        Settings_Button.setBorder(null);
+        Settings_Button.setContentAreaFilled(false);
+        Settings_Button.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Settings_Button.setFocusPainted(false);
+        Settings_Button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel17MouseClicked(evt);
+                Settings_ButtonMouseClicked(evt);
             }
         });
-        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 320, -1));
+        SideBar.add(Settings_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 190, 60));
 
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-home-50.png"))); // NOI18N
-        jLabel11.setOpaque(true);
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, -1));
-
-        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-graph-50.png"))); // NOI18N
-        jLabel18.setOpaque(true);
-        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 0, 320, -1));
-
-        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-male-user-50.png"))); // NOI18N
-        jLabel19.setOpaque(true);
-        add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 0, 320, -1));
-
-        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-open-door-50.png"))); // NOI18N
-        jLabel20.setOpaque(true);
-        jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
+        Profile_Button.setBackground(new java.awt.Color(51, 51, 56));
+        Profile_Button.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
+        Profile_Button.setForeground(new java.awt.Color(240, 240, 240));
+        Profile_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/profileIcon.png"))); // NOI18N
+        Profile_Button.setText(" Profile");
+        Profile_Button.setBorder(null);
+        Profile_Button.setContentAreaFilled(false);
+        Profile_Button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel20MouseClicked(evt);
+                Profile_ButtonMouseClicked(evt);
             }
         });
-        add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(1600, 0, 320, -1));
+        SideBar.add(Profile_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 150, 60));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 100)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("00:30");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 570, 500, -1));
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 80)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Strength Mode");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 130, 560, -1));
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Time Setting");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 500, 500, -1));
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Invalid Punches");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 500, -1));
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 100)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("0");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, 500, -1));
-
-        jButton8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(21, 140, 75));
-        jButton8.setText("Start");
-        jButton8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(173, 216, 230)));
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        Activity_Button.setBackground(new java.awt.Color(51, 51, 56));
+        Activity_Button.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
+        Activity_Button.setForeground(new java.awt.Color(240, 240, 240));
+        Activity_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/activityIcon.png"))); // NOI18N
+        Activity_Button.setText(" Activity");
+        Activity_Button.setBorder(null);
+        Activity_Button.setContentAreaFilled(false);
+        Activity_Button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Activity_ButtonMouseClicked(evt);
+            }
+        });
+        Activity_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                Activity_ButtonActionPerformed(evt);
             }
         });
-        add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 520, 160, 50));
+        SideBar.add(Activity_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 160, 60));
 
-        jButton7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(242, 0, 0));
-        jButton7.setText("Stop");
-        jButton7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(173, 216, 230)));
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+        Feedback_Button.setBackground(new java.awt.Color(51, 51, 56));
+        Feedback_Button.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
+        Feedback_Button.setForeground(new java.awt.Color(240, 240, 240));
+        Feedback_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/feedbackIcon.png"))); // NOI18N
+        Feedback_Button.setText(" Feedback");
+        Feedback_Button.setBorder(null);
+        Feedback_Button.setContentAreaFilled(false);
+        Feedback_Button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Feedback_ButtonMouseClicked(evt);
             }
         });
-        add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 650, 160, 50));
+        SideBar.add(Feedback_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 180, 60));
 
-        jButton9.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(246, 225, 17));
-        jButton9.setText("Reset");
-        jButton9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(173, 216, 230)));
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+        jPanel3.setBackground(new java.awt.Color(51, 51, 56));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        PlayPauseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/playIcon.png"))); // NOI18N
+        PlayPauseButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PlayPauseButtonMouseClicked(evt);
             }
         });
-        add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 780, 160, 50));
+        jPanel3.add(PlayPauseButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 300, 290));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Threshold Force");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 710, 500, -1));
+        PreviousPlayer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backPlayerIcon.png"))); // NOI18N
+        jPanel3.add(PreviousPlayer, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 10, 80, 80));
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 100)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("200");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 780, 500, -1));
+        ResetButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/retryIcon.png"))); // NOI18N
+        ResetButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ResetButtonMouseClicked(evt);
+            }
+        });
+        jPanel3.add(ResetButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 270, 80, 80));
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Valid Punches");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 290, 500, -1));
+        SaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/saveIcon2.png"))); // NOI18N
+        jPanel3.add(SaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, 80, 80));
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 100)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("0");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 360, 500, -1));
+        NextPlayer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/nextPlayerIcon.png"))); // NOI18N
+        jPanel3.add(NextPlayer, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 80, 80));
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("Current Time");
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 500, 500, -1));
+        TotalForce.setFont(new java.awt.Font("Tahoma", 0, 60)); // NOI18N
+        TotalForce.setForeground(new java.awt.Color(240, 240, 240));
+        TotalForce.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        TotalForce.setText("0");
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 100)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("00:00.00");
-        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 570, 500, -1));
+        timer.setFont(new java.awt.Font("Tahoma", 0, 100)); // NOI18N
+        timer.setForeground(new java.awt.Color(240, 240, 240));
+        timer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        timer.setText("--:--");
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("Last Hit");
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 710, 500, -1));
+        TotalForceLabel.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        TotalForceLabel.setForeground(new java.awt.Color(240, 240, 240));
+        TotalForceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TotalForceLabel.setText("Total Force:");
 
-        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 100)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel21.setText("N/A");
-        add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 780, 500, -1));
+        jPanel2.setBackground(new java.awt.Color(51, 51, 56));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ComboCounterTitle.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        ComboCounterTitle.setForeground(new java.awt.Color(240, 240, 240));
+        ComboCounterTitle.setText("ComboCounter");
+        jPanel2.add(ComboCounterTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
+
+        BackButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backIcon.png"))); // NOI18N
+        BackButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BackButtonMouseClicked(evt);
+            }
+        });
+        jPanel2.add(BackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        SidebarButton.setBackground(new java.awt.Color(51, 51, 56));
+        SidebarButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        SidebarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/menuIcon.png"))); // NOI18N
+        SidebarButton.setOpaque(true);
+        SidebarButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SidebarButtonMouseClicked(evt);
+            }
+        });
+        jPanel2.add(SidebarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 60, 55));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(251, 251, 251)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(517, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 755, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(TotalForceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(290, 290, 290)
+                                    .addComponent(TotalForce, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(495, 495, 495)
+                                    .addComponent(SideBar, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(140, 140, 140)
+                                    .addComponent(timer, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 755, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(155, 155, 155)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(869, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(460, 460, 460)
+                            .addComponent(TotalForceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(470, 470, 470)
+                            .addComponent(TotalForce, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(SideBar, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(160, 160, 160)
+                            .addComponent(timer)))
+                    .addGap(15, 15, 15)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
-    private int minute;
-    private int second;
-    private int ms;
-    private int invalid = 0;
-    private int valid = 0;
-    private int num = 0;
-    // boolean start;
-    
-    public static int[] generateRandNums(int max, int[] randNums){
-        Random r = new Random();
-        for(int i = 0; i < randNums.length; i++){
-            randNums[i] = r.nextInt(max) + 1000;
-        }
-        Arrays.sort(randNums);
-        return randNums;
-    }
-    
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        
-        minute = 0;
-        second = 30;
-        ms = 0;
-        int[] randNumbs = new int [30];
-        generateRandNums(6000, randNumbs);
-        start = true;
-        Thread t = new Thread(){
-            public void run(){
-                while(start == true){
-                    try{
-                        sleep(10);
-                        ms--;
-                        if(ms == -1){
-                            if(second % 2 == 0){
-                                jLabel21.setText(String.valueOf(randNumbs[num]));
-                                num++;
-                                valid++;
-                                jLabel12.setText(String.valueOf(valid));
+    private void About_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_About_ButtonMouseClicked
+        /*start = false;
+        int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
+        if (response == JOptionPane.YES_OPTION)
+        // Page to transition to*/
+    }//GEN-LAST:event_About_ButtonMouseClicked
+
+    private void Settings_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Settings_ButtonMouseClicked
+        start = false;
+        int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
+        if (response == JOptionPane.YES_OPTION)
+        Main.transitionToPage(2);
+    }//GEN-LAST:event_Settings_ButtonMouseClicked
+
+    private void Profile_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Profile_ButtonMouseClicked
+        /*start = false;
+        int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
+        if (response == JOptionPane.YES_OPTION)
+        // Page to transition to*/
+    }//GEN-LAST:event_Profile_ButtonMouseClicked
+
+    private void Activity_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Activity_ButtonMouseClicked
+        /*start = false;
+        int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
+        if (response == JOptionPane.YES_OPTION)
+        // Page to transition to*/
+    }//GEN-LAST:event_Activity_ButtonMouseClicked
+
+    private void Feedback_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Feedback_ButtonMouseClicked
+        /*start = false;
+        int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? (Progress is not saved)","Exit", JOptionPane.YES_NO_OPTION);
+        if (response == JOptionPane.YES_OPTION)
+        // Page to transition to*/
+    }//GEN-LAST:event_Feedback_ButtonMouseClicked
+
+    private void PlayPauseButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlayPauseButtonMouseClicked
+        if (paused == true)
+        {
+            int[] randNumbs = new int [40];
+            generateRandNums(8000, randNumbs);
+            paused = false;
+            PlayPauseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pauseIcon.png")));
+            start = true;
+            Thread th;
+
+            th = new Thread(){
+                @Override
+                public void run(){
+                    while(start == true){
+                        try{
+                            sleep(1000);
+                            timerSec-= 1;
+
+                            // Increases Total Force randomly
+                            if (timerSec % 2 == 0)
+                            {
+                                totalForce += randNumbs[index];
+                                String tf = String.valueOf(totalForce);
+                                TotalForce.setText(tf);
+                                index++;
                             }
-                            if(second % 3 == 0){
-                                invalid++;
-                                jLabel7.setText(String.valueOf(invalid));
+
+                            if(timerSec == -1){
+                                timerMin--;
+                                timerSec = 59;
                             }
-                            second--;
-                            ms = 99;
+
+                            if(timerSec == 0 && timerMin == 0){
+                                update();
+                                return;
+                            }
+                            update();
+                        }catch(InterruptedException e){
+                            System.out.println("Error");
                         }
-                        if(second == -1){
-                            minute--;
-                            second = 59;
-                        }
-                        if(ms == 0 && second == 0 && minute == 0){
-                            break;
-                        }
-                        String minute_str = String.format("%02d", minute);
-                        String second_str = String.format("%02d", second);
-                        String ms_str = String.format("%02d", ms);
-                        jLabel14.setText(minute_str + ":" + second_str + "." + ms_str);
-                    }catch(Exception e){
-                        System.out.println("Error");
                     }
                 }
-            }
-        };
-        t.start();
-    }//GEN-LAST:event_jButton8ActionPerformed
+            };
+            th.start();
+        }
+        else if (paused == false)
+        {
+            start = false;
+            paused = true;
+            PlayPauseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/playIcon.png")));
+        }
+    }//GEN-LAST:event_PlayPauseButtonMouseClicked
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        
-        start = false;
-    }//GEN-LAST:event_jButton7ActionPerformed
+    private void ResetButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResetButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ResetButtonMouseClicked
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        Main.transitionToPage(5) ;
-        /*start = false;
-        ms = 0;
-        second = 0;
-        minute = 0;
-        invalid = 0;
-        valid = 0;
-        String minute_str = String.format("%02d", minute);
-        String second_str = String.format("%02d", second);
-        String ms_str = String.format("%02d", ms);
-        jLabel14.setText(minute_str + ":" + second_str + "." + ms_str);
-        jLabel7.setText(String.valueOf(invalid));
-        jLabel12.setText(String.valueOf(valid));
-        jLabel21.setText("0");*/
-    }//GEN-LAST:event_jButton9ActionPerformed
+    private void BackButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackButtonMouseClicked
+        Main.setup(3);
+    }//GEN-LAST:event_BackButtonMouseClicked
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        Main.transitionToPage(1);
-    }//GEN-LAST:event_jButton2MouseClicked
+    private void SidebarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SidebarButtonMouseClicked
+        if (Main.sidebarOpen == false)
+        {
+            SideBar.setVisible(true) ;
+            Main.sidebarOpen = true ;
+        }
+        else if (Main.sidebarOpen == true)
+        {
+            SideBar.setVisible(false);
+            Main.sidebarOpen = false ;
+        }
+    }//GEN-LAST:event_SidebarButtonMouseClicked
 
-    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
-        Main.transitionToPage(6);
-    }//GEN-LAST:event_jLabel17MouseClicked
-
-    private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
-        
-    }//GEN-LAST:event_jLabel20MouseClicked
+    private void Activity_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Activity_ButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Activity_ButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton About_Button;
+    private javax.swing.JButton Activity_Button;
+    private javax.swing.JLabel BackButton;
+    private javax.swing.JLabel ComboCounterTitle;
+    private javax.swing.JButton Feedback_Button;
+    private javax.swing.JLabel NextPlayer;
+    private javax.swing.JLabel PlayPauseButton;
+    private javax.swing.JLabel PreviousPlayer;
+    private javax.swing.JButton Profile_Button;
+    private javax.swing.JLabel ResetButton;
+    private javax.swing.JLabel SaveButton;
+    private javax.swing.JButton Settings_Button;
+    private javax.swing.JPanel SideBar;
+    private javax.swing.JLabel SidebarButton;
+    private javax.swing.JLabel TotalForce;
+    private javax.swing.JLabel TotalForceLabel;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel timer;
     // End of variables declaration//GEN-END:variables
 }

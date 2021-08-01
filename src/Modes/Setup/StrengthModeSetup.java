@@ -6,7 +6,6 @@
 package Modes.Setup;
 
 import Main.Main;
-import static Main.Main.multiplayer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
@@ -15,7 +14,7 @@ import javax.swing.Timer;
  *
  * @author Ylope
  */
-public class StrengthModeSetup1 extends javax.swing.JPanel {
+public class StrengthModeSetup extends javax.swing.JPanel {
         int timerMin = 0;
         int timerSec = 15;
         int numOfPlayers = 2;
@@ -25,7 +24,7 @@ public class StrengthModeSetup1 extends javax.swing.JPanel {
     /**
      * Creates new form StrengthModeSetup1
      */
-    public StrengthModeSetup1() {
+    public StrengthModeSetup() {
         initComponents();
         
           SideBar.setVisible(false);
@@ -55,13 +54,11 @@ public class StrengthModeSetup1 extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         SidebarButton = new javax.swing.JLabel();
         ComboCounterTitle = new javax.swing.JLabel();
         SideBar = new javax.swing.JPanel();
-        jPanel1.setVisible(false);
         About_Button = new javax.swing.JButton();
         About_Button.setOpaque(false);
         About_Button.setContentAreaFilled(false);
@@ -110,12 +107,6 @@ public class StrengthModeSetup1 extends javax.swing.JPanel {
         setAlignmentY(0.0F);
         setMaximumSize(new java.awt.Dimension(768, 1024));
         setMinimumSize(new java.awt.Dimension(768, 1024));
-
-        jPanel1.setBackground(new java.awt.Color(0, 0, 55));
-        jPanel1.setMaximumSize(new java.awt.Dimension(768, 1024));
-        jPanel1.setMinimumSize(new java.awt.Dimension(768, 1024));
-        jPanel1.setPreferredSize(new java.awt.Dimension(768, 1024));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 55));
         jPanel2.setMaximumSize(new java.awt.Dimension(768, 1024));
@@ -400,27 +391,17 @@ public class StrengthModeSetup1 extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(751, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 803, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(366, 366, 366))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1920, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1920, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(57, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 999, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1080, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -703,7 +684,6 @@ public class StrengthModeSetup1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables

@@ -50,18 +50,18 @@ public final class ForceModePanel extends javax.swing.JPanel {
         {
             playerNum = Main.currentPlayer;
             int[] randNumbs = new int [40];
- generateRandNums(8000, randNumbs);
-             if(playerNum == 1)
+            generateRandNums(8000, randNumbs);
+            
+            if(playerNum == 1)
             {
-                playerName.setText(Main.name1);
+               playerName.setText(Main.name1);
                ForceGoal.setText(String.valueOf(randNumbs));
-                ForceGoal.setText(Main.score1);
-                //ForceGoal.setText(Main.score1);
-                
+               ForceGoal.setText(Main.score1);
             }
-             else if (playerNum == 2){
-                 playerName.setText(Main.name2);
-             }
+            else if (playerNum == 2)
+            {
+               playerName.setText(Main.name2);
+            }
             else if(playerNum == 3)
             {
                 playerName.setText(Main.name3);
@@ -80,22 +80,17 @@ public final class ForceModePanel extends javax.swing.JPanel {
             }
             
         }
- 
-  
- 
-        
         this.forceGoal = forceGoal ;
+        String goal = String.valueOf(forceGoal);
         this.timerMin = timerMin;
         this.timerSec = timerSec;
         update();
         
         // Setting states
-        
        SideBar.setVisible(false);
        NextPlayer.setVisible(true);
        PreviousPlayer.setVisible(false);
-       
-       
+       ForceGoal2.setText(goal);
     }
     public static int[] generateRandNums(int max, int[] randNums){
         Random r = new Random();
@@ -314,6 +309,11 @@ public final class ForceModePanel extends javax.swing.JPanel {
         jPanel3.add(ResetButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 270, 80, 80));
 
         SaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/saveIcon2.png"))); // NOI18N
+        SaveButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SaveButtonMouseClicked(evt);
+            }
+        });
         jPanel3.add(SaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, 80, 80));
 
         NextPlayer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/nextPlayerIcon.png"))); // NOI18N
@@ -330,7 +330,7 @@ public final class ForceModePanel extends javax.swing.JPanel {
         ForceGoal.setForeground(new java.awt.Color(240, 240, 240));
         ForceGoal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ForceGoal.setText("0");
-        add(ForceGoal, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 550, 210, 60));
+        add(ForceGoal, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 490, 210, 60));
 
         playerName.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         playerName.setForeground(new java.awt.Color(240, 240, 240));
@@ -424,7 +424,7 @@ public final class ForceModePanel extends javax.swing.JPanel {
         ForceGoal2.setForeground(new java.awt.Color(240, 240, 240));
         ForceGoal2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ForceGoal2.setText("0");
-        add(ForceGoal2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 490, 210, 60));
+        add(ForceGoal2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 550, 210, 60));
     }// </editor-fold>//GEN-END:initComponents
 
     private void PlayPauseButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlayPauseButtonMouseClicked
@@ -584,6 +584,10 @@ public final class ForceModePanel extends javax.swing.JPanel {
             Main.Frame.revalidate(); 
         }
     }//GEN-LAST:event_NextPlayerMouseClicked
+
+    private void SaveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SaveButtonMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton About_Button;

@@ -6,7 +6,7 @@
 package Multiplayer;
 
 import Main.Main;
-import Modes.StrengthModePanel1;
+import Modes.StrengthModePanel;
 import javax.swing.JFrame;
 
 /**
@@ -460,7 +460,7 @@ public class MultiplayerStrength extends javax.swing.JPanel {
         Main.Frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         //Frame.setResizable(false);
         Main.currentPlayer = 1;
-        Main.Frame.setContentPane(new StrengthModePanel1());
+        Main.Frame.setContentPane(new StrengthModePanel());
         Main.Frame.repaint();
         Main.Frame.revalidate();
 

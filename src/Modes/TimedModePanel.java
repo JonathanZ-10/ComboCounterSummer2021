@@ -2,6 +2,9 @@ package Modes;
 
 import Main.Main;
 import static java.lang.Thread.sleep;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Random;
 import javax.swing.JOptionPane;
@@ -14,6 +17,8 @@ public class TimedModePanel extends javax.swing.JPanel {
     // Declaring vars
     int timerMin = 0;
     int timerSec = 15;
+    int initialMin = 0;
+    int initialSec = 0;
     int playerNum = 2;
     boolean countDown = true;
     boolean paused = true;
@@ -32,6 +37,8 @@ public class TimedModePanel extends javax.swing.JPanel {
         
         this.timerMin = timerMin;
         this.timerSec = timerSec;
+        initialMin = timerMin;
+        initialSec = timerSec;
         update();
         
         // Setting states
@@ -239,6 +246,11 @@ public class TimedModePanel extends javax.swing.JPanel {
         jPanel3.add(ResetButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 270, 80, 80));
 
         SaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/saveIcon2.png"))); // NOI18N
+        SaveButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SaveButtonMouseClicked(evt);
+            }
+        });
         jPanel3.add(SaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, 80, 80));
 
         NextPlayer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/nextPlayerIcon.png"))); // NOI18N
@@ -373,6 +385,16 @@ public class TimedModePanel extends javax.swing.JPanel {
             Main.sidebarOpen = false ;
         }
     }//GEN-LAST:event_SidebarButtonMouseClicked
+
+    private void SaveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveButtonMouseClicked
+        DateTimeFormatter date = DateTimeFormatter.ofPattern("uuuu/MM/dd");
+        LocalDate localDate = LocalDate.now();
+        
+        DateTimeFormatter time = DateTimeFormatter.ofPattern("HH:mm");
+        LocalTime localTime = LocalTime.now();
+  
+        Main.createActivity(initialMin, initialSec, localTime, localDate, "Timed Mode", totalForce);
+    }//GEN-LAST:event_SaveButtonMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton About_Button;
